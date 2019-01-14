@@ -157,6 +157,7 @@
                     display: block;
                     padding: 8px 0;
                     position: relative;
+                    cursor: pointer;
                     @include border-radius($borderRadius);
                     @include transition(background-color $transitionDuration);
 
