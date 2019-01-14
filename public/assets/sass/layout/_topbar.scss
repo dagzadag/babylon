@@ -40,6 +40,10 @@
             &:hover {
                 background-color: $topbarIconHoverBgColor;
             }
+
+            &:focus {
+                @include shadow(0 0 0 0 $topbarIconHoverBgColor)
+            }
         }
 
         #topbar-menu-button {
@@ -63,6 +67,10 @@
             &:hover {
                 background-color: $topbarIconHoverBgColor;
             }
+
+            &:focus {
+                @include shadow(0 0 0 0 $topbarIconHoverBgColor)
+            }
         }
 
         .topbar-menu {
@@ -76,7 +84,7 @@
                 position: relative;
                 margin-left: 14px;
                 
-                > a {
+                > button {
                     cursor: pointer;
                     position: relative;
                     display: block;
@@ -100,6 +108,10 @@
 
                     &:hover {
                         background-color: $topbarIconHoverBgColor;
+                    }
+
+                    &:focus {
+                        @include shadow(0 0 0 0 $topbarIconHoverBgColor)
                     }
                     
                     .topbar-item-name {
@@ -164,7 +176,7 @@
                         margin-left: -9px;
                     }
                     
-                    a {
+                    button {
                         box-sizing: border-box;
                         padding: 8px 12px;
                         text-align: left;
@@ -204,6 +216,10 @@
                         
                         &:hover {
                             background-color: $menuitemHoverBgColor;
+                        }
+
+                        &:focus {
+                            @include shadow(0 0 0 0 $menuitemHoverBgColor)
                         }
                     }
                 }
@@ -289,7 +305,7 @@
                     }
 
                     &.user-profile {
-                        > a {
+                        > button {
                             img {
                                 margin-right: 8px;
                                 margin-top: 0;
@@ -299,7 +315,7 @@
                         }
                     }
                     
-                    a {
+                    button {
                         box-sizing: border-box;
                         height: auto;
                         line-height: 1;
@@ -322,6 +338,10 @@
                         &:hover {
                             background-color: $menuitemHoverBgColor;
                             color: $textColor;
+                        }
+
+                        &:focus {
+                            @include shadow(0 0 0 0 $menuitemHoverBgColor)
                         }
                         
                         .topbar-item-name {
@@ -363,7 +383,7 @@
                         }
                         
                         li {
-                            a {
+                            button {
                                 padding-left: 28px;
 
                                 img {

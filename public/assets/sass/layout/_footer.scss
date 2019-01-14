@@ -11,7 +11,7 @@
     .footer-icons {
         text-align: right;
 
-        a {
+        button {
             color: $textSecondaryColor; 
             font-size: 24px;
             margin-right: 16px;
@@ -21,6 +21,10 @@
 
             &:hover {
                 color: $textColor;
+            }
+
+            &:focus {
+                @include shadow(0 0 0 0 $textColor);
             }
         }
     }    

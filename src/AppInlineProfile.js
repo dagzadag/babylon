@@ -19,39 +19,39 @@ export class AppInlineProfile extends Component {
     render() {
         return  (
             <div className={classNames('layout-profile', {'layout-profile-active': this.state.expanded})}>
-                <a className="layout-profile-button" onClick={this.onClick}>
+                <button className="layout-profile-button p-link" onClick={this.onClick}>
                     <img src="assets/layout/images/avatar.png" alt="babylon-layout"/>
                     <div className="layout-profile-userinfo">
                         <span className="layout-profile-name">Arlene Welch</span>
                         <span className="layout-profile-role">Design Ops</span>
                     </div>
                     <i className="layout-profile-icon pi pi-angle-down"/>
-                </a>
+                </button>
 
                 <ul className="layout-profile-menu">
                     <li role="menuitem">
-                        <a tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
 							<i className="pi pi-user"/>
 							<span>Profile</span>
-                        </a>
+                        </button>
                     </li>
                     <li role="menuitem">
-                        <a  tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
 							<i className="pi pi-cog"/>
 							<span>Settings</span>
-                        </a>
+                        </button>
                     </li>
                     <li role="menuitem">
-                        <a  tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
 							<i className="pi pi-envelope"/>
 							<span>Messages</span>
-                        </a>
+                        </button>
                     </li>
                     <li role="menuitem">
-                        <a  tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
 							<i className="pi pi-bell"/>
 							<span>Notifications</span>
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </div>

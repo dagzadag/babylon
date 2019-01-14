@@ -11,15 +11,15 @@ export class AppFooter extends Component {
 					</a>
 				</div>
 				<div className="p-col-6 footer-icons">
-					<a>
+					<button className="p-link">
 						<i className="pi pi-home"/>
-					</a>
-					<a>
+					</button>
+					<button className="p-link">
 						<i className="pi pi-globe"/>
-					</a>
-					<a>
+					</button>
+					<button className="p-link">
 						<i className="pi pi-envelope"/>
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>

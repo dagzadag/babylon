@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {InputText} from 'primereact/inputtext';
-import {InputSwitch} from 'primereact/inputswitch';
 
 export class AppTopbar extends Component {
 
@@ -47,161 +45,161 @@ export class AppTopbar extends Component {
 
 		return <div className="layout-topbar clearfix">
 
-			<a className="layout-topbar-logo">
+			<button className="layout-topbar-logo">
 				<img id="layout-topbar-logo" alt="babylon-layout" src="assets/layout/images/logo-white.png"/>
-			</a>
+			</button>
 
-			<a className="layout-menu-button"  onClick={this.props.onMenuButtonClick}>
+			<button className="layout-menu-button p-link"  onClick={this.props.onMenuButtonClick}>
 				<i className="pi pi-bars"/>
-			</a>
+			</button>
 
-			<a id="topbar-menu-button"  onClick={this.props.onTopbarMenuButtonClick}>
+			<button id="topbar-menu-button" className="p-link"  onClick={this.props.onTopbarMenuButtonClick}>
 				<i className="pi pi-ellipsis-v"/>
-			</a>
+			</button>
 
 			<ul className={topbarItemsClassName}>
 				{(this.props.profileMode === 'popup' || this.props.horizontal) &&
 				<li className={classNames('user-profile', {'active-topmenuitem': this.props.activeTopbarItem === 'profile'})}
 					onClick={(e) => this.onTopbarItemClick(e, 'profile')}>
-					<a>
+					<button className="p-link">
 						<img alt="babylon-layout" src="assets/layout/images/avatar.png"/>
 						<span className="topbar-item-name">Arlene Welch</span>
-					</a>
+					</button>
 
 					<ul className="fadeInDown">
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-user"/>
 								<span>Profile</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-cog"/>
 								<span>Settings</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-envelope"/>
 								<span>Message</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-bell"/>
 								<span>Notifications</span>
-							</a>
+							</button>
 						</li>
 					</ul>
 				</li>}
 
 				<li className={classNames({'active-topmenuitem': this.props.activeTopbarItem === 'settings'})}
 					onClick={(e) => this.onTopbarItemClick(e, 'settings')}>
-					<a>
+					<button className="p-link">
 						<i className="topbar-icon pi pi-calendar"/>
 						<span className="topbar-item-name">Notifications</span>
-					</a>
+					</button>
 					<ul className="fadeInDown">
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-tags"/>
 								<span>Pending tasks</span>
 								<span className="topbar-submenuitem-badge">6</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-calendar-plus"/>
 								<span>Meeting today at 3pm</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-download"/>
 								<span>Download</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-lock"/>
 								<span>Book flight</span>
-							</a>
+							</button>
 						</li>
 					</ul>
 				</li>
 				<li className={classNames({'active-topmenuitem': this.props.activeTopbarItem === 'messages'})}
 					onClick={(e) => this.onTopbarItemClick(e, 'messages')}>
-					<a>
+					<button className="p-link">
 						<i className="topbar-icon pi pi-inbox"/>
 						<span className="topbar-item-name">Messages</span>
 						<span className="topbar-badge">8</span>
-					</a>
+					</button>
 					<ul className="fadeInDown">
 						<li role="menuitem">
-							<a className="topbar-message">
+							<button className="topbar-message p-link">
 								<img src="assets/layout/images/avatar-john.png" alt="babylon-layout"/>
 								<span>Give me a call</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a className="topbar-message">
+							<button className="topbar-message p-link">
 								<img src="assets/layout/images/avatar-julia.png" alt="babylon-layout"/>
 								<span>Reports attached</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a className="topbar-message">
+							<button className="topbar-message p-link">
 								<img src="assets/layout/images/avatar-kevin.png" alt="babylon-layout"/>
 								<span>About your invoice</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a className="topbar-message">
+							<button className="topbar-message p-link">
 								<img src="assets/layout/images/avatar-julia.png" alt="babylon-layout"/>
 								<span>Meeting today</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a className="topbar-message">
+							<button className="topbar-message p-link">
 								<img src="assets/layout/images/avatar.png" alt="babylon-layout"/>
 								<span>Out of office</span>
-							</a>
+							</button>
 						</li>
 					</ul>
 				</li>
 				<li className={classNames({'active-topmenuitem': this.props.activeTopbarItem === 'notifications'})}
 					onClick={(e) => this.onTopbarItemClick(e, 'notifications')}>
-					<a>
+					<button className="p-link">
 						<i className="topbar-icon pi pi-cog"/>
 						<span className="topbar-item-name">Settings</span>
-					</a>
+					</button>
 					<ul className="fadeInDown">
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-pencil"/>
 								<span>Change Theme</span>
 								<span className="topbar-submenuitem-badge">4</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-star-o"/>
 								<span>Favorites</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-lock"/>
 								<span>Lock Screen</span>
 								<span className="topbar-submenuitem-badge">2</span>
-							</a>
+							</button>
 						</li>
 						<li role="menuitem">
-							<a>
+							<button className="p-link">
 								<i className="pi pi-image"/>
 								<span>Wallpaper</span>
-							</a>
+							</button>
 						</li>
 					</ul>
 				</li>

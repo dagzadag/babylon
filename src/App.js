@@ -649,9 +649,9 @@ class App extends Component {
 
 				<div className='layout-menu-container' onClick={this.onMenuClick}>
 					<div className="layout-menu-logo">
-						<a>
+						<button className="p-link">
 							<img id="layout-menu-logo" src="assets/layout/images/logo-white.png" alt="babylon-layout"/>
-						</a>
+						</button>
 					</div>
 					<div className="layout-menu-wrapper">
 						<ScrollPanel ref={(el) => this.layoutMenuScroller = el} style={{height: '100%'}}>

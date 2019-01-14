@@ -14,7 +14,7 @@ export class AppBreadcrumb extends Component {
 			<div className="route-bar">
 				<div className="route-bar-breadcrumb">
 					<ul>
-						<li><a><i className="pi pi-home"/></a></li>
+						<li><button className="p-link"><i className="pi pi-home"/></button></li>
 						{
 							location.pathname === '/' ? <li>/</li> : paths.map((path, index) => <li key={index}>{path === '' ? '/' : path}</li>)
 						}

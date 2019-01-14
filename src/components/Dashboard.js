@@ -401,12 +401,12 @@ export class Dashboard extends Component {
 									<span className="team-member">Arlene Welch</span>
 									<span className="team-member-role">Design</span>
 								</div>
-								<a>
+								<button className="p-link">
 									<i className="pi pi-comment"/>
-								</a>
-								<a>
+								</button>
+								<button className="p-link">
 									<i className="pi pi-share-alt"/>
-								</a>
+								</button>
 							</li>
 							<li>
 								<img src="assets/layout/images/avatar-john.png" alt="babylon-layout"/>
@@ -414,12 +414,12 @@ export class Dashboard extends Component {
 									<span className="team-member">John Swisher</span>
 									<span className="team-member-role">Development</span>
 								</div>
-								<a>
+								<button className="p-link">
 									<i className="pi pi-comment"/>
-								</a>
-								<a>
+								</button>
+								<button className="p-link">
 									<i className="pi pi-share-alt"/>
-								</a>
+								</button>
 							</li>
 							<li>
 								<img src="assets/layout/images/avatar-julia.png" alt="babylon-layout"/>
@@ -427,12 +427,12 @@ export class Dashboard extends Component {
 									<span className="team-member">Warren Shaw</span>
 									<span className="team-member-role">Sales</span>
 								</div>
-								<a>
+								<button className="p-link">
 									<i className="pi pi-comment"/>
-								</a>
-								<a>
+								</button>
+								<button className="p-link">
 									<i className="pi pi-share-alt"/>
-								</a>
+								</button>
 							</li>
 							<li>
 								<img src="assets/layout/images/avatar-kevin.png" alt="babylon-layout"/>
@@ -440,12 +440,12 @@ export class Dashboard extends Component {
 									<span className="team-member">Kevin Lane</span>
 									<span className="team-member-role">Marketing</span>
 								</div>
-								<a>
+								<button className="p-link">
 									<i className="pi pi-comment"/>
-								</a>
-								<a>
+								</button>
+								<button className="p-link">
 									<i className="pi pi-share-alt"/>
-								</a>
+								</button>
 							</li>
 						</ul>
 					</div>

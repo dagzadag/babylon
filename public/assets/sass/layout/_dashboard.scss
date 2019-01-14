@@ -250,7 +250,7 @@
                     }
                 }
 
-                a {
+                button {
                     float: right;
                     border-radius: 100%;
                     height: 30px;
@@ -264,6 +264,9 @@
                         line-height: inherit;
                         font-size: 22px;
                         color: #525257;
+                    }
+                    &:focus {
+                        @include shadow(0 0 0 0 #ffffff)
                     }
                 }
             }
