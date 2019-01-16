@@ -43,28 +43,27 @@ body {
         .p-steps-item {
             background-color: transparent;
             text-align: center;
+            @include opacity(1);
                         
             .p-menuitem-link {
                 display: inline-block;
                 text-align: center;
                 background-color: transparent;
                 overflow: hidden;
-                @include transition(box-shadow $transitionDuration);
-                @include border-radius($borderRadius);
                 
                 .p-steps-number {
-                    @include border-radius(50%);
+                    @include border-radius($stepsItemBorderRadius);
                     display: inline-block;
                     color: $stepsItemNumberColor;
                     background-color: $stepsItemBgColor;
                     border: $stepsItemBorder;
                     position: relative;
-                    top: $fontSize + 2;
+                    top: $fontSize;
                     margin-bottom: $fontSize;
                     width: $stepsItemWidth;
                     height: $stepsItemHeight;
                     font-size: $fontSize + 2;
-                    line-height: $stepsItemHeight - 4;
+                    padding-top: 0.429em;
                     text-align: center;
                 }
                 
@@ -195,7 +194,6 @@ body {
         .p-submenu-list {
             padding: $submenuPadding;
             background-color: $menuBgColor;
-            border: $overlayMenuBorder;
             @include shadow($overlayMenuShadow);
 
             .p-menuitem {
@@ -237,7 +235,6 @@ body {
         .p-submenu-list {
             padding: $submenuPadding;
             background-color: $menuBgColor;
-            border: $overlayMenuBorder;
             @include shadow($overlayMenuShadow);
         }
 
@@ -280,7 +277,6 @@ body {
         .p-submenu-list {
             padding: $submenuPadding;
             background-color: $menuBgColor;
-            border: $overlayMenuBorder;
             @include shadow($overlayMenuShadow);
         }
 
@@ -364,8 +360,8 @@ body {
             border: 0 none;
 
             &:hover {
-                background-color: $panelHeaderHoverBgColor;
-                color: $panelHeaderTextColor;
+                background-color: $clickablePanelHeaderHoverBgColor;
+                color: $clickablePanelHeaderHoverTextColor;
             }
         }
 
@@ -392,20 +388,20 @@ body {
             .p-tabmenuitem {
                 .p-menuitem-link {
                     margin-bottom: -1px;
-                    border: $panelHeaderBorder;
-                    background-color: $panelHeaderBgColor;
-                    color: $panelHeaderTextColor;
-                    padding: $panelHeaderPadding;
+                    border: $clickablePanelHeaderBorder;
+                    background-color: $clickablePanelHeaderBgColor;
+                    color: $clickablePanelHeaderTextColor;
+                    padding: $clickablePanelHeaderPadding;
                     margin-right: $tabHeaderSpacing;
                     @include border-radius-top($borderRadius);
-                    @include transition($panelHeaderTransition);
+                    @include transition($clickablePanelHeaderTransition);
 
                     .p-menuitem-text {
-                        color: $panelHeaderTextColor;
+                        color: $clickablePanelHeaderTextColor;
                     }
 
                     .p-menuitem-icon {
-                        color: $panelHeaderIconColor;
+                        color: $clickablePanelHeaderIconColor;
                         margin-right: $inlineSpacing;
                     }
 
@@ -416,30 +412,30 @@ body {
 
                 &:not(.p-highlight):not(.p-disabled):hover {
                     .p-menuitem-link {
-                        background-color: $panelHeaderHoverBgColor;
-                        border: $panelHeaderHoverBorder;
+                        background-color: $clickablePanelHeaderHoverBgColor;
+                        border: $clickablePanelHeaderHoverBorder;
 
                         .p-menuitem-text {
-                            color: $panelHeaderHoverTextColor;
+                            color: $clickablePanelHeaderHoverTextColor;
                         }
 
                         .p-menuitem-icon {
-                            color: $panelHeaderIconHoverColor;
+                            color: $clickablePanelHeaderHoverIconColor;
                         }
                     }
                 }
 
                 &.p-highlight {
                     .p-menuitem-link {
-                        background-color: $panelHeaderActiveBgColor;
-                        border: $panelHeaderActiveBorder;
+                        background-color: $clickablePanelHeaderActiveBgColor;
+                        border: $clickablePanelHeaderActiveBorder;
 
                         .p-menuitem-text {
-                            color: $panelHeaderActiveTextColor;
+                            color: $clickablePanelHeaderActiveTextColor;
                         }
 
                         .p-menuitem-icon {
-                            color: $panelHeaderActiveIconColor;
+                            color: $clickablePanelHeaderActiveIconColor;
                         }
                     }
                 }
@@ -465,7 +461,6 @@ body {
         .p-megamenu-panel {
             padding: $submenuPadding;
             background-color: $menuBgColor;
-            border: $overlayMenuBorder;
             @include shadow($overlayMenuShadow);
         }
 
@@ -527,18 +522,18 @@ body {
             padding: 0;
            
             > a {
-                border: $panelHeaderBorder;
-                background-color: $panelHeaderBgColor;
-                color: $panelHeaderTextColor;
-                padding: $menuitemPadding;
-                font-weight: $panelHeaderFontWeight;
+                border: $clickablePanelHeaderBorder;
+                background-color: $clickablePanelHeaderBgColor;
+                color: $clickablePanelHeaderTextColor;
+                padding: $clickablePanelHeaderPadding;
+                font-weight: $clickablePanelHeaderFontWeight;
                 position: static;
                 font-size: $fontSize;
                 @include border-radius($borderRadius);
-                @include transition($panelHeaderTransition);
+                @include transition($clickablePanelHeaderTransition);
 
                 .p-panelmenu-icon {
-                    color: $panelHeaderIconColor;
+                    color: $clickablePanelHeaderIconColor;
 
                     &.pi-caret-right {
                         @include icon_override("\e901");
@@ -558,12 +553,12 @@ body {
             &:not(.p-highlight) {                
                 > a:hover {
                     outline: 0 none;
-                    border: $panelHeaderHoverBorder;
-                    background-color: $panelHeaderHoverBgColor;
-                    color: $panelHeaderHoverTextColor;
+                    border: $clickablePanelHeaderHoverBorder;
+                    background-color: $clickablePanelHeaderHoverBgColor;
+                    color: $clickablePanelHeaderHoverTextColor;
 
                     .p-panelmenu-icon {
-                        color: $panelHeaderHoverIconColor;
+                        color: $clickablePanelHeaderHoverIconColor;
                     }
                 }
             }
@@ -571,23 +566,23 @@ body {
             &.p-highlight {
                 margin-bottom: 0;
                 > a {
-                    border: $panelHeaderActiveBorder;
-                    background-color: $panelHeaderActiveBgColor;
-                    color: $panelHeaderActiveTextColor;
+                    border: $clickablePanelHeaderActiveBorder;
+                    background-color: $clickablePanelHeaderActiveBgColor;
+                    color: $clickablePanelHeaderActiveTextColor;
                     @include border-radius-bottom(0);
 
                     .p-panelmenu-icon {
-                        color: $panelHeaderActiveIconColor;
+                        color: $clickablePanelHeaderActiveIconColor;
                     }
 
                     &:hover {
                         outline: 0 none;
-                        border: $panelHeaderActiveHoverBorder;
-                        background-color: $panelHeaderActiveHoverBgColor;
-                        color: $panelHeaderActiveHoverTextColor;
+                        border: $clickablePanelHeaderActiveHoverBorder;
+                        background-color: $clickablePanelHeaderActiveHoverBgColor;
+                        color: $clickablePanelHeaderActiveHoverTextColor;
         
                         .p-panelmenu-icon {
-                            color: $panelHeaderActiveHoverIconColor;
+                            color: $clickablePanelHeaderActiveHoverIconColor;
                         }
                     }
                 }

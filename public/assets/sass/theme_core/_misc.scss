@@ -3,6 +3,7 @@ body {
         border: $progressBarBorder;
         height: $progressBarHeight;
         background-color: $progressBarBgColor;
+        @include border-radius($borderRadius);
         
         .p-progressbar-value {
             border: 0 none;

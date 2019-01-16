@@ -68,7 +68,7 @@ body {
                 color: $panelHeaderTextColor;
                 background-color: $panelHeaderBgColor;
                 @include border-radius($borderRadius);
-                @include transition($panelHeaderTransition);
+                @include transition($clickablePanelHeaderTransition);
 
                 .p-fieldset-toggler {
                     float: none;
@@ -92,12 +92,12 @@ body {
             .p-fieldset-legend {
                 a {
                     &:hover {
-                        background-color: $panelHeaderHoverBgColor;
-                        border: $panelHeaderHoverBorder;
-                        color: $panelHeaderHoverTextColor;
+                        background-color: $clickablePanelHeaderHoverBgColor;
+                        border: $clickablePanelHeaderHoverBorder;
+                        color: $clickablePanelHeaderHoverTextColor;
     
                         .p-fieldset-toggler {
-                            color: $panelHeaderHoverIconColor;
+                            color: $clickablePanelHeaderHoverIconColor;
                         }
                     }
                 }
@@ -116,17 +116,16 @@ body {
 
         .p-accordion-header {
             a {
-                padding: $panelHeaderPadding;
-                border: $panelHeaderBorder;
-                color: $panelHeaderTextColor;
-                background-color: $panelHeaderBgColor;
-                color: $panelHeaderTextColor;
-                font-weight: $panelHeaderFontWeight;
+                padding: $clickablePanelHeaderPadding;
+                border: $clickablePanelHeaderBorder;
+                color: $clickablePanelHeaderTextColor;
+                background-color: $clickablePanelHeaderBgColor;
+                font-weight: $clickablePanelHeaderFontWeight;
                 @include border-radius($borderRadius);
-                @include transition($panelHeaderTransition);
+                @include transition($clickablePanelHeaderTransition);
 
                 .p-accordion-toggle-icon {
-                    color: $panelHeaderIconColor;
+                    color: $clickablePanelHeaderIconColor;
 
                     &.pi-caret-right {
                         @include icon_override("\e901");
@@ -144,12 +143,12 @@ body {
 
             &:not(.p-highlight):not(.p-disabled):hover {
                 a {
-                    background-color: $panelHeaderHoverBgColor;
-                    border: $panelHeaderHoverBorder;
-                    color: $panelHeaderHoverTextColor;
+                    background-color: $clickablePanelHeaderHoverBgColor;
+                    border: $clickablePanelHeaderHoverBorder;
+                    color: $clickablePanelHeaderHoverTextColor;
 
                     .p-accordion-toggle-icon {
-                        color: $panelHeaderHoverIconColor;
+                        color: $clickablePanelHeaderHoverIconColor;
                     }
                 }
             }
@@ -158,24 +157,24 @@ body {
                 margin-bottom: 0;
 
                 a {
-                    background-color: $panelHeaderActiveBgColor;
-                    border: $panelHeaderActiveBorder;
-                    color: $panelHeaderActiveTextColor;
+                    background-color: $clickablePanelHeaderActiveBgColor;
+                    border: $clickablePanelHeaderActiveBorder;
+                    color: $clickablePanelHeaderActiveTextColor;
                     @include border-radius-bottom(0);
                     
                     .p-accordion-toggle-icon {
-                        color: $panelHeaderActiveIconColor;
+                        color: $clickablePanelHeaderActiveIconColor;
                     }
                 }
 
                 &:hover {
                     a {
-                        border: $panelHeaderActiveHoverBorder;
-                        background-color: $panelHeaderActiveHoverBgColor;
-                        color: $panelHeaderActiveHoverTextColor;
+                        border: $clickablePanelHeaderActiveHoverBorder;
+                        background-color: $clickablePanelHeaderActiveHoverBgColor;
+                        color: $clickablePanelHeaderActiveHoverTextColor;
                         
                         .p-accordion-toggle-icon {
-                            color: $panelHeaderActiveHoverIconColor;
+                            color: $clickablePanelHeaderActiveHoverIconColor;
                         }
                     }
                 }
@@ -208,14 +207,14 @@ body {
 
                 li {
                     a {
-                        border: $panelHeaderBorder;
-                        background-color: $panelHeaderBgColor;
+                        border: $clickablePanelHeaderBorder;
+                        background-color: $clickablePanelHeaderBgColor;
                         float: none;
                         display: inline-block;
-                        color: $panelHeaderTextColor;
-                        padding: $panelHeaderPadding;
-                        font-weight: $panelHeaderFontWeight;
-                        @include transition($panelHeaderTransition);
+                        color: $clickablePanelHeaderTextColor;
+                        padding: $clickablePanelHeaderPadding;
+                        font-weight: $clickablePanelHeaderFontWeight;
+                        @include transition($clickablePanelHeaderTransition);
 
                         .p-tabview-left-icon {
                             margin-right: $inlineSpacing;
@@ -231,42 +230,42 @@ body {
                     }
 
                     .p-tabview-close {
-                        color: $panelHeaderIconColor;
+                        color: $clickablePanelHeaderIconColor;
                         margin: 0 $inlineSpacing 0 0;
                         vertical-align: middle;
                     }
 
                     &:not(.p-highlight):not(.p-disabled):hover {                        
                         a {
-                            background-color: $panelHeaderHoverBgColor;
-                            border: $panelHeaderHoverBorder;
-                            color: $panelHeaderHoverTextColor;
+                            background-color: $clickablePanelHeaderHoverBgColor;
+                            border: $clickablePanelHeaderHoverBorder;
+                            color: $clickablePanelHeaderHoverTextColor;
                         }
 
                         .p-tabview-close {
-                            color: $panelHeaderHoverTextColor;
+                            color: $clickablePanelHeaderHoverIconColor;
                         }
                     }
 
                     &.p-highlight {
                         a {
-                            background-color: $panelHeaderActiveBgColor;
-                            border: $panelHeaderActiveBorder;
-                            color: $panelHeaderActiveTextColor;
+                            background-color: $clickablePanelHeaderActiveBgColor;
+                            border: $clickablePanelHeaderActiveBorder;
+                            color: $clickablePanelHeaderActiveTextColor;
                         }
 
                         .p-tabview-close {
-                            color: $panelHeaderActiveIconColor;
+                            color: $clickablePanelHeaderActiveIconColor;
                         }
 
                         &:hover {
                             a {
-                                border: $panelHeaderActiveHoverBorder;
-                                background-color: $panelHeaderActiveHoverBgColor;
-                                color: $panelHeaderActiveHoverTextColor;
+                                border: $clickablePanelHeaderActiveHoverBorder;
+                                background-color: $clickablePanelHeaderActiveHoverBgColor;
+                                color: $clickablePanelHeaderActiveHoverTextColor;
                                 
                                 .p-tabview-left-icon, .p-tabview-right-icon{
-                                    color: $panelHeaderActiveHoverIconColor;
+                                    color: $clickablePanelHeaderActiveHoverIconColor;
                                 }
                             }
                         }

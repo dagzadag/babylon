@@ -413,7 +413,7 @@ export class FormsDemo extends Component {
                                 <p>Flat buttons with various color alternatives.</p>
                                 
                                 <div className="p-grid">
-                                    <div className="p-col-12" style={{textAlign:'center'}}>
+                                    <div className="p-col-12 p-md-4" style={{textAlign:'center'}}>
                                         <Button label="Primary" style={{marginBottom:'10px'}} />
                                         <Button label="Secondary" style={{marginBottom:'10px'}} className="p-button-secondary" />
                                         <Button label="Success" style={{marginBottom:'10px'}} className="p-button-success" />
@@ -421,6 +421,22 @@ export class FormsDemo extends Component {
                                         <Button label="Warning" style={{marginBottom:'10px'}} className="p-button-warning" />
                                         <Button label="Danger" style={{marginBottom:'10px'}} className="p-button-danger" />
                                     </div>
+									<div className="p-col-12 p-md-4" style={{textAlign:'center'}}>
+										<Button label="Primary" style={{marginBottom:'10px'}} className="p-button-raised" />
+										<Button label="Secondary" style={{marginBottom:'10px'}} className="p-button-secondary p-button-raised" />
+										<Button label="Success" style={{marginBottom:'10px'}} className="p-button-success p-button-raised" />
+										<Button label="Info" style={{marginBottom:'10px'}} className="p-button-info p-button-raised" />
+										<Button label="Warning" style={{marginBottom:'10px'}} className="p-button-warning p-button-raised" />
+										<Button label="Danger" style={{marginBottom:'10px'}} className="p-button-danger p-button-raised" />
+									</div>
+									<div className="p-col-12 p-md-4" style={{textAlign:'center'}}>
+										<Button label="Primary" style={{marginBottom:'10px'}} className="p-button-rounded"/>
+										<Button label="Secondary" style={{marginBottom:'10px'}} className="p-button-secondary p-button-rounded" />
+										<Button label="Success" style={{marginBottom:'10px'}} className="p-button-success p-button-rounded" />
+										<Button label="Info" style={{marginBottom:'10px'}} className="p-button-info p-button-rounded" />
+										<Button label="Warning" style={{marginBottom:'10px'}} className="p-button-warning p-button-rounded" />
+										<Button label="Danger" style={{marginBottom:'10px'}} className="p-button-danger p-button-rounded" />
+									</div>
                                 </div>
                             </div>
                         </div>
