@@ -54,11 +54,14 @@
 
                 #landing-menu-button {
                     display: none;
-                    color: #000000;
+                    background-color: #ffffff;
+                    border: 0 none;
                     float: right;
-                    margin-top: 8px;
-                    text-align: center;
-                    
+
+                    .pi {
+                        font-size: 2.143em;
+                    }
+
                     img {
                         width: 6px;
                         margin-right: 10px;
@@ -243,7 +246,7 @@
                 margin: 0;
             }
 
-            .video-container {
+            .multimedia-container {
                 margin-top: 42px;
 
                 iframe {
@@ -390,7 +393,7 @@
                 padding-left: 20px;
                 padding-right: 20px;
 
-                .video-container {
+                .multimedia-container {
                     iframe {
                         width: auto;
                         height: auto;

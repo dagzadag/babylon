@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'babel-polyfill';
-import App from './App';
-import ScrollToTop from './ScrollToTop';
+import AppWrapper from './AppWrapper';
 import {HashRouter} from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
+import 'babel-polyfill';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+import 'font-awesome/css/font-awesome.css';
+import 'primereact/resources/primereact.min.css';
 
 ReactDOM.render(
 	<HashRouter>
-		<ScrollToTop>
-			<App></App>
-		</ScrollToTop>
+		<AppWrapper></AppWrapper>
 	</HashRouter>,
 	document.getElementById('root')
 );

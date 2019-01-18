@@ -20,11 +20,7 @@ import {MiscDemo} from './components/MiscDemo';
 import {EmptyPage} from './components/EmptyPage';
 import {Documentation} from './components/Documentation';
 import {ScrollPanel} from 'primereact/components/scrollpanel/ScrollPanel';
-import 'primereact/resources/primereact.min.css';
 import 'fullcalendar/dist/fullcalendar.css';
-import 'font-awesome/css/font-awesome.css';
-import 'primeicons/primeicons.css';
-import 'primeflex/primeflex.css';
 import './App.css';
 
 class App extends Component {
@@ -57,12 +53,6 @@ class App extends Component {
 
 	onMenuClick(event) {
 		this.menuClick = true;
-
-		if (!this.isHorizontal()) {
-			setTimeout(() => {
-				this.layoutMenuScroller.moveBar();
-			}, 500);
-		}
 	}
 
 	onMenuButtonClick(event) {
@@ -112,6 +102,12 @@ class App extends Component {
 			this.setState({
 				menuActive: false
 			})
+		}
+
+		if (event.item.items && !this.isHorizontal() && this.layoutMenuScroller) {
+			setTimeout(() => {
+				this.layoutMenuScroller.moveBar();
+			}, 500);
 		}
 	}
 
@@ -554,11 +550,11 @@ class App extends Component {
 				label: 'Pages', icon: 'pi pi-fw pi-copy',
 				items: [
 					{label: 'Empty Page', icon: 'pi pi-fw pi-clone', command: () => {window.location = "#/empty"}},
-					{label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
-					{label: 'Login', icon: 'pi pi-fw pi-sign-in', url: 'assets/pages/login.html', target: '_blank'},
-					{label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', url: 'assets/pages/error.html', target: '_blank'},
-					{label: '404 Page', icon: 'pi pi-fw pi-times', url: 'assets/pages/404.html', target: '_blank'},
-					{label: 'Access Denied', icon: 'pi pi-fw pi-ban', url: 'assets/pages/access.html', target: '_blank'}
+					{label: 'Landing', icon: 'pi pi-fw pi-globe', command: () =>  {window.location = "#/landing"}},
+					{label: 'Login', icon: 'pi pi-fw pi-sign-in', command: () =>  {window.location = "#/login"}},
+					{label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', command: () =>  {window.location = "#/error"} },
+					{label: '404 Page', icon: 'pi pi-fw pi-times', command: () =>  {window.location = "#/notfound"}},
+					{label: 'Access Denied', icon: 'pi pi-fw pi-ban', command: () =>  {window.location = "#/access"}}
 				]
 			},
 			{

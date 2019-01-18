@@ -361,7 +361,7 @@ export class SampleDemo extends Component {
                                 <ul>
                                     <li>
                                         <span className="p-messages-icon pi pi-fw pi-2x pi-check"></span>
-                                        <span className="p-messages-detail">Apollo provides a theme for all 70+ PrimeReact Components. This page contains samples of the commonly used components for demo purposes.</span>
+                                        <span className="p-messages-detail">Babylon provides a theme for all 70+ PrimeReact Components. This page contains samples of the commonly used components for demo purposes.</span>
                                     </li>
                                 </ul>
                             </div>
