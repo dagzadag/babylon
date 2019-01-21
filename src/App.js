@@ -44,7 +44,6 @@ class App extends Component {
 		this.onMenuClick = this.onMenuClick.bind(this);
 		this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
 		this.onTopbarMenuButtonClick = this.onTopbarMenuButtonClick.bind(this);
-		this.onThemeChange = this.onThemeChange.bind(this);
 		this.onTopbarItemClick = this.onTopbarItemClick.bind(this);
 		this.onMenuItemClick = this.onMenuItemClick.bind(this);
 		this.onRootMenuItemClick = this.onRootMenuItemClick.bind(this);
@@ -182,27 +181,34 @@ class App extends Component {
 	changeStyleSheetUrl(id, value, prefix, scheme) {
 		let element = document.getElementById(id);
 		let urlTokens = element.getAttribute('href').split('/');
+
 		if(id.localeCompare('layout-css') === 0) {
 			urlTokens[urlTokens.length - 1] = prefix + '-' + value + '.css';
 		}
 		else {
-			urlTokens[urlTokens.length - 1] = 'theme-' + scheme +  '.css';
+			urlTokens[urlTokens.length - 2] = value ;
+			urlTokens[urlTokens.length - 1] = 'theme-' + scheme +  '.css' ;
 		}
 		let newURL = urlTokens.join('/');
 		element.setAttribute('href', newURL);
-	}
 
-	onThemeChange() {
-		const themeLink = document.getElementById('theme-css');
-		const href = themeLink.href;
-		const themeFile = href.substring(href.lastIndexOf('/') + 1, href.lastIndexOf('.'));
-		const themeTokens = themeFile.split('-');
-		const themeName = themeTokens[1];
-		const themeMode = themeTokens[2];
-		const newThemeMode = (themeMode === 'dark') ? 'light' : 'dark';
+		if (scheme === 'dark') {
+			this.setState({darkMenu:true})
+		} else if (scheme === 'light') {
+			this.setState({darkMenu:false})
+		}
 
-		this.changeTheme(themeName + '-' + newThemeMode);
+		let topbarLogo = document.getElementById('layout-topbar-logo');
+		let menuLogo = document.getElementById('layout-menu-logo');
 
+		if (value.localeCompare('yellow') === 0 || value.localeCompare('lime') === 0) {
+			topbarLogo.src = 'assets/layout/images/logo-black.png';
+			menuLogo.src = 'assets/layout/images/logo-black.png';
+
+		} else {
+			topbarLogo.src = 'assets/layout/images/logo-white.png';
+			menuLogo.src = 'assets/layout/images/logo-white.png';
+		}
 	}
 
 	createMenu() {
@@ -640,7 +646,7 @@ class App extends Component {
 
 		return (
 			<div className={layoutClassName} onClick={this.onDocumentClick}>
-				<AppTopbar onThemeChange={this.onThemeChange} topbarMenuActive={this.state.topbarMenuActive} activeTopbarItem={this.state.activeTopbarItem}
+				<AppTopbar topbarMenuActive={this.state.topbarMenuActive} activeTopbarItem={this.state.activeTopbarItem}
 						   onMenuButtonClick={this.onMenuButtonClick} onTopbarMenuButtonClick={this.onTopbarMenuButtonClick} onTopbarItemClick={this.onTopbarItemClick}
 						   profileMode={this.state.profileMode} horizontal={this.isHorizontal()}/>
 

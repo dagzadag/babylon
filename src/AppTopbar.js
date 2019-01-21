@@ -10,7 +10,6 @@ export class AppTopbar extends Component {
 		onTopbarItemClick: null,
 		topbarMenuActive: false,
 		activeTopbarItem: null,
-		onThemeChange: null,
 		profileMode: null,
 		horizontal: null
 	}
@@ -21,7 +20,6 @@ export class AppTopbar extends Component {
 		onTopbarItemClick: PropTypes.func.isRequired,
 		topbarMenuActive: PropTypes.bool.isRequired,
 		activeTopbarItem: PropTypes.string,
-		onThemeChange: PropTypes.func,
 		profileMode: PropTypes.string,
 		horizontal: PropTypes.bool
 	}
