@@ -557,7 +557,7 @@ class App extends Component {
 				label: 'Pages', icon: 'pi pi-fw pi-copy',
 				items: [
 					{label: 'Empty Page', icon: 'pi pi-fw pi-clone', command: () => {window.location = "#/empty"}},
-					{label: 'Landing', icon: 'pi pi-fw pi-globe', command: () =>  {window.location = "#/landing"}},
+					{label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
 					{label: 'Login', icon: 'pi pi-fw pi-sign-in', command: () =>  {window.location = "#/login"}},
 					{label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', command: () =>  {window.location = "#/error"} },
 					{label: '404 Page', icon: 'pi pi-fw pi-times', command: () =>  {window.location = "#/notfound"}},
