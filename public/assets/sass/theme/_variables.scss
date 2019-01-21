@@ -102,7 +102,7 @@ $secondaryButtonHoverBorderColor:#E0E0E0;
 $secondaryButtonActiveBgColor:#BDBDBD;
 $secondaryButtonActiveTextColor:#212121;
 $secondaryButtonActiveBorderColor:#BDBDBD;
-$secondaryButtonFocusShadow:0 0 0 0.2em lighten($secondaryButtonTextColor, 25%);
+$secondaryButtonFocusShadow:0 0 0 0.2em lighten($primaryColor, 25%);
 
 $infoButtonBgColor:#2196F3;
 $infoButtonTextColor:#ffffff;

@@ -17,7 +17,158 @@ export class Dashboard extends Component {
 		this.state = {
 			tasks: [],
 			city: null,
-			selectedCar: null
+			selectedCar: null,
+			fullcalendarOptions: {
+				defaultDate: '2017-02-01',
+				header: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'month,agendaWeek,agendaDay'
+				}
+			},
+			events: [
+				{
+					"id": 1,
+					"title": "All Day Event",
+					"start": "2017-02-01"
+				},
+				{
+					"id": 2,
+					"title": "Long Event",
+					"start": "2017-02-07",
+					"end": "2017-02-10"
+				},
+				{
+					"id": 3,
+					"title": "Repeating Event",
+					"start": "2017-02-09T16:00:00"
+				},
+				{
+					"id": 4,
+					"title": "Repeating Event",
+					"start": "2017-02-16T16:00:00"
+				},
+				{
+					"id": 5,
+					"title": "Conference",
+					"start": "2017-02-11",
+					"end": "2017-02-13"
+				},
+				{
+					"id": 6,
+					"title": "Meeting",
+					"start": "2017-02-12T10:30:00",
+					"end": "2017-02-12T12:30:00"
+				},
+				{
+					"id": 7,
+					"title": "Lunch",
+					"start": "2017-02-12T12:00:00"
+				},
+				{
+					"id": 8,
+					"title": "Meeting",
+					"start": "2017-02-12T14:30:00"
+				},
+				{
+					"id": 9,
+					"title": "Happy Hour",
+					"start": "2017-02-12T17:30:00"
+				},
+				{
+					"id": 10,
+					"title": "Dinner",
+					"start": "2017-02-12T20:00:00"
+				},
+				{
+					"id": 11,
+					"title": "Birthday Party",
+					"start": "2017-02-13T07:00:00"
+				},
+				{
+					"id": 12,
+					"title": "Click for Google",
+					"url": "http://google.com/",
+					"start": "2017-02-28"
+				}
+			],
+			chartData: {
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+				datasets: [{
+					label: 'Sales',
+					data: [12, 19, 3, 5, 2, 3, 9],
+					borderColor: [
+						'#7E57C2',
+					],
+					borderWidth: 3,
+					borderDash: [5, 5],
+					fill: false,
+					pointRadius: 3
+				}, {
+					label: 'Income',
+					data: [1, 2, 5, 3, 12, 7, 15],
+					backgroundColor: [
+						'rgba(187,222,251,0.2)',
+					],
+					borderColor: [
+						'#42A5F5',
+					],
+					borderWidth: 3,
+					fill: true
+				},
+					{
+						label: 'Expenses',
+						data: [7, 12, 15, 5, 3, 13, 21],
+						borderColor: [
+							'#FFB300',
+						],
+						borderWidth: 3,
+						fill: false,
+						pointRadius: [4, 6, 4, 12, 8, 0, 4]
+					},
+					{
+						label: 'New Users',
+						data: [3, 7, 2, 17, 15, 13, 19],
+						borderColor: [
+							'#66BB6A',
+						],
+						borderWidth: 3,
+						fill: false
+					}]
+			},
+			chartOptions: {
+				responsive: true,
+				hover: {
+					mode: 'index'
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						}
+					}]
+				}
+			},
+			menuItems: [
+				{
+					label: 'Save', icon: 'fa fa-fw fa-check'
+				},
+				{
+					label: 'Update', icon: 'fa fa-fw fa-refresh'
+				},
+				{
+					label: 'Delete', icon: 'fa fa-fw fa-trash'
+				}
+			]
 		};
 		this.onTaskChange = this.onTaskChange.bind(this);
 		this.carservice = new CarService();
@@ -54,162 +205,6 @@ export class Dashboard extends Component {
 	}
 
 	render() {
-		let fullcalendarOptions = {
-			defaultDate: '2017-02-01',
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			}
-		};
-
-		let events = [
-			{
-				"id": 1,
-				"title": "All Day Event",
-				"start": "2017-02-01"
-			},
-			{
-				"id": 2,
-				"title": "Long Event",
-				"start": "2017-02-07",
-				"end": "2017-02-10"
-			},
-			{
-				"id": 3,
-				"title": "Repeating Event",
-				"start": "2017-02-09T16:00:00"
-			},
-			{
-				"id": 4,
-				"title": "Repeating Event",
-				"start": "2017-02-16T16:00:00"
-			},
-			{
-				"id": 5,
-				"title": "Conference",
-				"start": "2017-02-11",
-				"end": "2017-02-13"
-			},
-			{
-				"id": 6,
-				"title": "Meeting",
-				"start": "2017-02-12T10:30:00",
-				"end": "2017-02-12T12:30:00"
-			},
-			{
-				"id": 7,
-				"title": "Lunch",
-				"start": "2017-02-12T12:00:00"
-			},
-			{
-				"id": 8,
-				"title": "Meeting",
-				"start": "2017-02-12T14:30:00"
-			},
-			{
-				"id": 9,
-				"title": "Happy Hour",
-				"start": "2017-02-12T17:30:00"
-			},
-			{
-				"id": 10,
-				"title": "Dinner",
-				"start": "2017-02-12T20:00:00"
-			},
-			{
-				"id": 11,
-				"title": "Birthday Party",
-				"start": "2017-02-13T07:00:00"
-			},
-			{
-				"id": 12,
-				"title": "Click for Google",
-				"url": "http://google.com/",
-				"start": "2017-02-28"
-			}
-		];
-
-		let chartData = {
-			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-			datasets: [{
-				label: 'Sales',
-				data: [12, 19, 3, 5, 2, 3, 9],
-				borderColor: [
-					'#7E57C2',
-				],
-				borderWidth: 3,
-				borderDash: [5, 5],
-				fill: false,
-				pointRadius: 3
-			}, {
-				label: 'Income',
-				data: [1, 2, 5, 3, 12, 7, 15],
-				backgroundColor: [
-					'rgba(187,222,251,0.2)',
-				],
-				borderColor: [
-					'#42A5F5',
-				],
-				borderWidth: 3,
-				fill: true
-			},
-				{
-					label: 'Expenses',
-					data: [7, 12, 15, 5, 3, 13, 21],
-					borderColor: [
-						'#FFB300',
-					],
-					borderWidth: 3,
-					fill: false,
-					pointRadius: [4, 6, 4, 12, 8, 0, 4]
-				},
-				{
-					label: 'New Users',
-					data: [3, 7, 2, 17, 15, 13, 19],
-					borderColor: [
-						'#66BB6A',
-					],
-					borderWidth: 3,
-					fill: false
-				}]
-		};
-
-		let chartOptions = {
-			responsive: true,
-			hover: {
-				mode: 'index'
-			},
-			scales: {
-				xAxes: [{
-					display: true,
-					scaleLabel: {
-						display: true,
-						labelString: 'Month'
-					}
-				}],
-				yAxes: [{
-					display: true,
-					scaleLabel: {
-						display: true,
-						labelString: 'Value'
-					}
-				}]
-			}
-		};
-
-		let menuItems = [
-			{
-				label: 'Save', icon: 'fa fa-fw fa-check'
-			},
-			{
-				label: 'Update', icon: 'fa fa-fw fa-refresh'
-			},
-			{
-				label: 'Delete', icon: 'fa fa-fw fa-trash'
-			}
-		];
-
 		return <div className="layout-dashboard">
 			<div className="p-grid">
 				<div className="p-col-12 p-lg-6 p-xl-3">
@@ -268,7 +263,7 @@ export class Dashboard extends Component {
 				<div className="p-col-12 p-lg-8">
 					<div className="card card-w-title statistics">
 						<h1>Statistics</h1>
-						<Chart type="line" data={chartData} options={chartOptions}/>
+						<Chart type="line" data={this.state.chartData} options={this.state.chartOptions}/>
 					</div>
 				</div>
 
@@ -279,7 +274,7 @@ export class Dashboard extends Component {
 						</div>
 						<div className="user-card-content">
 							<img src="assets/layout/images/avatar.png" alt="babylon-layout" />
-							<Menu model={menuItems} popup={true} ref={el => this.menu = el} appendTo={document.body}/>
+							<Menu model={this.state.menuItems} popup={true} ref={el => this.menu = el} appendTo={document.body}/>
 							<Button icon="pi pi-bars" onClick={(event) => this.menu.toggle(event)}/>
 
 							<div className="user-card-name">
@@ -601,7 +596,7 @@ export class Dashboard extends Component {
 				<div className="p-col-12 p-md-12 p-lg-12">
 					<div className="card card-w-title">
 						<h1>Schedule</h1>
-						<FullCalendar events={events} options={fullcalendarOptions}></FullCalendar>
+						<FullCalendar events={this.state.events} options={this.state.fullcalendarOptions}></FullCalendar>
 					</div>
 				</div>
 			</div>
