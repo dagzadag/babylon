@@ -61,10 +61,11 @@ class App extends Component {
 			topbarMenuActive: false
 		}));
 
-		if (this.state.layoutMode === 'overlay' && !this.isMobile()) {
-			this.setState({
-				overlayMenuActive: !this.state.overlayMenuActive
-			});
+		if (this.state.layoutMode === 'overlay') {
+			if (this.isDesktop())
+				this.setState({overlayMenuActive: !this.state.overlayMenuActive});
+			else
+				this.setState({staticMenuMobileActive: !this.state.staticMenuMobileActive});
 		}
 		else {
 			if (this.isDesktop())

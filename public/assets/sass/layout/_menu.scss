@@ -1153,34 +1153,6 @@
                 }
             }
         }
-
-        /*&.layout-horizontal, &.layout-slim {
-            .layout-menu-container {
-                .nano {
-                    > .nano-content {
-                        &.menu-scroll-content {
-                            display: block;
-                            height: auto;
-                            position: static;
-                            overflow: visible;
-                            overflow-x: visible;
-                        }
-
-                        .nano-scroll-footer {
-                            height: 0px;
-                        }
-
-                        .layout-menu {
-                            padding-bottom: 0;
-                        }
-                    }
-                    
-                    > .nano-pane {
-                        display: none !important;
-                    }
-                }
-            }
-        }*/
     }
 }
 

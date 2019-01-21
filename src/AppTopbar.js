@@ -45,7 +45,7 @@ export class AppTopbar extends Component {
 
 		return <div className="layout-topbar clearfix">
 
-			<button className="layout-topbar-logo">
+			<button className="layout-topbar-logo p-link">
 				<img id="layout-topbar-logo" alt="babylon-layout" src="assets/layout/images/logo-white.png"/>
 			</button>
 
