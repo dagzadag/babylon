@@ -97,11 +97,12 @@ class App extends Component {
 	onMenuItemClick(event) {
 		if (!event.item.items) {
 			this.hideOverlayMenu();
-		}
+        }
+        
 		if (!event.item.items && (this.isHorizontal() || this.isSlim())) {
 			this.setState({
 				menuActive: false
-			})
+			});
 		}
 
 		if (event.item.items && !this.isHorizontal() && this.layoutMenuScroller) {
@@ -215,7 +216,7 @@ class App extends Component {
 		this.menuGrouped = [
 			{ 	label: 'Home Page', icon: 'pi pi-fw pi-home',
 				items: [
-					{label: 'Dashboard', icon: 'pi pi-fw pi-home', command: () => { window.location = '#/'}}
+					{label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'}
 				]
 			},
 			{ label: 'Customization', icon: 'pi pi-fw pi-cog',
@@ -542,26 +543,26 @@ class App extends Component {
 			{
 				label: 'Components', icon: 'pi pi-fw pi-star',
 				items: [
-					{label: 'Sample Page', icon: 'pi pi-fw pi-th-large', command: () => {window.location = '#/sample'}},
-					{label: 'Forms', icon: 'pi pi-fw pi-file', command: () => {window.location = '#/forms'}},
-					{label: 'Data', icon: 'pi pi-fw pi-table', command: () => {window.location = "#/data"}},
-					{label: 'Panels', icon: 'pi pi-fw pi-list', command: () => {window.location = "#/panels"}},
-					{label: 'Overlays', icon: 'pi pi-fw pi-clone', command: () => {window.location = "#/overlays"}},
-					{label: 'Menus', icon: 'pi pi-fw pi-plus', command: () => {window.location = "#/menus"}},
-					{label: 'Messages', icon: 'pi pi-fw pi-spinner', command: () => {window.location = "#/messages"}},
-					{label: 'Charts', icon: 'pi pi-fw pi-chart-bar', command: () => {window.location = "#/charts"}},
-					{label: 'Misc', icon: 'pi pi-fw pi-upload', command: () => {window.location = "#/misc"}}
+					{label: 'Sample Page', icon: 'pi pi-fw pi-th-large', to: '/sample'},
+					{label: 'Forms', icon: 'pi pi-fw pi-file', to: '/forms'},
+					{label: 'Data', icon: 'pi pi-fw pi-table', to: '/data'},
+					{label: 'Panels', icon: 'pi pi-fw pi-list', to: '/panels'},
+					{label: 'Overlays', icon: 'pi pi-fw pi-clone', to: '/overlays'},
+					{label: 'Menus', icon: 'pi pi-fw pi-plus', to: '/menus'},
+					{label: 'Messages', icon: 'pi pi-fw pi-spinner',to: '/messages'},
+					{label: 'Charts', icon: 'pi pi-fw pi-chart-bar', to: '/charts'},
+					{label: 'Misc', icon: 'pi pi-fw pi-upload', to: '/misc'}
 				]
 			},
 			{
 				label: 'Pages', icon: 'pi pi-fw pi-copy',
 				items: [
-					{label: 'Empty Page', icon: 'pi pi-fw pi-clone', command: () => {window.location = "#/empty"}},
+					{label: 'Empty Page', icon: 'pi pi-fw pi-clone', to: '/empty'},
 					{label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
-					{label: 'Login', icon: 'pi pi-fw pi-sign-in', command: () =>  {window.location = "#/login"}},
-					{label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', command: () =>  {window.location = "#/error"} },
-					{label: '404 Page', icon: 'pi pi-fw pi-times', command: () =>  {window.location = "#/notfound"}},
-					{label: 'Access Denied', icon: 'pi pi-fw pi-ban', command: () =>  {window.location = "#/access"}}
+					{label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login'},
+					{label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', to: '/error'},
+					{label: '404 Page', icon: 'pi pi-fw pi-times', to: '/notfound'},
+					{label: 'Access Denied', icon: 'pi pi-fw pi-ban', to: '/access'}
 				]
 			},
 			{
