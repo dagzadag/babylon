@@ -173,12 +173,12 @@ export class MenusDemo extends Component {
             items: [
                 {
                     label: 'Options',
-                    items: [{label: 'New', icon: 'pi pi-fw pi-plus',command:() => window.location.hash="/fileupload"},
+                    items: [{label: 'New', icon: 'pi pi-fw pi-plus'},
                             {label: 'Delete', icon: 'pi pi-fw pi-trash', url: 'http://primetek.com.tr'}]
                 }, 
                 {
                     label: 'Account',
-                    items: [{label: 'Options', icon: 'pi pi-fw pi-cog',command:() => window.location.hash="/"},
+                    items: [{label: 'Options', icon: 'pi pi-fw pi-cog'},
                             {label: 'Sign Out', icon: 'pi pi-fw pi-power-off'} ]
                 }
             ],
