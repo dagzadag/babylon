@@ -1,7 +1,7 @@
 {
 	"name": "babylon",
-    "version": "1.0.1-SNAPSHOT",
-    "homepage": "/babylon-react",
+	"version": "1.0.0",
+	"homepage": "/babylon-react",
 	"private": true,
 	"dependencies": {
 		"font-awesome": "^4.7.0",
