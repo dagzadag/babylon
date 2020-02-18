@@ -19,7 +19,6 @@ import {ChartsDemo} from './components/ChartsDemo';
 import {MiscDemo} from './components/MiscDemo';
 import {EmptyPage} from './components/EmptyPage';
 import {Documentation} from './components/Documentation';
-import {ScrollPanel} from 'primereact/components/scrollpanel/ScrollPanel';
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
@@ -108,12 +107,6 @@ class App extends Component {
 			this.setState({
 				menuActive: false
 			});
-		}
-
-		if (event.item.items && !this.isHorizontal() && this.layoutMenuScroller) {
-			setTimeout(() => {
-				this.layoutMenuScroller.moveBar();
-			}, 500);
 		}
 	}
 
@@ -663,14 +656,12 @@ class App extends Component {
 						</button>
 					</div>
 					<div className="layout-menu-wrapper">
-						<ScrollPanel ref={(el) => this.layoutMenuScroller = el} style={{height: '100%'}}>
-							<div className="menu-scroll-content">
-								{(this.state.profileMode === 'inline' && this.state.layoutMode !== 'horizontal') && <AppInlineProfile />}
-								<AppMenu model={this.state.grouped ? this.menuGrouped : this.menuUngrouped} onMenuItemClick={this.onMenuItemClick}
-										 onRootMenuItemClick={this.onRootMenuItemClick}
-										 layoutMode={this.state.layoutMode} active={this.state.menuActive}/>
-							</div>
-						</ScrollPanel>
+						<div className="menu-scroll-content">
+							{(this.state.profileMode === 'inline' && this.state.layoutMode !== 'horizontal') && <AppInlineProfile />}
+							<AppMenu model={this.state.grouped ? this.menuGrouped : this.menuUngrouped} onMenuItemClick={this.onMenuItemClick}
+									 onRootMenuItemClick={this.onRootMenuItemClick}
+									 layoutMode={this.state.layoutMode} active={this.state.menuActive}/>
+						</div>
 					</div>
 				</div>
 
