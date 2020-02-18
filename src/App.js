@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import {AppTopbar} from './AppTopbar';
 import {AppBreadcrumb} from './AppBreadcrumb';
 import {AppFooter} from './AppFooter';
+import {AppConfig} from './AppConfig';
 import {AppMenu} from './AppMenu';
 import {AppInlineProfile} from './AppInlineProfile';
 import {withRouter} from 'react-router';
@@ -41,7 +42,9 @@ class App extends Component {
 			darkMenu: true,
 			menuActive: false,
 			profileMode: 'inline',
-			grouped: true
+			themeColor: 'blue-accent',
+			grouped: true,
+			configDialogActive: true
 		};
 
 		this.onDocumentClick = this.onDocumentClick.bind(this);
@@ -51,6 +54,14 @@ class App extends Component {
 		this.onTopbarItemClick = this.onTopbarItemClick.bind(this);
 		this.onMenuItemClick = this.onMenuItemClick.bind(this);
 		this.onRootMenuItemClick = this.onRootMenuItemClick.bind(this);
+		this.changeMenuMode = this.changeMenuMode.bind(this);
+		this.changeMenuType = this.changeMenuType.bind(this);
+		this.changeMenuColor = this.changeMenuColor.bind(this);
+		this.changeProfileMode = this.changeProfileMode.bind(this);
+		this.changeTheme = this.changeTheme.bind(this);
+		this.onConfigButtonClick = this.onConfigButtonClick.bind(this);
+		this.onConfigCloseClick = this.onConfigCloseClick.bind(this);
+		this.onConfigClick = this.onConfigClick.bind(this);
 		this.createMenu();
 	}
 
@@ -118,6 +129,19 @@ class App extends Component {
 		event.originalEvent.preventDefault();
 	}
 
+	onConfigButtonClick(event){
+		this.configClick = true;
+		this.setState({configDialogActive: !this.state.configDialogActive})
+	}
+
+	onConfigCloseClick(){
+		this.setState({configDialogActive: false})
+	}
+
+	onConfigClick(){
+		this.configClick = true;
+	}
+
 	onDocumentClick(event) {
 		if (!this.topbarItemClick) {
 			this.setState({
@@ -136,8 +160,13 @@ class App extends Component {
 			this.hideOverlayMenu();
 		}
 
+		if (!this.configClick) {
+			this.setState({configDialogActive: false});
+		}
+
 		this.topbarItemClick = false;
 		this.menuClick = false;
+		this.configClick = false;
 	}
 
 	hideOverlayMenu() {
@@ -172,7 +201,27 @@ class App extends Component {
 		return this.state.layoutMode === 'slim';
 	}
 
-	changeTheme(theme,scheme) {
+	changeMenuMode(event) {
+		this.setState({layoutMode: event.menuMode})
+		if(event.menuMode === 'horizontal') {
+			this.setState({profileMode : 'popup'});
+		}
+	}
+
+	changeMenuType(event) {
+		this.setState({grouped: event.grouped})
+	}
+
+	changeMenuColor(event) {
+		this.setState({darkMenu: event.darkMenu})
+	}
+
+	changeProfileMode(event) {
+		this.setState({profileMode: event.profileMode})
+	}
+
+	changeTheme(theme, scheme) {
+		this.setState({themeColor: theme + '-' + scheme})
 		this.changeStyleSheetUrl('layout-css', theme, 'layout', scheme);
 		this.changeStyleSheetUrl('theme-css', theme, 'theme', scheme);
 	}
@@ -189,7 +238,8 @@ class App extends Component {
 			urlTokens[urlTokens.length - 1] = 'theme-' + scheme +  '.css' ;
 		}
 		let newURL = urlTokens.join('/');
-		element.setAttribute('href', newURL);
+
+		this.replaceLink(element, newURL);
 
 		if (scheme === 'dark') {
 			this.setState({darkMenu:true})
@@ -208,6 +258,21 @@ class App extends Component {
 			topbarLogo.src = 'assets/layout/images/logo-white.png';
 			menuLogo.src = 'assets/layout/images/logo-white.png';
 		}
+	}
+
+	replaceLink(linkElement, href) {
+		const id = linkElement.getAttribute('id');
+		const cloneLinkElement = linkElement.cloneNode(true);
+
+		cloneLinkElement.setAttribute('href', href);
+		cloneLinkElement.setAttribute('id', id + '-clone');
+
+		linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
+
+		cloneLinkElement.addEventListener('load', () => {
+			linkElement.remove();
+			cloneLinkElement.setAttribute('id', id);
+		});
 	}
 
 	createMenu() {
@@ -683,6 +748,13 @@ class App extends Component {
 						<Route path="/documentation" component={Documentation}/>
 					</div>
 				</div>
+
+				<AppConfig layoutMode={this.state.layoutMode} grouped={this.state.grouped} darkMenu={this.state.darkMenu}
+						   profileMode={this.state.profileMode} themeColor={this.state.themeColor}
+						   changeMenuMode={this.changeMenuMode} changeMenuType={this.changeMenuType} changeProfileMode={this.changeProfileMode}
+						   changeMenuColor={this.changeMenuColor} changeTheme={this.changeTheme}
+						   onConfigButtonClick={this.onConfigButtonClick} onConfigCloseClick={this.onConfigCloseClick}
+						   onConfigClick={this.onConfigClick} configDialogActive={this.state.configDialogActive}/>
 
 				<AppFooter/>
 
