@@ -27,7 +27,7 @@ body {
             right: -1 * 1.538em / 2;
             @include border-radius(50%);
             @include transition(background-color $transitionDuration, box-shadow $transitionDuration);
-            
+
             &:hover {
                 background-color: $overlayPanelCloseIconHoverBgColor;
                 color: $overlayPanelCloseIconHoverColor;
@@ -37,54 +37,74 @@ body {
                 line-height: inherit;
             }
         }
+
+        &:after {
+            border-color: rgba($panelContentBgColor, 0);
+            border-bottom-color: $panelContentBgColor;
+        }
+
+        &:before {
+            border-color: rgba($overlayContentBorderColor, 0);
+            border-bottom-color: $overlayContentBorderColor;
+        }
+
+        &.p-overlaypanel-flipped {
+            &:after {
+                border-top-color: $panelContentBgColor;
+            }
+
+            &:before {
+                border-top-color: $overlayContentBorderColor;
+            }
+        }
     }
 
     .p-dialog {
         padding:  1em 2em;
         background-color: $panelContentBgColor;
         @include shadow($overlayContainerShadow);
-        
+
         .p-dialog-titlebar {
             border: 0 none;
             background-color: $panelContentBgColor;
             color: $panelContentTextColor;
             padding: $dialogHeaderPadding;
             font-weight: $panelHeaderFontWeight;
-            
+
             .p-dialog-title {
                 margin: 0;
                 float: none;
                 font-size: 1.286em;
                 font-weight: $panelHeaderFontWeight;
             }
-            
+
             .p-dialog-titlebar-icon {
                 color: $textSecondaryColor;
                 border: 0 none;
                 padding: 0;
                 margin-left: $inlineSpacing;
                 @include transition(color $transitionDuration, box-shadow $transitionDuration);
-                
+
                 &:hover {
                     color: $textColor;
                 }
             }
         }
-        
+
         .p-dialog-content {
             background-color: $panelContentBgColor;
             color: $panelContentTextColor;
             border: 0 none;
             padding: .5em;
         }
-        
+
         .p-dialog-footer {
             background-color: $panelFooterBgColor;
             color: $panelFooterTextColor;
             padding: $panelFooterPadding;
             margin: 0;
             text-align: right;
-            
+
             button {
                 margin: 0 $inlineSpacing 0 0;
                 width: auto;
@@ -116,25 +136,25 @@ body {
             @include shadow($overlayContainerShadow);
             @include border-radius($borderRadius);
         }
-        
+
         &.p-tooltip-right {
             .p-tooltip-arrow {
                 border-right-color: $tooltipBgColor;
             }
         }
-        
+
         &.p-tooltip-left {
             .p-tooltip-arrow {
                 border-left-color: $tooltipBgColor;
             }
         }
-        
+
         &.p-tooltip-top {
             .p-tooltip-arrow {
                 border-top-color: $tooltipBgColor;
             }
         }
-        
+
         &.p-tooltip-bottom {
             .p-tooltip-arrow {
                 border-bottom-color: $tooltipBgColor;
@@ -144,25 +164,25 @@ body {
 
     .p-lightbox {
         @include shadow($overlayContainerShadow);
-        
+
         .p-lightbox-caption {
             border: $panelHeaderBorder;
             background-color: $panelHeaderBgColor;
             color: $panelHeaderTextColor;
             padding: $panelHeaderPadding;
             font-weight: $panelHeaderFontWeight;
-            
-            
+
+
             .p-lightbox-caption-text {
                 color: $panelHeaderTextColor;
                 margin: 0;
             }
-            
+
             .p-lightbox-close {
                 padding: 0;
                 color: $panelHeaderIconColor;
                 @include transition(color $transitionDuration);
-                
+
                 &:hover {
                     color: $panelHeaderIconHoverColor;
                 }
@@ -176,7 +196,7 @@ body {
             border: 0 none;
             padding: 0;
             @include border-radius(0);
-                      
+
             .p-lightbox-nav-left, .p-lightbox-nav-right {
                 @include transition(all $transitionDuration);
                 font-size: $lightBoxNavIconFontSize;
@@ -187,7 +207,7 @@ body {
                     @include scale(1.2);
                 }
             }
-            
+
             .p-lightbox-content.p-lightbox-loading ~ a {
                 display: none;
             }

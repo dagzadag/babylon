@@ -170,7 +170,7 @@ body {
             &:focus {
                 @include focused-listitem();
             }
- 
+
             &.p-highlight {
                 background-color: $highlightBgColor;
                 color: $highlightColorText;
@@ -389,6 +389,10 @@ body {
             font-weight: $panelHeaderFontWeight;
             border-bottom: 0 none;
             @include border-radius-top($borderRadius);
+
+            .p-inputtext {
+                width: auto;
+            }
         }
 
         .p-dataview-content {
@@ -396,7 +400,20 @@ body {
             border: $panelContentBorder;
             background-color: $panelContentBgColor;
             color: $panelContentTextColor;
-            padding: $panelContentPadding;
+
+            > .p-grid {
+                margin-right: 0;
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            > .p-grid > div {
+                border-bottom: $panelContentBorder;
+
+                &:last-child {
+                    border-bottom: 0 none;
+                }
+            }
         }
 
         .p-dataview-footer {
@@ -429,10 +446,6 @@ body {
             }
         }
 
-        .fc-row {
-            border-right: $panelHeaderBorder;
-        }
-
         .fc-event {
             background-color: $scheduleEventBgColor;
             border: $scheduleEventBorder;
@@ -440,7 +453,7 @@ body {
         }
 
         .fc-toolbar {
-            .ui-button {
+            .fc-button {
                 color: $buttonTextColor;
                 background-color: $buttonBgColor;
                 border: $buttonBorder;
@@ -454,14 +467,14 @@ body {
                     border-color: $buttonHoverBorderColor;
                 }
 
-                .ui-icon-circle-triangle-w {
-                    font-family: 'PrimeIcons';
+                .fc-icon-chevron-left{
+                    font-family: 'PrimeIcons' !important;
                     text-indent: 0;
                     @include icon_override("\e900");
                 }
 
-                .ui-icon-circle-triangle-e {
-                    font-family: 'PrimeIcons';
+                .fc-icon-chevron-right {
+                    font-family: 'PrimeIcons' !important;
                     text-indent: 0;
                     @include icon_override("\e901");
                 }
@@ -472,7 +485,7 @@ body {
             }
 
             .fc-button-group {
-                .ui-button {
+                .fc-button {
                     @include border-radius(0);
 
                     &:first-child {
@@ -901,7 +914,7 @@ body {
             .p-sortable-column-icon{
                 color: $tableHeaderCellIconColor;
             }
-            
+
             &:not(.p-highlight):hover {
                 background-color: $tableHeaderCellHoverBgColor;
                 color: $tableHeaderCellHoverTextColor;
@@ -934,7 +947,7 @@ body {
 
         .p-treetable-tbody {
             > tr {
-                background: $tableBodyRowBgColor;
+                background: transparent;
                 color: $tableBodyRowTextColor;
                 @include transition(background-color $transitionDuration);
 
@@ -988,6 +1001,49 @@ body {
         .p-treetable-scrollable-header,
         .p-treetable-scrollable-footer {
             background-color: $panelHeaderBgColor;
+        }
+    }
+
+    .p-carousel {
+        .p-carousel-content {
+            .p-carousel-prev,
+            .p-carousel-next {
+                background-color: $carouselNavButtonsBgColor;
+                border: $carouselNavButtonsBorder;
+                @include border-radius($carouselNavButtonsBorderRadius);
+                margin: $carouselNavButtonsMargin;
+                color: $carouselNavButtonsColor;
+                @include transition($carouselNavButtonsTransition);
+
+                &:not(.p-disabled) {
+                    &:hover {
+                        background-color: $carouselNavButtonsHoverBgColor;
+                        color: $carouselNavButtonsHoverColor;
+                        border-color: $carouselNavButtonsHoverBorderColor;
+                    }
+                }
+            }
+        }
+
+        .p-carousel-dots-container {
+            .p-carousel-dot-item {
+                .p-carousel-dot-icon {
+                    width: $carouselDotIconWidth;
+                    height: $carouselDotIconHeight;
+                    background-color: $carouselDotIconBgColor;
+                    margin: $carouselDotIconMargin;
+
+                    &::before {
+                        content: ' ';
+                    }
+                }
+
+                &.p-highlight {
+                    .p-carousel-dot-icon {
+                        background-color: $carouselActiveDotIconBgColor;
+                    }
+                }
+            }
         }
     }
 }

@@ -9,6 +9,9 @@ import {Column} from 'primereact/components/column/Column';
 import {Chart} from 'primereact/chart';
 import {Menu} from 'primereact/menu';
 import {FullCalendar} from 'primereact/fullcalendar';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 export class Dashboard extends Component {
 
@@ -19,6 +22,7 @@ export class Dashboard extends Component {
 			city: null,
 			selectedCar: null,
 			fullcalendarOptions: {
+				plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
 				defaultDate: '2017-02-01',
 				header: {
 					left: 'prev,next today',
@@ -160,13 +164,13 @@ export class Dashboard extends Component {
 			},
 			menuItems: [
 				{
-					label: 'Save', icon: 'fa fa-fw fa-check'
+					label: 'Save', icon: 'pi pi-fw pi-check'
 				},
 				{
-					label: 'Update', icon: 'fa fa-fw fa-refresh'
+					label: 'Update', icon: 'pi pi-fw pi-refresh'
 				},
 				{
-					label: 'Delete', icon: 'fa fa-fw fa-trash'
+					label: 'Delete', icon: 'pi pi-fw pi-trash'
 				}
 			]
 		};
@@ -596,7 +600,7 @@ export class Dashboard extends Component {
 				<div className="p-col-12 p-md-12 p-lg-12">
 					<div className="card card-w-title">
 						<h1>Schedule</h1>
-						<FullCalendar events={this.state.events} options={this.state.fullcalendarOptions}></FullCalendar>
+						<FullCalendar events={this.state.events} options={this.state.fullcalendarOptions} />
 					</div>
 				</div>
 			</div>

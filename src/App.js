@@ -20,7 +20,12 @@ import {MiscDemo} from './components/MiscDemo';
 import {EmptyPage} from './components/EmptyPage';
 import {Documentation} from './components/Documentation';
 import {ScrollPanel} from 'primereact/components/scrollpanel/ScrollPanel';
-import 'fullcalendar/dist/fullcalendar.css';
+import '@fullcalendar/core/main.css';
+import '@fullcalendar/daygrid/main.css';
+import '@fullcalendar/timegrid/main.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+import 'primereact/resources/primereact.min.css';
 import './App.css';
 
 class App extends Component {
@@ -98,7 +103,7 @@ class App extends Component {
 		if (!event.item.items) {
 			this.hideOverlayMenu();
         }
-        
+
 		if (!event.item.items && (this.isHorizontal() || this.isSlim())) {
 			this.setState({
 				menuActive: false
