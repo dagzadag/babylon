@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom'
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 
 class AppSubmenu extends Component {
 
@@ -62,6 +63,12 @@ class AppSubmenu extends Component {
 		}
 	}
 
+	onKeyDown(event, item, index) {
+		if (event.key === 'Enter') {
+			this.onMenuItemClick(event, item, index);
+		}
+	}
+
 	onMenuItemMouseEnter(index) {
 		if (this.props.root && this.props.menuActive && this.isHorizontalOrSlim()) {
 			this.setState({activeIndex: index});
@@ -91,24 +98,24 @@ class AppSubmenu extends Component {
             </React.Fragment>
         );
     }
-    
+
     renderLink(item, i) {
         let content = this.renderLinkContent(item);
 
         if (item.to) {
             return (
-                <NavLink activeClassName="active-route" to={item.to} onClick={(e) => this.onMenuItemClick(e, item, i)} exact 
+                <NavLink activeClassName="active-route" to={item.to} onClick={(e) => this.onMenuItemClick(e, item, i)} exact role="menuitem"
                     target={item.target} onMouseEnter={(e) => this.onMenuItemMouseEnter(i)} className={item.styleClass}>{content}</NavLink>
             )
         }
         else {
             return (
-                <a href={item.url} onClick={(e) => this.onMenuItemClick(e, item, i)} target={item.target}
-                    onMouseEnter={(e) => this.onMenuItemMouseEnter(i)} className={item.styleClass}>
+                <a href={item.url} tabIndex={item.url ? '' : 0} role="menuitem" onClick={(e) => this.onMenuItemClick(e, item, i)} target={item.target}
+                    onMouseEnter={(e) => this.onMenuItemMouseEnter(i)} onKeyDown={(e) => this.onKeyDown(e, item, i)} className={item.styleClass}>
                     {content}
                 </a>
             );
-            
+
         }
     }
 
@@ -122,21 +129,23 @@ class AppSubmenu extends Component {
             </div>;
 
 			return (
-                <li className={styleClass} key={i}>
+                <li className={styleClass} key={i} role="none">
                     {item.items && this.props.root === true && <div className='arrow'></div>}
                     {this.props.root && <div>
                         <span className="layout-menuitem-text">{item.label}</span>
                     </div>}
                     {this.renderLink(item, i)}
                     {tooltip}
+					<CSSTransition classNames="layout-submenu" timeout={{enter: 400, exit: 400}} in={active}>
                     <AppSubmenu items={item.items} onMenuItemClick={this.props.onMenuItemClick}
                                 layoutMode={this.props.layoutMode}
                                 menuActive={this.props.menuActive}/>
+					</CSSTransition>
                 </li>
             )
 		});
 
-		return items ? <ul className={this.props.className}>{items}</ul> : null;
+		return items ? <ul role="menu" className={this.props.className}>{items}</ul> : null;
 	}
 }
 
