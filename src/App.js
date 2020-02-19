@@ -44,7 +44,8 @@ class App extends Component {
 			profileMode: 'inline',
 			themeColor: 'blue-accent',
 			grouped: true,
-			configDialogActive: true
+			inlineProfileActive: false,
+			configDialogActive: false
 		};
 
 		this.onDocumentClick = this.onDocumentClick.bind(this);
@@ -52,6 +53,7 @@ class App extends Component {
 		this.onMenuButtonClick = this.onMenuButtonClick.bind(this);
 		this.onTopbarMenuButtonClick = this.onTopbarMenuButtonClick.bind(this);
 		this.onTopbarItemClick = this.onTopbarItemClick.bind(this);
+		this.onInlineProfileClick = this.onInlineProfileClick.bind(this);
 		this.onMenuItemClick = this.onMenuItemClick.bind(this);
 		this.onRootMenuItemClick = this.onRootMenuItemClick.bind(this);
 		this.changeMenuMode = this.changeMenuMode.bind(this);
@@ -67,6 +69,11 @@ class App extends Component {
 
 	onMenuClick(event) {
 		this.menuClick = true;
+
+		if (this.state.inlineProfileActive && !this.inlineProfileClick && this.isSlim()) {
+			this.setState( {inlineProfileActive: false});
+		}
+		this.inlineProfileClick = false;
 	}
 
 	onMenuButtonClick(event) {
@@ -107,6 +114,20 @@ class App extends Component {
 			this.setState({activeTopbarItem: event.item});
 
 		event.originalEvent.preventDefault();
+	}
+
+	onInlineProfileClick(event) {
+		this.inlineProfileClick = true;
+		this.setState({inlineProfileActive: !this.state.inlineProfileActive});
+
+		if(this.isSlim() && !this.isMobile()) {
+			if (!this.menuClick) {
+				this.setState({menuActive: false})
+
+				this.hideOverlayMenu();
+			}
+			this.menuClick = false;
+		}
 	}
 
 	onMenuItemClick(event) {
@@ -160,6 +181,10 @@ class App extends Component {
 			this.hideOverlayMenu();
 		}
 
+		if (this.state.inlineProfileActive && !this.inlineProfileClick && this.isSlim()) {
+			this.setState( {inlineProfileActive: false});
+		}
+
 		if (!this.configClick) {
 			this.setState({configDialogActive: false});
 		}
@@ -167,6 +192,7 @@ class App extends Component {
 		this.topbarItemClick = false;
 		this.menuClick = false;
 		this.configClick = false;
+		this.inlineProfileClick = false;
 	}
 
 	hideOverlayMenu() {
@@ -174,11 +200,6 @@ class App extends Component {
 			overlayMenuActive: false,
 			staticMenuMobileActive: false
 		})
-	}
-
-	isTablet() {
-		let width = window.innerWidth;
-		return width <= 1024 && width > 640;
 	}
 
 	isDesktop() {
@@ -722,7 +743,8 @@ class App extends Component {
 					</div>
 					<div className="layout-menu-wrapper">
 						<div className="menu-scroll-content">
-							{(this.state.profileMode === 'inline' && this.state.layoutMode !== 'horizontal') && <AppInlineProfile />}
+							{(this.state.profileMode === 'inline' && this.state.layoutMode !== 'horizontal') &&
+							<AppInlineProfile inlineProfileActive={this.state.inlineProfileActive} onInlineProfileClick={this.onInlineProfileClick}/>}
 							<AppMenu model={this.state.grouped ? this.menuGrouped : this.menuUngrouped} onMenuItemClick={this.onMenuItemClick}
 									 onRootMenuItemClick={this.onRootMenuItemClick}
 									 layoutMode={this.state.layoutMode} active={this.state.menuActive}/>

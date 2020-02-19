@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 export class AppInlineProfile extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            expanded: false
-        };
-        this.onClick = this.onClick.bind(this);
+    static defaultProps = {
+        inlineProfileActive: false,
+        onInlineProfileClick: null
     }
 
-    onClick(event) {
-        this.setState({expanded: !this.state.expanded});
-        event.preventDefault();
+    static propTypes = {
+        inlineProfileActive: PropTypes.bool.isRequired,
+        onInlineProfileClick: PropTypes.func.isRequired
+    }
+
+    constructor() {
+        super();
+        this.state = {};
     }
 
     render() {
         return  (
-            <div className={classNames('layout-profile', {'layout-profile-active': this.state.expanded})}>
-                <button className="layout-profile-button p-link" onClick={this.onClick}>
+            <div className={classNames('layout-profile', {'layout-profile-active': this.props.inlineProfileActive})}>
+                <button className="layout-profile-button p-link" onClick={this.props.onInlineProfileClick}>
                     <img src="assets/layout/images/avatar.png" alt="babylon-layout"/>
                     <div className="layout-profile-userinfo">
                         <span className="layout-profile-name">Arlene Welch</span>
@@ -30,25 +33,25 @@ export class AppInlineProfile extends Component {
 
                 <ul className="layout-profile-menu">
                     <li role="menuitem">
-                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.props.inlineProfileActive ? null : '-1'}>
 							<i className="pi pi-user"/>
 							<span>Profile</span>
                         </button>
                     </li>
                     <li role="menuitem">
-                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.props.inlineProfileActive ? null : '-1'}>
 							<i className="pi pi-cog"/>
 							<span>Settings</span>
                         </button>
                     </li>
                     <li role="menuitem">
-                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.props.inlineProfileActive ? null : '-1'}>
 							<i className="pi pi-envelope"/>
 							<span>Messages</span>
                         </button>
                     </li>
                     <li role="menuitem">
-                        <button className="p-link" tabIndex={this.state.expanded ? null : '-1'}>
+                        <button className="p-link" tabIndex={this.props.inlineProfileActive ? null : '-1'}>
 							<i className="pi pi-bell"/>
 							<span>Notifications</span>
                         </button>
