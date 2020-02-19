@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Documentation.css';
+import {CodeHighlight} from "./CodeHighlight";
 
 export class Documentation extends Component {
 
@@ -14,7 +15,7 @@ export class Documentation extends Component {
                 <div className="p-col-12">
                     <div className="card docs no-margin">
                         <h1>Current Version</h1>
-                        <p>React 16.7.0 and PrimeReact 3.0.0</p>
+                        <p>React 16.11.0 and PrimeReact 3.4.x</p>
 
                         <h1>Getting Started</h1>
                         <p>Babylon is an application template for React based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
@@ -23,14 +24,10 @@ export class Documentation extends Component {
                         <pre>
 {
 `npm install
-`}
-</pre>
 
-                        or
+# OR
 
-                        <pre>
-{
-`yarn
+yarn
 `}
 </pre>
 
@@ -40,14 +37,10 @@ export class Documentation extends Component {
                         <pre>
 {
 `npm start
-`}
-</pre>
 
-                        or
+# OR
 
-                        <pre>
-{
-`yarn start
+yarn start
 `}
 </pre>
 
@@ -62,13 +55,13 @@ export class Documentation extends Component {
 </pre>
 
                         <h1>Dependencies</h1>
-                        <p>Only required dependencies are PrimeReact, PrimeIcons PrimeFlex where optional dependencies exist to enable certain components in PrimeReact such as Google Maps.</p>
+                        <p>Dependencies of Babylon are listed below and needs to be added to package.json. Babylon has no direct dependency, even PrimeReact components are an optional dependency.</p>
 
-<pre>
+                        <pre>
 {
-`"primereact": "^3.0.0",             //required: PrimeReact components
-"primeicons": "^1.0.0-beta.10",      //required: Component Icons
-"primeflex": "^1.0.0-rc.1",          //optional: Layout Grid
+`"primereact": "^3.4.0",              //optional: PrimeReact components
+"primeicons": "^2.0.0",              //optional: PrimeReact component icons
+"primeflex": "1.0.0",                //optional: Samples
 "react-router-dom": "^4.2.2"         //optional: Router
 `
 }
@@ -84,7 +77,7 @@ export class Documentation extends Component {
                             App.js component that implements the logic such as menu state, layout modes and so on.
                         </p>
 
-                        <pre>
+                        <CodeHighlight>
 {
 `render() {
     const layoutClassName = classNames('layout-wrapper', {
@@ -118,15 +111,14 @@ export class Documentation extends Component {
                 </div>
 
                 <div className="layout-menu-wrapper">
-                    <ScrollPanel ref={(el) => this.layoutMenuScroller = el} style={{height: '100%'}}>
-                        <div className="menu-scroll-content">
-                            {(this.state.profileMode === 'inline' && this.state.layoutMode !== 'horizontal') && <AppInlineProfile />}
-                            <AppMenu model={this.state.grouped ? this.menuGrouped : this.menuUngrouped} 
-                                onMenuItemClick={this.onMenuItemClick}
-                                onRootMenuItemClick={this.onRootMenuItemClick}
-                                layoutMode={this.state.layoutMode} active={this.state.menuActive}/>
-                        </div>
-                    </ScrollPanel>
+                    <div className="menu-scroll-content">
+                        {(this.state.profileMode === 'inline' && this.state.layoutMode !== 'horizontal') && 
+                        <AppInlineProfile inlineProfileActive={this.state.inlineProfileActive} onInlineProfileClick={this.onInlineProfileClick}/>}
+                        <AppMenu model={this.state.grouped ? this.menuGrouped : this.menuUngrouped} 
+                            onMenuItemClick={this.onMenuItemClick}
+                            onRootMenuItemClick={this.onRootMenuItemClick}
+                            layoutMode={this.state.layoutMode} active={this.state.menuActive}/>
+                    </div>
                 </div>
             </div>
 
@@ -148,6 +140,13 @@ export class Documentation extends Component {
                     <Route path="/documentation" component={Documentation}/>
                 </div>
             </div>
+        
+            <AppConfig layoutMode={this.state.layoutMode} grouped={this.state.grouped} darkMenu={this.state.darkMenu}
+                        profileMode={this.state.profileMode} themeColor={this.state.themeColor}
+                        changeMenuMode={this.changeMenuMode} changeMenuType={this.changeMenuType} changeProfileMode={this.changeProfileMode}
+                        changeMenuColor={this.changeMenuColor} changeTheme={this.changeTheme}
+                        onConfigButtonClick={this.onConfigButtonClick} onConfigCloseClick={this.onConfigCloseClick}
+                        onConfigClick={this.onConfigClick} configDialogActive={this.state.configDialogActive}/>
 
             <AppFooter/>
 
@@ -157,7 +156,7 @@ export class Documentation extends Component {
 }
 `
 }
-</pre>
+</CodeHighlight>
 
                         <h1>Menu</h1>
                         <p>Menu is a separate component defined in AppMenu.js file based on PrimeReact MenuModel API. In order to define the menuitems,
@@ -165,7 +164,7 @@ export class Documentation extends Component {
                             Notice that menu object is bound to the model property of AppMenu component as shown above.</p>
 
 <div style={{height: '400px', overflow: 'auto'}}>
-                        <pre>
+<CodeHighlight lang="js">
 {
 `createMenu() {
     this.menuGrouped = [
@@ -579,7 +578,7 @@ export class Documentation extends Component {
 }
     
 `}
-</pre>
+</CodeHighlight>
 </div>
 
                         <h1>Theme and Layout SASS</h1>
@@ -616,7 +615,7 @@ export class Documentation extends Component {
 
                         <p>Here are the variables required to create a theme.</p>
 
-<pre>
+<CodeHighlight lang="css">
 {
 `//primary color with shades
 $primaryLighterColor:#D1C4E9;
@@ -662,8 +661,8 @@ $clickableContainerHeaderActiveHoverIconColor:$accentColorText;
  
 `
 }
-</pre>
- 
+</CodeHighlight>
+
                         <p> An example sass command to compile the css would be;</p>
 
                         <pre>
@@ -687,7 +686,7 @@ sass --watch public/assets/theme/theme-myown.scss:public/assets/theme/theme-myow
 
                         <p>Here are the variables required to create a layout.</p>
 
-                        <pre>
+                        <CodeHighlight lang="css">
 {
 `$logoBgColor:#FFCA28;
 $topbarBgColor:#FFC107;
@@ -703,13 +702,13 @@ $badgeTextColor:#212121;
 @import '../../sass/layout/_layout';
 `
 }
-</pre>
+</CodeHighlight>
 
                         <h1>Common SASS Variables</h1>
                         <p>In case you'd like to customize the shared variables, the _variables.scss files are where the options are defined for layout and theme.</p>
 
                         <h3>sass/_variables.scss</h3>
-                        <pre>
+                        <CodeHighlight lang="css">
 {
 `$fontFamily:'cabin',sans-serif;
 $fontSize:14px;
@@ -719,9 +718,9 @@ $borderRadius:3px;
 $transitionDuration:.3s;
 `
 }
-</pre> 
+</CodeHighlight>
                         <h3>sass/layout/_variables.scss</h3>
-                        <pre>
+                        <CodeHighlight lang="css">
 {
 `@import '../_variables';
 
@@ -769,11 +768,11 @@ $tooltipBgColor:#212121;
 $tooltipTextColor:#ffffff;
 `
 }
-</pre>
+</CodeHighlight>
 
                         <h3>sass/theme/_variables.scss</h3>
 <div style={{height: '400px', overflow: 'auto'}}>
-<pre>
+<CodeHighlight lang="css">
 {
 `@import '../_variables';
 $primeIconFontSize:1.143em;
@@ -1244,6 +1243,22 @@ $submenuPadding: 0;
 $overlayMenuBorder:1px solid #e0e0e0;
 $overlayMenuShadow:0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
+//carousel
+$carouselNavButtonsBgColor: #ffffff;
+$carouselNavButtonsBorder: solid 1px rgba(178, 193, 205, 0.64);
+$carouselNavButtonsBorderRadius: 3px;
+$carouselNavButtonsMargin: .2em;
+$carouselNavButtonsColor: $textColor;
+$carouselNavButtonsHoverBgColor: #ffffff;
+$carouselNavButtonsHoverColor: $primaryColor;
+$carouselNavButtonsHoverBorderColor: solid 1px rgba(178, 193, 205, 0.64);
+$carouselNavButtonsTransition: color $transitionDuration;
+$carouselDotIconWidth: 20px;
+$carouselDotIconHeight: 6px;
+$carouselDotIconBgColor: #b2c1cd;
+$carouselDotIconMargin: 0 .2em;
+$carouselActiveDotIconBgColor: $primaryColor;
+
 //misc
 $maskBgColor:rgba(139, 139, 144, 0.72);   //dialog mask
 $inlineSpacing:.429em;                    //spacing between inline elements
@@ -1255,7 +1270,7 @@ $dataIconHoverColor:$textColor;           //hover icon color of a data such as t
 $disabledOpacity:.5;                      //opacity of a disabled item
 `
 }
-</pre>
+</CodeHighlight>
 </div>
 
                         <p>In the demo app layout and theme css files are defined using link tags in index.html so the demo can switch them on the fly by changing the path however if this is not a requirement, you may also import them in App.js so that webpack adds them to the bundle.</p>
@@ -1263,7 +1278,7 @@ $disabledOpacity:.5;                      //opacity of a disabled item
                         <h1>Menu Modes</h1>
                         <p>Menu has 4 modes, static, overlay, slim and horizontal. Layout container element in App.js is used to define which mode to use by adding specific classes. List
                         below indicates the style classes for each mode.</p>
-                        
+
                         <ul>
                             <li>Static: <b>layout-wrapper layout-static</b></li>
                             <li>Overlay: <b>layout-wrapper layout-overlay</b></li>
@@ -1283,19 +1298,19 @@ $disabledOpacity:.5;                      //opacity of a disabled item
 
                         <h1>PrimeFlex Grid System</h1>
                         <p>Babylon uses PrimeFlex Grid System throughout the samples, although any Grid library can be used we suggest using PrimeFlex as your grid system as it is well tested and supported by PrimeReact. PrimeFlex is
-                        available at npm and defined at package.json of PrimeReact so that it gets installed by default.</p> 
+                        available at npm and defined at package.json of PrimeReact so that it gets installed by default.</p>
 
                         <h1>Customizing Styles</h1>
                         <p>It is suggested to write your customizations in the scss files under the <i>sass/overrides</i> folder for seamless updates
                         as these files are empty by default and never updated.</p>
-                        
+
                         <ul>
                             <li>_layout_styles: Customizations for the layout</li>
                             <li>_layout_variables: Overrides of layout variables</li>
                             <li>_theme_styles: Customizations for the theme</li>
                             <li>_theme_variables: Overrides of theme variables</li>
                         </ul>
-                    
+
                     </div>
                 </div>
             </div>

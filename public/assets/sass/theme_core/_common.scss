@@ -10,7 +10,7 @@ body {
         font-size: $fontSize;
         text-decoration: none;
     }
-    
+
     a {
         color: $linkColor;
         text-decoration: none;
@@ -39,6 +39,21 @@ body {
 
         &:focus {
             @include focused();
-        } 
+        }
+    }
+
+    /* Code Highlight */
+    .docs {
+        pre[class*="language-"] {
+            padding: 0 !important;
+            border-left: none;
+            @include shadow(none);
+
+            > code {
+                border-left: 10px solid lighten($primaryColor, 15%);
+                box-shadow: none;
+                font-size: 14px;
+            }
+        }
     }
 }
