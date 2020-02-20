@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Error from "./pages/Error";
 import NotFound from "./pages/NotFound";
 import Access from "./pages/Access";
+import {Wizard} from "./pages/Wizard";
 
 class AppWrapper extends Component {
 	componentDidUpdate(prevProps) {
@@ -23,6 +24,8 @@ class AppWrapper extends Component {
 				return <Route path="/notfound" component={NotFound}/>
 			case "/access":
 				return <Route path="/access" component={Access}/>
+			case "/wizard":
+				return <Route path="/wizard" component={Wizard}/>
 			default:
 				return <App/>;
 		}

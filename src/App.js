@@ -20,6 +20,8 @@ import {ChartsDemo} from './components/ChartsDemo';
 import {MiscDemo} from './components/MiscDemo';
 import {EmptyPage} from './components/EmptyPage';
 import {Documentation} from './components/Documentation';
+import {Help} from './pages/Help';
+import {Invoice} from "./pages/Invoice";
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
@@ -642,6 +644,9 @@ class App extends Component {
 				label: 'Pages', icon: 'pi pi-fw pi-copy',
 				items: [
 					{label: 'Empty Page', icon: 'pi pi-fw pi-clone', to: '/empty'},
+					{label: 'Invoice', icon: 'pi pi-fw pi-compass', to: '/invoice'},
+					{label: 'Help Page', icon: 'pi pi-fw pi-question-circle', to: '/help'},
+					{label: 'Wizard', icon: 'pi pi-fw pi-star', to: '/wizard'},
 					{label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
 					{label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login'},
 					{label: 'Error', icon: 'pi pi-fw pi-exclamation-triangle', to: '/error'},
@@ -768,6 +773,8 @@ class App extends Component {
 						<Route path="/misc" component={MiscDemo}/>
 						<Route path="/empty" component={EmptyPage}/>
 						<Route path="/documentation" component={Documentation}/>
+						<Route path="/help" component={Help} />
+						<Route path="/invoice" component={Invoice} />
 					</div>
 				</div>
 
