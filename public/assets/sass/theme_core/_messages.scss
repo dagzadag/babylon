@@ -6,16 +6,16 @@ body {
         .p-messages-wrapper {
             padding: $messagesPadding;
         }
-        
+
         &.p-messages-info {
             background-color: $infoMessageBgColor;
             border: $infoMessageBorder;
             color: $infoMessageTextColor;
-            
+
             .p-messages-icon {
                 color: $infoMessageIconColor;
             }
-            
+
             .p-messages-close {
                 color:  $infoMessageIconColor;
             }
@@ -25,11 +25,11 @@ body {
             background-color: $successMessageBgColor;
             border: $successMessageBorder;
             color: $successMessageTextColor;
-            
+
             .p-messages-icon {
                 color: $successMessageIconColor;
             }
-            
+
             .p-messages-close {
                 color:  $successMessageIconColor;
             }
@@ -39,11 +39,11 @@ body {
             background-color: $warnMessageBgColor;
             border: $warnMessageBorder;
             color: $warnMessageTextColor;
-            
+
             .p-messages-icon {
                 color: $warnMessageIconColor;
             }
-            
+
             .p-messages-close {
                 color:  $warnMessageIconColor;
             }
@@ -53,16 +53,16 @@ body {
             background-color: $errorMessageBgColor;
             border: $errorMessageBorder;
             color: $errorMessageTextColor;
-            
+
             .p-messages-icon {
                 color: $errorMessageIconColor;
             }
-            
+
             .p-messages-close {
                 color:  $errorMessageIconColor;
             }
         }
-        
+
         .p-messages-close {
             top: .25em;
             right: .5em;
@@ -84,12 +84,12 @@ body {
         padding: $messagePadding;
         margin: $messageMargin;
         @include border-radius($borderRadius);
-        
+
         &.p-message-info {
             background-color: $infoMessageBgColor;
             border: $infoMessageBorder;
             color: $infoMessageTextColor;
-            
+
             .p-message-icon {
                 color: $infoMessageIconColor;
             }
@@ -99,7 +99,7 @@ body {
             background-color: $successMessageBgColor;
             border: $successMessageBorder;
             color: $successMessageTextColor;
-            
+
             .p-message-icon {
                 color: $successMessageIconColor;
             }
@@ -109,7 +109,7 @@ body {
             background-color: $warnMessageBgColor;
             border: $warnMessageBorder;
             color: $warnMessageTextColor;
-            
+
             .p-message-icon {
                 color: $warnMessageIconColor;
             }
@@ -119,7 +119,7 @@ body {
             background-color: $errorMessageBgColor;
             border: $errorMessageBorder;
             color: $errorMessageTextColor;
-            
+
             .p-message-icon {
                 color: $errorMessageIconColor;
             }
@@ -133,11 +133,11 @@ body {
             font-size: $messageTextFontSize;
         }
     }
-        
+
     .p-growl {
         top: $growlTopLocation;
         @include opacity($growlOpacity);
-        
+
         .p-growl-item-container {
             margin: $growlMargin;
             @include shadow($growlShadow);
@@ -145,59 +145,55 @@ body {
             .p-growl-item {
                 padding: $growlPadding;
 
-                .p-growl-message {
-                    margin: $growlMessageTextMargin;
-                }
-    
                 .p-growl-image {
                     font-size: $growlIconFontSize;
                 }
             }
-            
+
             &.p-growl-message-info {
                 background-color: $infoMessageBgColor;
                 border: $infoMessageBorder;
                 color: $infoMessageTextColor;
-                
+
                 .p-growl-image,
                 .p-growl-icon-close {
                     color: $infoMessageIconColor;
                 }
-            }  
+            }
 
             &.p-growl-message-success {
                 background-color: $successMessageBgColor;
                 border: $successMessageBorder;
                 color: $successMessageTextColor;
-                
+
                 .p-growl-image,
                 .p-growl-icon-close {
                     color: $successMessageIconColor;
                 }
-            }  
-            
+            }
+
             &.p-growl-message-warn {
                 background-color: $warnMessageBgColor;
                 border: $warnMessageBorder;
                 color: $warnMessageTextColor;
-                
+
                 .p-growl-image,
                 .p-growl-icon-close {
                     color: $warnMessageIconColor;
                 }
             }
-            
+
             &.p-growl-message-error {
                 background-color: $errorMessageBgColor;
                 border: $errorMessageBorder;
                 color: $errorMessageTextColor;
-                
+
                 .p-growl-image,
                 .p-growl-icon-close {
                     color: $errorMessageIconColor;
                 }
             }
-        
+
         }
     }
 
@@ -210,42 +206,42 @@ body {
                 background-color: $infoMessageBgColor;
                 border: $infoMessageBorder;
                 color: $infoMessageTextColor;
-                
+
                 .p-toast-close-icon {
                     color: $infoMessageTextColor;
                 }
             }
-    
+
             &.p-toast-message-success {
                 background-color: $successMessageBgColor;
                 border: $successMessageBorder;
                 color: $successMessageTextColor;
-                
+
                 .p-toast-close-icon {
                     color: $successMessageIconColor;
                 }
             }
-    
+
             &.p-toast-message-warn {
                 background-color: $warnMessageBgColor;
                 border: $warnMessageBorder;
                 color: $warnMessageTextColor;
-                
+
                 .p-toast-close-icon {
                     color: $warnMessageTextColor;
                 }
             }
-    
+
             &.p-toast-message-error {
                 background-color: $errorMessageBgColor;
                 border: $errorMessageBorder;
                 color: $errorMessageTextColor;
-                
+
                 .p-toast-close-icon {
                     color: $errorMessageTextColor;
                 }
             }
         }
     }
-    
+
 }

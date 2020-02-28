@@ -15,7 +15,7 @@ export class Documentation extends Component {
                 <div className="p-col-12">
                     <div className="card docs no-margin">
                         <h1>Current Version</h1>
-                        <p>React 16.11.0 and PrimeReact 3.4.x</p>
+                        <p>React 16.13.0 and PrimeReact 4.x</p>
 
                         <h1>Getting Started</h1>
                         <p>Babylon is an application template for React based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
@@ -1309,6 +1309,18 @@ $disabledOpacity:.5;                      //opacity of a disabled item
                             <li>_layout_variables: Overrides of layout variables</li>
                             <li>_theme_styles: Customizations for the theme</li>
                             <li>_theme_variables: Overrides of theme variables</li>
+                        </ul>
+
+                        <h1>Migration Guide</h1>
+                        <p>1.0.0 to 4.0.0</p>
+                        <ul>
+                            <li>Update index.jx</li>
+                            <li>Update App.js</li>
+                            <li>Update AppInlineProfile.js</li>
+                            <li>Update AppMenu.js</li>
+                            <li>Update AppWrapper.js</li>
+                            <li>Update layout css files</li>
+                            <li>Update theme css files</li>
                         </ul>
 
                     </div>
