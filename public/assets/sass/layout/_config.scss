@@ -36,6 +36,7 @@
             width: 52px;
             height: 52px;
             line-height: 52px;
+            border: 1px solid #fafafa;
             background-color: #fafafa;
             text-align: center;
             top: 230px;
@@ -161,12 +162,17 @@
                         font-weight: bold;
                         color: $topbarBgColor;
                         position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        margin-top: -20px;
+                        margin-left: -20px;
                         @include border-radius(50%);
                         background-color: #ffffff;
                         width: 40px;
                         line-height: 40px;
                         height: 40px;
                         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                        z-index: 1;
                     }
 
                     &.layout-config-option {
@@ -234,14 +240,15 @@
         right: 32px;
         top: 10px;
         padding: 0;
+        border: 1px solid #e54a51;
         background-color: #e0284f;
         @include border-radius(50%);
         @include transition(background-color $transitionDuration);
 
         i {
             color: #ffffff;
-            line-height: inherit;
             font-size: 20px;
+            padding: 1px 2px;
         }
 
         &:hover {

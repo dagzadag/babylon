@@ -35,6 +35,8 @@ body {
     .p-link {
         font-size: $fontSize;
         font-family: $fontFamily;
+        background: transparent;
+        background-color: transparent;
         @include border-radius($borderRadius);
 
         &:focus {
