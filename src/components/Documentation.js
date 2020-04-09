@@ -1312,6 +1312,12 @@ $disabledOpacity:.5;                      //opacity of a disabled item
                         </ul>
 
                         <h1>Migration Guide</h1>
+                        <p>4.0.1 to 4.0.2</p>
+                        <ul>
+                            <li>Update layout css files</li>
+                            <li>Update theme css files</li>
+                        </ul>
+
                         <p>4.0.0 to 4.0.1</p>
                         <ul>
                             <li>Update App.js</li>
