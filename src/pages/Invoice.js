@@ -16,9 +16,7 @@ export class Invoice extends Component {
 							</div>
 							<div className="invoice-logo">
 								<img src="assets/layout/images/extensions/prime-logo.svg" alt="babylon-layout"/>
-								<p>Bilkent Cyberpark, Cyberplaza, 1605 St,
-									<br/>
-									Vakıf Building, Ankara, Turkey</p>
+								<p>9137 3rd Lane California City, CA 93504.</p>
 							</div>
 						</div>
 						<div className="invoice-table-1 bill-to">
@@ -123,10 +121,10 @@ export class Invoice extends Component {
 									</div>
 									<div className="p-col-6">
 										<div className="invoice-table-col content-col">
-											<span>YAPI KREDI</span>
-											<span>BABYLON ARLENE WELCH </span>
-											<span>YAPITRISSXXX</span>
-											<input value="TR160206701000400090903505" readOnly={true}/>
+											<span>BestBank</span>
+											<span>Edward Williams</span>
+											<span>PJNWBXND</span>
+											<input value="GB04420235692263866724650931" readOnly={true}/>
 										</div>
 									</div>
 								</div>
