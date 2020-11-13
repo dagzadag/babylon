@@ -1,6 +1,6 @@
 {
 	"name": "babylon",
-	"version": "4.0.3",
+	"version": "5.0.0-SNAPSHOT",
 	"homepage": ".",
 	"private": true,
 	"dependencies": {
