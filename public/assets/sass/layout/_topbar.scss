@@ -9,7 +9,7 @@
         padding: 8px 25px;
         background-color: $topbarBgColor;
         @include clearfix();
-        @include shadow(0 3px 6px 0 rgba(0, 0, 0, 0.16));
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
         .layout-topbar-logo {
             display: none;
@@ -28,20 +28,16 @@
             line-height: 44px;
             text-align: center;
             color: $topbarIconColor;
-            @include border-radius(50%);
-            @include transition(background-color $transitionDuration);
+            border-radius: 50%;
+            transition: background-color $transitionDuration;
 
             i {
                 line-height: inherit;
-                font-size: 28px;
+                font-size: 24px;
             }
 
             &:hover {
                 background-color: $topbarIconHoverBgColor;
-            }
-
-            &:focus {
-                @include shadow(0 0 0 0 $topbarIconHoverBgColor)
             }
         }
 
@@ -54,21 +50,17 @@
             display: none;
             float: right;
             text-align: center;
+            border-radius: 50%;
             color: $topbarIconColor;
-            @include border-radius(50%);
-            @include transition(background-color $transitionDuration);
+            transition: background-color $transitionDuration;
 
             i {
                 line-height: inherit;
-                font-size: 28px;
+                font-size: 24px;
             }
 
             &:hover {
                 background-color: $topbarIconHoverBgColor;
-            }
-
-            &:focus {
-                @include shadow(0 0 0 0 $topbarIconHoverBgColor)
             }
         }
 
@@ -77,12 +69,12 @@
             padding: 0;
             margin: 0;
             list-style-type: none;
-            
+
             > li {
                 float: right;
                 position: relative;
                 margin-left: 14px;
-                
+
                 > button {
                     cursor: pointer;
                     position: relative;
@@ -91,13 +83,13 @@
                     height: 44px;
                     line-height: 44px;
                     text-align: center;
-                    @include border-radius(50%);
-                    @include transition(background-color $transitionDuration);
-                    
+                    border-radius: 50%;
+                    transition: background-color $transitionDuration;
+
                     .topbar-icon {
                         color: $topbarIconColor;
                         line-height: inherit;
-                        font-size: 28px;
+                        font-size: 24px;
                     }
 
                     > img {
@@ -109,14 +101,10 @@
                         background-color: $topbarIconHoverBgColor;
                     }
 
-                    &:focus {
-                        @include shadow(0 0 0 0 $topbarIconHoverBgColor)
-                    }
-                    
                     .topbar-item-name {
                         display: none;
                     }
-                    
+
                     .topbar-badge {
                         position: absolute;
                         right: 4px;
@@ -132,23 +120,40 @@
                         border-radius: 100%;
                     }
                 }
-            
+
                 > ul {
                     position: absolute;
                     border: 1px solid $topbarMenuBorderColor;
                     top: 55px;
                     right: -18px;
+                    margin: 0;
                     display: none;
                     min-width: 250px;
-                    background-color: $topbarMenuBgColor;
-                    -webkit-animation-duration: $transitionDuration;
-                    -moz-animation-duration: $transitionDuration;
-                    animation-duration: $transitionDuration;
-                    list-style-type: none;
-                    margin: 0;
                     padding: 8px 12px;
-                    @include border-radius($borderRadius);
-                    @include shadow(0 2px 10px 0 rgba(0, 3, 6, 0.16));
+                    list-style-type: none;
+                    background-color: $topbarMenuBgColor;
+                    animation-duration: $transitionDuration;
+                    border-radius: $borderRadius;
+                    box-shadow: 0 2px 10px 0 rgba(0, 3, 6, 0.16);
+
+
+                    &.layout-submenu-container-enter {
+                        max-height: 0;
+                        display: none;
+                    }
+
+                    &.layout-submenu-container-enter-active{
+                        max-height: 500px;
+                    }
+
+                    &.layout-submenu-container-exit {
+                        max-height: 500px;
+                    }
+
+                    &.layout-submenu-container-exit-active {
+                        max-height: 0;
+                        display: none;
+                    }
 
                     &:before, &:after {
                         bottom: 100%;
@@ -174,7 +179,7 @@
                         border-width: 9px;
                         margin-left: -9px;
                     }
-                    
+
                     button {
                         box-sizing: border-box;
                         padding: 8px 12px;
@@ -183,23 +188,23 @@
                         width: 100%;
                         color: $menuitemTextColor;
                         position: relative;
-                        @include transition(background-color $transitionDuration);
-                        @include  border-radius($borderRadius);
-                        
+                        border-radius: $borderRadius;
+                        transition: background-color $transitionDuration;
+
                         i {
                             margin-right: 8px;
                             color: $menuitemIconColor;
                         }
-                        
+
                         img {
                             margin-right: 8px;
                             width: 24px;
                         }
-                        
+
                         i,img,span {
                             vertical-align: middle;
                         }
-                        
+
                         .topbar-submenuitem-badge {
                             background-color: $topbarBadgeBgColor;
                             color: $topbarBadgeTextColor;
@@ -212,17 +217,13 @@
                             display: inline-block;
                             margin-left: 8px;
                         }
-                        
+
                         &:hover {
                             background-color: $menuitemHoverBgColor;
                         }
-
-                        &:focus {
-                            @include shadow(0 0 0 0 $menuitemHoverBgColor)
-                        }
                     }
                 }
-                
+
                 &.active-topmenuitem {
                     > ul {
                         display: block;
@@ -253,18 +254,15 @@
                 top: 70px;
                 right: 25px;
                 width: 250px;
-                -webkit-animation-duration: $transitionDuration;
-                -moz-animation-duration: $transitionDuration;
                 animation-duration: $transitionDuration;
                 display: none;
                 list-style-type: none;
                 margin: 0;
                 padding: 8px 12px;
-                @include shadow(0 2px 10px 0 rgba(0, 3, 6, 0.16));
+                box-shadow: 0 2px 10px 0 rgba(0, 3, 6, 0.16);
 
                 &:before, &:after {
                     bottom: 100%;
-                    left: 50%;
                     border: solid transparent;
                     content: " ";
                     height: 0;
@@ -291,7 +289,7 @@
                 &.topbar-menu-visible {
                     display: block;
                 }
-                
+
                 > li {
                     width: 100%;
                     margin: 0;
@@ -313,7 +311,7 @@
                             }
                         }
                     }
-                    
+
                     button {
                         box-sizing: border-box;
                         height: auto;
@@ -323,9 +321,9 @@
                         padding: 8px 12px;
                         position: relative;
                         text-align: left;
-                        @include border-radius($borderRadius);
-                        @include transition(background-color $transitionDuration);
-                        
+                        border-radius: $borderRadius;
+                        transition: background-color $transitionDuration;
+
                         .topbar-icon {
                             display: inline-block;
                             vertical-align: middle;
@@ -333,22 +331,18 @@
                             font-size: 16px;
                             color: $menuitemIconColor;
                         }
-                        
+
                         &:hover {
                             background-color: $menuitemHoverBgColor;
                             color: $textColor;
                         }
 
-                        &:focus {
-                            @include shadow(0 0 0 0 $menuitemHoverBgColor)
-                        }
-                        
                         .topbar-item-name {
                             display: inline-block;
                             vertical-align: middle;
                             color: $menuitemTextColor;
                         }
-                                        
+
                         .topbar-badge {
                             background-color: $topbarBadgeBgColor;
                             color: $topbarBadgeTextColor;
@@ -363,7 +357,7 @@
                             margin-left: 8px;
                         }
                     }
-                    
+
                     > ul {
                         display: none;
                         list-style-type: none;
@@ -375,12 +369,12 @@
                         width: 100%;
                         min-width: auto;
                         border: 0 none;
-                        @include shadow(none);
+                        box-shadow: none;
 
                         &:before, &:after {
                             display: none;
                         }
-                        
+
                         li {
                             button {
                                 padding-left: 28px;
@@ -392,7 +386,7 @@
                         }
                     }
                 }
-            }                
+            }
         }
     }
 }

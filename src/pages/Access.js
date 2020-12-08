@@ -1,17 +1,18 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class Access extends Component {
+const Access = () => {
+    return (
+        <div className="exception-body access-denied">
+            <div className="exception-panel"></div>
 
-	render() {
-		return <div className="exception-body access-denied">
-			<div className="exception-panel"></div>
-
-			<div className="exception-content">
-				<img src="assets/layout/images/logo-black.png" alt="babylon-layout"/>
-				<h1><span className="exception-name">ACCESS</span> DENIED</h1>
-				<p>You don't have the necessary permissions.</p>
-				<a href="/#">Back to Dashboard</a>
-			</div>
-		</div>
-	}
+            <div className="exception-content">
+                <img src="assets/layout/images/logo-black.png" alt="babylon-layout" />
+                <h1><span className="exception-name">ACCESS</span> DENIED</h1>
+                <p>You don't have the necessary permissions.</p>
+                <a href="/#">Back to Dashboard</a>
+            </div>
+        </div>
+    );
 }
+
+export default Access;

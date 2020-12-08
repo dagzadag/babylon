@@ -12,20 +12,15 @@
         text-align: right;
 
         button {
-            color: $textSecondaryColor; 
+            color: $textSecondaryColor;
             font-size: 24px;
             margin-right: 16px;
             display: inline-block;
-            margin-top: 6px;
-            @include transition(color $transitionDuration);
+            transition: color $transitionDuration;
 
             &:hover {
                 color: $textColor;
             }
-
-            &:focus {
-                @include shadow(0 0 0 0 $textColor);
-            }
         }
-    }    
+    }
 }

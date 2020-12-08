@@ -1,30 +1,37 @@
-import React, {Component} from 'react';
-import {InputText} from 'primereact/inputtext';
-import {Button} from "primereact/button";
+import React from 'react';
+import { InputText } from 'primereact/inputtext';
+import { Button } from "primereact/button";
+import { useHistory } from 'react-router-dom';
 
-export default class Login extends Component {
+const Login = () => {
 
-	render() {
-		return <div className="login-body">
+    const history = useHistory();
 
-			<div className="login-panel"></div>
+    return (
+        <div className="login-body">
 
-			<div className="login-content">
-				<img src="assets/layout/images/logo-black.png" alt="babylon-layout"/>
+            <div className="login-panel"></div>
 
-				<h1><span>SIGN IN</span> TO BABYLON</h1>
-				<p>Welcome, please use the form to sign-in.</p>
+            <div className="login-content">
+                <img src="assets/layout/images/logo-black.png" alt="babylon-layout" />
 
-				<div className="login-input-wrapper">
-					<InputText placeholder="Username"/>
-				</div>
+                <h1><span>SIGN IN</span> TO BABYLON</h1>
+                <p>Welcome, please use the form to sign-in.</p>
 
-				<div className="login-input-wrapper">
-					<InputText placeholder="Password"/>
-				</div>
+                <div className="login-input-wrapper">
+                    <InputText placeholder="Username" />
+                    <i className="pi pi-user"></i>
+                </div>
 
-				<Button label="Sign In" onClick={() => {window.location = "/#"}} />
-			</div>
-		</div>
-	}
+                <div className="login-input-wrapper">
+                    <InputText placeholder="Password" />
+                    <i className="pi pi-lock"></i>
+                </div>
+
+                <Button label="Sign In" onClick={() => { history.push('/') }} />
+            </div>
+        </div>
+    )
 }
+
+export default Login;

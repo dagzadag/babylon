@@ -40,7 +40,7 @@
                 }
             }
         }
-        
+
         #header {
             border-bottom: 1px solid #d8d8dc;
 
@@ -54,13 +54,10 @@
 
                 #landing-menu-button {
                     display: none;
-                    background-color: #ffffff;
-                    border: 0 none;
+                    color: #000000;
                     float: right;
-
-                    .pi {
-                        font-size: 2.143em;
-                    }
+                    margin-top: 8px;
+                    text-align: center;
 
                     img {
                         width: 6px;
@@ -116,14 +113,14 @@
                 .feature-box {
                     padding: 24px;
                     @include shadow(0 3px 6px 0 rgba(0, 0, 0, 0.08));
-    
+
                     h3 {
                         font-size: 21px;
                         font-weight: 700;
                         color: #252529;
                         margin: 8px 0;
                     }
-    
+
                     p {
                         margin: 0;
                         font-size: 15px;
@@ -138,7 +135,7 @@
             border-top: 5px solid $topbarBgColor;
             background-color: #f2f2f2;
             position: relative;
-            
+
             h1 {
                 font-size: 28px;
                 color: #252529;
@@ -208,10 +205,9 @@
                 }
 
                 ul {
-                    list-style-type: circle;
+                    list-style-type: none;
                     margin: 0;
                     padding: 0;
-                    text-align: left;
 
                     li {
                         padding: 12px;
@@ -294,7 +290,7 @@
                         font-size: 22px;
                         margin-right: 18px;
                     }
-                }              
+                }
             }
         }
     }
@@ -310,7 +306,7 @@
                     background-size: 35%;
                 }
             }
-        }       
+        }
     }
 }
 
@@ -335,11 +331,11 @@
                 margin: 0;
                 z-index: 999;
                 @include transition(right $transitionDuration);
-    
+
                 > li {
                     display: block;
                     margin: 0;
-    
+
                     a {
                         font-size: 18px;
                         display: block;
@@ -393,7 +389,7 @@
                 padding-left: 20px;
                 padding-right: 20px;
 
-                .multimedia-container {
+                .video-container {
                     iframe {
                         width: auto;
                         height: auto;
@@ -405,16 +401,16 @@
                 padding-left: 20px;
                 padding-right: 20px;
                 text-align: center;
-        
+
                 .footer-menu {
                     span {
                         text-align: center;
                     }
-    
-                            
+
+
                 }
             }
-        }       
+        }
     }
 }
 
@@ -433,6 +429,6 @@
                     }
                 }
             }
-        }       
+        }
     }
 }
