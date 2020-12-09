@@ -6,20 +6,20 @@ const AppFooter = () => {
         <div className="layout-footer">
             <div className="p-grid">
                 <div className="p-col-6">
-                    <a href="/" className="logo-container">
+                    <button type="button" className="p-link logo-container">
                         <img src="assets/layout/images/logo-black.png" alt="babylon-layout" />
-                    </a>
+                    </button>
                 </div>
                 <div className="p-col-6 footer-icons">
-                    <a href="#">
+                    <button type="button" className="p-link">
                         <i className="pi pi-home"></i>
-                    </a>
-                    <a href="#">
+                    </button>
+                    <button type="button" className="p-link">
                         <i className="pi pi-globe"></i>
-                    </a>
-                    <a href="#">
+                    </button>
+                    <button type="button" className="p-link">
                         <i className="pi pi-envelope"></i>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>

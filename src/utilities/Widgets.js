@@ -399,28 +399,28 @@ export const Widgets = () => {
                         </li>
                         <li>
                             <span>
-                                <img src="assets/demo/images/product/bamboo-watch.jpg" alt="diamond-layout" />
+                                <img src="assets/demo/images/product/bamboo-watch.jpg" alt="babylon-layout" />
                                 <span>Bamboo Watch</span>
                             </span>
                             <span className="listitem-value">82</span>
                         </li>
                         <li>
                             <span>
-                                <img src="assets/demo/images/product/blue-band.jpg" alt="diamond-layout" />
+                                <img src="assets/demo/images/product/blue-band.jpg" alt="babylon-layout" />
                                 <span>Blue Band</span>
                             </span>
                             <span className="listitem-value">75</span>
                         </li>
                         <li>
                             <span>
-                                <img src="assets/demo/images/product/game-controller.jpg" alt="diamond-layout" />
+                                <img src="assets/demo/images/product/game-controller.jpg" alt="babylon-layout" />
                                 <span>Game Controller</span>
                             </span>
                             <span className="listitem-value">64</span>
                         </li>
                         <li>
                             <span>
-                                <img src="assets/demo/images/product/lime-band.jpg" alt="diamond-layout" />
+                                <img src="assets/demo/images/product/lime-band.jpg" alt="babylon-layout" />
                                 <span>Lime Band</span>
                             </span>
                             <span className="listitem-value">62</span>
