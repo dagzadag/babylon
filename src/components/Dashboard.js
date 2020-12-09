@@ -100,7 +100,7 @@ export const Dashboard = () => {
 
     const fullCalendarOptions = {
         plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
-        defaultDate: '2017-02-12',
+        defaultDate: '2019-01-01',
         header: {
             left: 'prev,next,today',
             center: 'title',
@@ -322,12 +322,12 @@ export const Dashboard = () => {
                                     <span className="team-member">Arlene Welch</span>
                                     <span className="team-member-role">Design</span>
                                 </div>
-                                <a href="#">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-comment"></i>
-                                </a>
-                                <a href="#">
+                                </button>
+                                <button type="button" className="p-link">
                                     <i className="pi pi-share-alt"></i>
-                                </a>
+                                </button>
                             </li>
                             <li>
                                 <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
@@ -335,12 +335,12 @@ export const Dashboard = () => {
                                     <span className="team-member">John Swisher</span>
                                     <span className="team-member-role">Development</span>
                                 </div>
-                                <a href="#">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-comment"></i>
-                                </a>
-                                <a href="#">
+                                </button>
+                                <button type="button" className="p-link">
                                     <i className="pi pi-share-alt"></i>
-                                </a>
+                                </button>
                             </li>
                             <li>
                                 <img src="assets/layout/images/avatar-julia.png" alt="babylon-layout" />
@@ -348,12 +348,12 @@ export const Dashboard = () => {
                                     <span className="team-member">Warren Shaw</span>
                                     <span className="team-member-role">Sales</span>
                                 </div>
-                                <a href="#">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-comment"></i>
-                                </a>
-                                <a href="#">
+                                </button>
+                                <button type="button" className="p-link">
                                     <i className="pi pi-share-alt"></i>
-                                </a>
+                                </button>
                             </li>
                             <li>
                                 <img src="assets/layout/images/avatar-kevin.png" alt="babylon-layout" />
@@ -361,12 +361,12 @@ export const Dashboard = () => {
                                     <span className="team-member">Kevin Lane</span>
                                     <span className="team-member-role">Marketing</span>
                                 </div>
-                                <a href="#">
+                                <button type="button" className="p-link">
                                     <i className="pi pi-comment"></i>
-                                </a>
-                                <a href="#">
+                                </button>
+                                <button type="button" className="p-link">
                                     <i className="pi pi-share-alt"></i>
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </div>
