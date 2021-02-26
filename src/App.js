@@ -13,6 +13,7 @@ import { Dashboard } from './components/Dashboard';
 import { FormLayoutDemo } from './components/FormLayoutDemo';
 import { InputDemo } from './components/InputDemo';
 import { FloatLabelDemo } from './components/FloatLabelDemo';
+import { InvalidStateDemo } from './components/InvalidStateDemo';
 import { ButtonDemo } from './components/ButtonDemo';
 import { TableDemo } from './components/TableDemo';
 import { ListDemo } from './components/ListDemo';
@@ -37,11 +38,12 @@ import { DisplayDemo } from './utilities/DisplayDemo';
 import { FlexBoxDemo } from './utilities/FlexBoxDemo';
 import { CrudDemo } from './pages/CrudDemo';
 import { CalendarDemo } from './pages/CalendarDemo';
+import { TimelineDemo } from './pages/TimelineDemo';
 import { Invoice } from './pages/Invoice';
 import { Help } from './pages/Help';
 import { EmptyPage } from './pages/EmptyPage';
 
-import PrimeReact from 'primereact/utils';
+import PrimeReact from 'primereact/api';
 
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -73,57 +75,59 @@ const App = () => {
         {
             label: 'Home Page', icon: 'pi pi-fw pi-home',
             items: [
-                {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'}
+                { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }
             ]
         },
         {
             label: 'UI Kit', icon: 'pi pi-fw pi-sitemap',
             items: [
-                {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout'},
-                {label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input'},
-                {label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/floatlabel'},
-                {label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button', class: 'rotated-icon'},
-                {label: 'Table', icon: 'pi pi-fw pi-table', to: '/table'},
-                {label: 'List', icon: 'pi pi-fw pi-list', to: '/list'},
-                {label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree'},
-                {label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel'},
-                {label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay'},
-                {label: "Media", icon: "pi pi-fw pi-image", to: "/media"},
-                {label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/menu'},
-                {label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages'},
-                {label: 'File', icon: 'pi pi-fw pi-file', to: '/file'},
-                {label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/chart'},
-                {label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/misc'},
+                { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout' },
+                { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input' },
+                { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/floatlabel' },
+                { label: 'InvalidState', icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
+                { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button', class: 'rotated-icon' },
+                { label: 'Table', icon: 'pi pi-fw pi-table', to: '/table' },
+                { label: 'List', icon: 'pi pi-fw pi-list', to: '/list' },
+                { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree' },
+                { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel' },
+                { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay' },
+                { label: "Media", icon: "pi pi-fw pi-image", to: "/media" },
+                { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/menu' },
+                { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages' },
+                { label: 'File', icon: 'pi pi-fw pi-file', to: '/file' },
+                { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/chart' },
+                { label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/misc' },
             ]
         },
         {
-            label: "Utilities", icon:'pi pi-fw pi-globe',
+            label: "Utilities", icon: 'pi pi-fw pi-globe',
             items: [
-                {label: 'Display', icon:'pi pi-fw pi-desktop', to:'/display'},
-                {label: 'Elevation', icon:'pi pi-fw pi-external-link', to:'/elevation'},
-                {label: 'Flexbox', icon:'pi pi-fw pi-directions', to:'/flexbox'},
-                {label: 'Icons', icon:'pi pi-fw pi-search', to:'/icons'},
-                {label: 'Widgets', icon:'pi pi-fw pi-star-o', to:'/widgets'},
-                {label: 'Grid System', icon:'pi pi-fw pi-th-large', to:'/grid'},
-                {label: 'Spacing', icon:'pi pi-fw pi-arrow-right', to:'/spacing'},
-                {label: 'Typography', icon:'pi pi-fw pi-align-center', to:'/typography'},
-                {label: 'Text', icon:'pi pi-fw pi-pencil', to:'/text'},
+                { label: 'Display', icon: 'pi pi-fw pi-desktop', to: '/display' },
+                { label: 'Elevation', icon: 'pi pi-fw pi-external-link', to: '/elevation' },
+                { label: 'Flexbox', icon: 'pi pi-fw pi-directions', to: '/flexbox' },
+                { label: 'Icons', icon: 'pi pi-fw pi-search', to: '/icons' },
+                { label: 'Widgets', icon: 'pi pi-fw pi-star-o', to: '/widgets' },
+                { label: 'Grid System', icon: 'pi pi-fw pi-th-large', to: '/grid' },
+                { label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', to: '/spacing' },
+                { label: 'Typography', icon: 'pi pi-fw pi-align-center', to: '/typography' },
+                { label: 'Text', icon: 'pi pi-fw pi-pencil', to: '/text' },
             ]
         },
         {
             label: 'Pages', icon: 'pi pi-fw pi-clone',
             items: [
-                {label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/crud'},
-                {label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/calendar'},
-                {label: 'Landing', icon: 'pi pi-fw pi-user-plus', url: 'assets/pages/landing.html', target: '_blank'},
-                {label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login'},
-                {label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/invoice'},
-                {label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/help'},
-                {label: 'Wizard', icon: 'pi pi-fw pi-star', to: '/wizard'},
-                {label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error'},
-                {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound'},
-                {label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access'},
-                {label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty'}
+                { label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/crud' },
+                { label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/calendar' },
+                { label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline' },
+                { label: 'Landing', icon: 'pi pi-fw pi-user-plus', url: 'assets/pages/landing.html', target: '_blank' },
+                { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
+                { label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/invoice' },
+                { label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/help' },
+                { label: 'Wizard', icon: 'pi pi-fw pi-star', to: '/wizard' },
+                { label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error' },
+                { label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound' },
+                { label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access' },
+                { label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty' }
             ]
         },
         {
@@ -175,7 +179,7 @@ const App = () => {
             label: 'Get Started', icon: 'pi pi-fw pi-download',
             items: [
                 {
-                    label: 'Documentation', icon: 'pi pi-fw pi-file',to: '/documentation'
+                    label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/documentation'
                 },
                 {
                     label: 'Buy Now', icon: 'pi pi-fw pi-money-bill', url: ['https://www.primefaces.org/store']
@@ -189,6 +193,7 @@ const App = () => {
         { path: '/formlayout', component: FormLayoutDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Form Layout' }] } },
         { path: '/input', component: InputDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Input' }] } },
         { path: '/floatlabel', component: FloatLabelDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Float Label' }] } },
+        { path: '/invalidstate', component: InvalidStateDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Invalid State' }] } },
         { path: '/button', component: ButtonDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Button' }] } },
         { path: '/table', component: TableDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Table' }] } },
         { path: '/list', component: ListDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'List' }] } },
@@ -212,6 +217,7 @@ const App = () => {
         { path: '/text', component: TextDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Text' }] } },
         { path: '/crud', component: CrudDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Crud' }] } },
         { path: '/calendar', component: CalendarDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Calendar' }] } },
+        { path: '/timeline', component: TimelineDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Timeline' }] } },
         { path: '/invoice', component: Invoice, meta: { breadcrumb: [{ parent: 'Pages', label: 'Invoice' }] } },
         { path: '/help', component: Help, meta: { breadcrumb: [{ parent: 'Pages', label: 'Help' }] } },
         { path: '/empty', component: EmptyPage, meta: { breadcrumb: [{ parent: 'Pages', label: 'Empty Page' }] } },
@@ -456,7 +462,7 @@ const App = () => {
                 profileMode={profileMode} onProfileChange={onProfileChange} onConfigClick={onConfigClick} onConfigButtonClick={onConfigButtonClick}
                 rippleActive={ripple} onRippleChange={onRippleChange} inputStyle={inputStyle} onInputStyleChange={onInputStyleChange}></AppConfig>
 
-            { staticMenuMobileActive && <div className="layout-mask"></div> }
+            { staticMenuMobileActive && <div className="layout-mask"></div>}
         </div>
     );
 }
