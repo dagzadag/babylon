@@ -4,7 +4,7 @@
 ###### * Brings support to PrimeReact 6.x
 
 **Migration Guide**
-- Update to PrimeReact
+- Update App*.js files (App.js, AppBreadcrumb.js, AppConfig.js and AppMenu.js)
 - Update theme and layout css files.
 
 ## 5.0.0

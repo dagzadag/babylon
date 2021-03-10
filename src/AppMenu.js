@@ -28,6 +28,13 @@ const AppSubmenu = (props) => {
             });
         }
 
+        if (props.menuMode !== 'static') {
+            const ink = getInk(event.currentTarget);
+            if (ink) {
+                removeClass(ink, 'p-ink-active');
+            }
+        }
+
         props.onMenuitemClick({
             originalEvent: event,
             item: item
@@ -39,6 +46,22 @@ const AppSubmenu = (props) => {
             setActiveIndex(index);
         }
     };
+
+    const getInk = (el) => {
+        for (let i = 0; i < el.children.length; i++) {
+            if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
+                return el.children[i];
+            }
+        }
+        return null;
+    }
+
+    const removeClass = (element, className) => {
+        if (element.classList)
+            element.classList.remove(className);
+        else
+            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
 
     const visible = (item) => {
         return typeof item.visible === "function" ? item.visible() : item.visible !== false;
@@ -55,7 +78,7 @@ const AppSubmenu = (props) => {
                 <i className={menuitemIconClassName}></i>
                 <span className="layout-menuitem-text">{item.label}</span>
                 { item.items && <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>}
-                { item.badge && <span className="menuitem-badge">{item.badge}</span> }
+                { item.badge && <span className="menuitem-badge">{item.badge}</span>}
                 <Ripple />
             </>
         );
@@ -130,7 +153,7 @@ const AppSubmenu = (props) => {
 
     return (
         <ul className={props.className}>
-            { items }
+            { items}
         </ul>
     );
 }

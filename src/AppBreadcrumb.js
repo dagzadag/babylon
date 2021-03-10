@@ -1,20 +1,26 @@
 import React from 'react';
 import { useHistory, useLocation, withRouter } from 'react-router-dom';
 
-const AppBreadcrumb = () => {
+const AppBreadcrumb = (props) => {
 
-    const history = useHistory();
     const location = useLocation();
-    const pathname = location.pathname;
-    const paths = pathname.split('/');
+    const history = useHistory();
+
+    let pathname = props.routers.filter((router) => {
+        return router.path === location.pathname;
+    })
+    
+    const path = pathname[0].meta.breadcrumb[0].label;
+
 
     return (
         <div className="route-bar">
             <div className="route-bar-breadcrumb">
                 <ul>
                     <li><button type="button" className="p-link" onClick={() => history.push('/')}><i className="pi pi-home"/></button></li>
+                    <li>/</li>
                     {
-                        location.pathname === '/' ? <li>/</li> : paths.map((path, index) => <li key={index}>{path === '' ? '/' : path}</li>)
+                        path === '/' ? <li>Dashboard</li> : <li><button className="p-link">{path}</button></li>
                     }
                 </ul>
             </div>

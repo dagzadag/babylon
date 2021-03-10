@@ -8,23 +8,23 @@ const AppConfig = (props) => {
     const [themeColor, setThemeColor] = useState('blue');
 
     const componentThemes = [
-        {name: 'Amber Accent', file: 'amber', color:'#FFC107'},
-        {name: 'Blue Accent', file: 'blue', color:'#2196F3'},
-        {name: 'Blue Gray Accent', file: 'bluegray', color:'#607D8B'},
-        {name: 'Brown Accent', file: 'brown', color:'#795548'},
-        {name: 'Cyan Accent', file: 'cyan', color:'#00BCD4'},
-        {name: 'Deep Orange Accent', file: 'deeporange', color:'#FF5722'},
-        {name: 'Deep Purple Accent', file: 'deeppurple', color:'#673AB7'},
-        {name: 'Green Accent', file: 'green', color:'#4CAF50'},
-        {name: 'Indigo Accent', file: 'indigo', color:'#3F51B5'},
-        {name: 'Light Blue Accent', file: 'lightblue', color:'#03A9F4'},
-        {name: 'Light Green Accent', file: 'lightgreen', color:'#8BC34A'},
-        {name: 'Lime Accent', file: 'lime', color:'#CDDC39'},
-        {name: 'Orange Accent', file: 'orange', color:'#FF9800'},
-        {name: 'Pink Accent', file: 'pink', color:'#E91E63'},
-        {name: 'Purple Accent', file: 'purple', color:'#9C27B0'},
-        {name: 'Teal Accent', file: 'teal', color:'#00796B'},
-        {name: 'Yellow Accent', file: 'yellow', color:'#FFEB3B'},
+        { name: 'Amber Accent', file: 'amber', color: '#FFC107' },
+        { name: 'Blue Accent', file: 'blue', color: '#2196F3' },
+        { name: 'Blue Gray Accent', file: 'bluegray', color: '#607D8B' },
+        { name: 'Brown Accent', file: 'brown', color: '#795548' },
+        { name: 'Cyan Accent', file: 'cyan', color: '#00BCD4' },
+        { name: 'Deep Orange Accent', file: 'deeporange', color: '#FF5722' },
+        { name: 'Deep Purple Accent', file: 'deeppurple', color: '#673AB7' },
+        { name: 'Green Accent', file: 'green', color: '#4CAF50' },
+        { name: 'Indigo Accent', file: 'indigo', color: '#3F51B5' },
+        { name: 'Light Blue Accent', file: 'lightblue', color: '#03A9F4' },
+        { name: 'Light Green Accent', file: 'lightgreen', color: '#8BC34A' },
+        { name: 'Lime Accent', file: 'lime', color: '#CDDC39' },
+        { name: 'Orange Accent', file: 'orange', color: '#FF9800' },
+        { name: 'Pink Accent', file: 'pink', color: '#E91E63' },
+        { name: 'Purple Accent', file: 'purple', color: '#9C27B0' },
+        { name: 'Teal Accent', file: 'teal', color: '#00796B' },
+        { name: 'Yellow Accent', file: 'yellow', color: '#FFEB3B' },
     ];
 
     const onConfigButtonClick = (event) => {
@@ -41,7 +41,7 @@ const AppConfig = (props) => {
     const changeStyleSheetUrl = (id, value, prefix) => {
         let element = document.getElementById(id);
         let urlTokens = element.getAttribute('href').split('/');
-        urlTokens[urlTokens.length - 1] = prefix + value + '.css' ;
+        urlTokens[urlTokens.length - 1] = prefix + value + '.css';
         let newURL = urlTokens.join('/');
         replaceLink(element, newURL);
 
@@ -142,11 +142,11 @@ const AppConfig = (props) => {
 
                 <h5>User Profile</h5>
                 <div className="p-field-radiobutton">
-                    <RadioButton name="profileMode" value="inline" checked={props.profileMode === 'inline'} inputId="profile_mode1" onChange={props.onProfileChange}></RadioButton>
+                    <RadioButton name="profileMode" value="inline" checked={props.profileMode === 'inline'} disabled={props.menuMode === 'horizontal'} inputId="profile_mode1" onChange={props.onProfileChange}></RadioButton>
                     <label htmlFor="profile_mode1">Inline</label>
                 </div>
                 <div className="p-field-radiobutton">
-                    <RadioButton name="profileMode" value="popup" checked={props.profileMode === 'popup'} inputId="profile_mode2" onChange={props.onProfileChange}></RadioButton>
+                    <RadioButton name="profileMode" value="popup" checked={props.profileMode === 'popup'} disabled={props.menuMode === 'horizontal'} inputId="profile_mode2" onChange={props.onProfileChange}></RadioButton>
                     <label htmlFor="profile_mode2">Popup</label>
                 </div>
 

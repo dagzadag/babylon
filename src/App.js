@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Route } from 'react-router-dom';
+import { Route ,useHistory} from 'react-router-dom';
 
 import AppTopbar from './AppTopbar';
 import AppFooter from './AppFooter';
@@ -61,10 +61,12 @@ const App = () => {
     const [staticMenuMobileActive, setStaticMenuMobileActive] = useState(false);
     const [activeTopbarItem, setActiveTopbarItem] = useState(null);
     const [inlineMenuActive, setInlineMenuActive] = useState(false);
-    const [profileMode, setProfileMode] = useState('inline');
+    const [profileMode, setProfileMode] = useState('popup');
     const [configActive, setConfigActive] = useState(false);
     const [inputStyle, setInputStyle] = useState('outlined');
     const [ripple, setRipple] = useState(false);
+
+    const history = useHistory();
 
     let menuClick = false;
     let configClick = false;
@@ -84,7 +86,7 @@ const App = () => {
                 { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout' },
                 { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input' },
                 { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/floatlabel' },
-                { label: 'InvalidState', icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
+                { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
                 { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button', class: 'rotated-icon' },
                 { label: 'Table', icon: 'pi pi-fw pi-table', to: '/table' },
                 { label: 'List', icon: 'pi pi-fw pi-list', to: '/list' },
@@ -427,7 +429,7 @@ const App = () => {
 
             <div className={menuContainerClassName} onClick={onMenuClick}>
                 <div className="layout-menu-logo">
-                    <button className="p-link">
+                    <button className="p-link" onClick={() => history.push('/')}>
                         <img id="layout-menu-logo" src="assets/layout/images/logo-white.png" library="babylon-layout" alt="babylon-logo" />
                     </button>
                 </div>
@@ -440,7 +442,7 @@ const App = () => {
             </div>
 
             <div className="layout-main">
-                <AppBreadcrumb />
+                <AppBreadcrumb routers={routers}/>
 
                 <div className="layout-content">
                     {

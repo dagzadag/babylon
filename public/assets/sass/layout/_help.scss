@@ -1,3 +1,4 @@
+
 .help-wrapper{
     .help-header{
         background:  url("../../layout/images/extensions/rectangle.jpg") bottom;
@@ -73,6 +74,7 @@
                 }
 
                 .tab-icon {
+                    min-width: 50px;
                     font-size: 36px;
                     color: #ffffff;
                     width: 50px;
@@ -169,6 +171,51 @@
                             }
                         }
                     }
+
+                    .questions-content {
+                        .p-accordion {
+                            .p-accordion-header a {
+                                background-color: transparent;
+                                padding: 24px 0px;
+                                margin: 0 40px;
+                                border: none;
+                                color: #292b2c;
+                                font-size: 14px;
+                                font-weight: 600;
+                                border-bottom: 1px solid rgba(41, 43, 44, 0.1);
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+
+                                .accordion-title {
+                                    display: inline-block;
+                                    margin-left: 10px;
+                                    padding: 0 15px ;
+                                }
+
+                                .p-accordion-toggle-icon {
+                                    position: absolute;
+                                    right: 0;
+                                    left: auto;
+                                    color: #292b2c;
+                                    font-weight: 600;
+                                }
+
+                                &.p-state-active {
+                                    background-color: transparent;
+                                }
+                            }
+
+                            .p-accordion-content {
+                                border: none;
+                                padding: 22px 28px;
+                                margin: 0 40px;
+                                line-height: 1.5;
+                            }
+
+
+                        }
+                    }
                 }
             }
         }
@@ -189,6 +236,26 @@
 
             .help-content-header {
                 flex-direction: column;
+            }
+
+            .help-contents-wrapper {
+                .help-contents-row {
+                    .help-content {
+                        .questions-content {
+                            .p-accordion {
+                                .p-accordion-header {
+                                    padding: 24px 0px;
+                                    margin: 0 10px;
+                                }
+
+                                .p-accordion-content {
+                                    padding: 22px 28px;
+                                    margin: 0 10px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ import { Button } from 'primereact/button';
 import { RadioButton } from 'primereact/radiobutton';
 import { Checkbox } from 'primereact/checkbox';
 import { InputMask } from 'primereact/inputmask';
+import { useHistory } from 'react-router-dom';
 
 const Wizard = () => {
 
@@ -20,6 +21,8 @@ const Wizard = () => {
     const [val2, setVal2] = useState(null);
     const [val3, setVal3] = useState(null);
     const [checked, setChecked] = useState(null);
+
+    const history = useHistory();
 
     const dropdownOptions = [
         { label: 'Select Time Zone', value: null },
@@ -79,7 +82,7 @@ const Wizard = () => {
             <div className="wizard-wrapper">
                 <div className="wizard-header">
                     <div className="wizard-logo">
-                        <img src="assets/layout/images/logo-black.png" alt="babylon-layout" />
+                        <img src="assets/layout/images/logo-black.png" alt="babylon-layout" style={{cursor: 'pointer'}} onClick={() => history.push('/')}/>
                     </div>
                 </div>
 

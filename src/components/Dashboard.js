@@ -100,7 +100,7 @@ export const Dashboard = () => {
 
     const fullCalendarOptions = {
         plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
-        defaultDate: '2019-01-01',
+        defaultDate: '2023-01-01',
         header: {
             left: 'prev,next,today',
             center: 'title',
@@ -127,6 +127,33 @@ export const Dashboard = () => {
             style: 'currency',
             currency: 'USD',
         });
+    };
+
+    const priceBodyTemplate = (data) => {
+        return (
+            <>
+                <span className="p-column-title">Price</span>
+                {formatCurrency(data.price)}
+            </>
+        );
+    };
+
+    const bodyTemplate = (data, props) => {
+        return (
+            <>
+                <span className="p-column-title">{props.header}</span>
+                {data[props.field]}
+            </>
+        );
+    };
+
+    const statusBodyTemplate = (data) => {
+        return (
+            <>
+                <span className="p-column-title">Status</span>
+                <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>
+            </>
+        )
     };
 
     return (
@@ -450,11 +477,11 @@ export const Dashboard = () => {
                 <div className="p-col-12 p-xl-6">
                     <div className="card card-w-title global-sales p-fluid">
                         <h5>Global Sales</h5>
-                        <DataTable value={products} paginator rows={5}>
-                            <Column field="id" header="ID" sortable></Column>
-                            <Column field="category" header="Category" sortable></Column>
-                            <Column field="price" header="Price" sortable body={(data) => formatCurrency(data.price)}></Column>
-                            <Column field="inventoryStatus" header="Status" sortable body={(data) => <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>}></Column>
+                        <DataTable value={products} paginator rows={5} className="p-datatable-products">
+                            <Column field="id" header="ID" sortable  body={bodyTemplate}></Column>
+                            <Column field="category" header="Category" sortable  body={bodyTemplate} ></Column>
+                            <Column field="price" header="Price" sortable body={priceBodyTemplate}></Column>
+                            <Column field="inventoryStatus" header="Status" sortable body={statusBodyTemplate}></Column>
                             <Column bodyStyle={{ textAlign: 'center' }} body={() => <Button type="button" icon="pi pi-search"></Button>}></Column>
                         </DataTable>
                     </div>
