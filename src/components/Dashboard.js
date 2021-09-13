@@ -7,7 +7,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Menu } from 'primereact/menu';
 import { Checkbox } from 'primereact/checkbox';
-import { FullCalendar } from 'primereact/fullcalendar';
+import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -25,7 +25,8 @@ const chartData = {
         borderWidth: 3,
         borderDash: [5, 5],
         fill: false,
-        pointRadius: 3
+        pointRadius: 3,
+        tension: .4
     }, {
         label: 'Income',
         data: [1, 2, 5, 3, 12, 7, 15],
@@ -36,7 +37,8 @@ const chartData = {
             '#42A5F5',
         ],
         borderWidth: 3,
-        fill: true
+        fill: true,
+        tension: .4
     },
     {
         label: 'Expenses',
@@ -46,7 +48,8 @@ const chartData = {
         ],
         borderWidth: 3,
         fill: false,
-        pointRadius: [4, 6, 4, 12, 8, 0, 4]
+        pointRadius: [4, 6, 4, 12, 8, 0, 4],
+        tension: .4
     },
     {
         label: 'New Users',
@@ -55,7 +58,8 @@ const chartData = {
             '#66BB6A',
         ],
         borderWidth: 3,
-        fill: false
+        fill: false,
+        tension: .4
     }]
 };
 
@@ -65,20 +69,20 @@ const chartOptions = {
         mode: 'index'
     },
     scales: {
-        xAxes: [{
+        x: {
             display: true,
-            scaleLabel: {
+            title: {
                 display: true,
-                labelString: 'Month'
+                text: 'Month'
             }
-        }],
-        yAxes: [{
+        },
+        y: {
             display: true,
-            scaleLabel: {
+            title: {
                 display: true,
-                labelString: 'Value'
+                text: 'Value'
             }
-        }]
+        }
     }
 };
 
@@ -97,16 +101,6 @@ export const Dashboard = () => {
         { label: 'Update', icon: 'pi pi-fw pi-refresh' },
         { label: 'Delete', icon: 'pi pi-fw pi-trash' }
     ];
-
-    const fullCalendarOptions = {
-        plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
-        defaultDate: '2023-01-01',
-        header: {
-            left: 'prev,next,today',
-            center: 'title',
-            right: ''
-        }
-    };
 
     const menuRef = useRef(null);
 
@@ -411,7 +405,7 @@ export const Dashboard = () => {
                                 <div className="timeline-content">
                                     <h3>Notes Added</h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit tortor a ipsum vehicula,
-                                in semper sapien auctor.</p>
+                                        in semper sapien auctor.</p>
                                     <div className="timeline-footer">
                                         <i className="pi pi-clock"></i>
                                         <span>3 Sep 2018 at 10:41</span>
@@ -426,7 +420,7 @@ export const Dashboard = () => {
                                 <div className="timeline-content">
                                     <h3>Reminder Scheduled</h3>
                                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                                totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                        totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                                     <div className="timeline-footer">
                                         <i className="pi pi-clock"></i>
                                         <span>4 Sep 2018 at 11:30</span>
@@ -478,8 +472,8 @@ export const Dashboard = () => {
                     <div className="card card-w-title global-sales p-fluid">
                         <h5>Global Sales</h5>
                         <DataTable value={products} paginator rows={5} className="p-datatable-products">
-                            <Column field="id" header="ID" sortable  body={bodyTemplate}></Column>
-                            <Column field="category" header="Category" sortable  body={bodyTemplate} ></Column>
+                            <Column field="id" header="ID" sortable body={bodyTemplate}></Column>
+                            <Column field="category" header="Category" sortable body={bodyTemplate} ></Column>
                             <Column field="price" header="Price" sortable body={priceBodyTemplate}></Column>
                             <Column field="inventoryStatus" header="Status" sortable body={statusBodyTemplate}></Column>
                             <Column bodyStyle={{ textAlign: 'center' }} body={() => <Button type="button" icon="pi pi-search"></Button>}></Column>
@@ -496,7 +490,7 @@ export const Dashboard = () => {
                                     </div>
                                     <div className="p-col">
                                         <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nam ac euismod justo, eget blandit purus.</div>
+                                            Nam ac euismod justo, eget blandit purus.</div>
                                     </div>
                                 </div>
                             </li>
@@ -504,7 +498,7 @@ export const Dashboard = () => {
                                 <div className="p-grid">
                                     <div className="p-col">
                                         <div className="chat-message">Mauris malesuada quis risus ut consequat.
-                                    Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.</div>
+                                            Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.</div>
                                     </div>
                                     <div className="p-col-fixed">
                                         <img src="assets/layout/images/avatar-julia.png" alt="babylon-layout" />
@@ -518,7 +512,7 @@ export const Dashboard = () => {
                                     </div>
                                     <div className="p-col">
                                         <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Nam ac euismod justo, eget blandit purus.</div>
+                                            Nam ac euismod justo, eget blandit purus.</div>
                                     </div>
                                 </div>
                             </li>
@@ -540,7 +534,8 @@ export const Dashboard = () => {
                 <div className="p-col-12 p-md-12 p-lg-12">
                     <div className="card card-w-title">
                         <h5>Schedule</h5>
-                        <FullCalendar events={events} options={fullCalendarOptions} />
+                        <FullCalendar events={events} plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} initialDate='2021-02-01'
+                            header={{ left: 'prev,next,today', center: 'title', right: '' }} />
                     </div>
                 </div>
             </div>
