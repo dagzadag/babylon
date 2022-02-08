@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import { classNames } from 'primereact/utils';
 import { useHistory } from 'react-router-dom';
 
 const AppTopbar = (props) => {
@@ -152,7 +152,7 @@ const AppTopbar = (props) => {
                         </li>
                         <li role="menuitem">
                             <button className="p-link">
-                                <i className="pi pi-star-o"></i>
+                                <i className="pi pi-star"></i>
                                 <span>Favorites</span>
                             </button>
                         </li>

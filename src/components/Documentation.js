@@ -1,14 +1,14 @@
 import React from 'react';
 import AppCodeHighlight from '../AppCodeHighlight';
 
-export const Documentation = () => {
+const Documentation = () => {
 
     return (
-        <div className="p-grid">
-            <div className="p-col-12">
+        <div className="grid">
+            <div className="col-12">
                 <div className="card docs">
                     <h4>Current Version</h4>
-                    <p>React 17.x and PrimeReact 6.x</p>
+                    <p>React 17.x and PrimeReact 7.x</p>
 
                     <h4>Getting Started</h4>
                     <p>Babylon is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
@@ -106,57 +106,59 @@ const menu = [
     {
         label: 'Home Page', icon: 'pi pi-fw pi-home',
         items: [
-            {label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/'}
+            { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' }
         ]
     },
     {
         label: 'UI Kit', icon: 'pi pi-fw pi-sitemap',
         items: [
-            {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout'},
-            {label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input'},
-            {label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/floatlabel'},
-            {label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button', class: 'rotated-icon'},
-            {label: 'Table', icon: 'pi pi-fw pi-table', to: '/table'},
-            {label: 'List', icon: 'pi pi-fw pi-list', to: '/list'},
-            {label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree'},
-            {label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel'},
-            {label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay'},
-            {label: "Media", icon: "pi pi-fw pi-image", to: "/media"},
-            {label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/menu'},
-            {label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages'},
-            {label: 'File', icon: 'pi pi-fw pi-file', to: '/file'},
-            {label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/chart'},
-            {label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/misc'},
+            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/formlayout' },
+            { label: 'Input', icon: 'pi pi-fw pi-check-square', to: '/input' },
+            { label: 'Float Label', icon: 'pi pi-fw pi-bookmark', to: '/floatlabel' },
+            { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', to: '/invalidstate' },
+            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/button', class: 'rotated-icon' },
+            { label: 'Table', icon: 'pi pi-fw pi-table', to: '/table' },
+            { label: 'List', icon: 'pi pi-fw pi-list', to: '/list' },
+            { label: 'Tree', icon: 'pi pi-fw pi-share-alt', to: '/tree' },
+            { label: 'Panel', icon: 'pi pi-fw pi-tablet', to: '/panel' },
+            { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/overlay' },
+            { label: "Media", icon: "pi pi-fw pi-image", to: "/media" },
+            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/menu' },
+            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/messages' },
+            { label: 'File', icon: 'pi pi-fw pi-file', to: '/file' },
+            { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/chart' },
+            { label: 'Misc', icon: 'pi pi-fw pi-circle-off', to: '/misc' },
         ]
     },
     {
-        label: "Utilities", icon:'pi pi-fw pi-globe',
+        label: "PrimeBlocks", icon: "pi pi-building",
         items: [
-            {label: 'Display', icon:'pi pi-fw pi-desktop', to:'/display'},
-            {label: 'Elevation', icon:'pi pi-fw pi-external-link', to:'/elevation'},
-            {label: 'Flexbox', icon:'pi pi-fw pi-directions', to:'/flexbox'},
-            {label: 'Icons', icon:'pi pi-fw pi-search', to:'/icons'},
-            {label: 'Widgets', icon:'pi pi-fw pi-star-o', to:'/widgets'},
-            {label: 'Grid System', icon:'pi pi-fw pi-th-large', to:'/grid'},
-            {label: 'Spacing', icon:'pi pi-fw pi-arrow-right', to:'/spacing'},
-            {label: 'Typography', icon:'pi pi-fw pi-align-center', to:'/typography'},
-            {label: 'Text', icon:'pi pi-fw pi-pencil', to:'/text'},
+            { label: "Free Blocks", icon: "pi pi-fw pi-eye", to: "/blocks", badge: "NEW", },
+            { label: "All Blocks", icon: "pi pi-fw pi-globe", url: "https://www.primefaces.org/primeblocks-react", target: "_blank" }
+        ]
+    },
+    {
+        label: 'Utilities', icon: 'pi pi-fw pi-compass',
+        items: [
+            { label: 'Icons', icon: 'pi pi-fw pi-prime', to: '/icons' },
+            { label: "PrimeFlex", icon: "pi pi-fw pi-desktop", url: "https://www.primefaces.org/primeflex", target: "_blank" }
         ]
     },
     {
         label: 'Pages', icon: 'pi pi-fw pi-clone',
         items: [
-            {label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/crud'},
-            {label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/calendar'},
-            {label: 'Landing', icon: 'pi pi-fw pi-user-plus', url: 'assets/pages/landing.html', target: '_blank'},
-            {label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login'},
-            {label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/invoice'},
-            {label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/help'},
-            {label: 'Wizard', icon: 'pi pi-fw pi-star', to: '/wizard'},
-            {label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error'},
-            {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound'},
-            {label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access'},
-            {label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty'}
+            { label: 'Crud', icon: 'pi pi-fw pi-pencil', to: '/crud' },
+            { label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', to: '/calendar' },
+            { label: 'Timeline', icon: 'pi pi-fw pi-calendar', to: '/timeline' },
+            { label: 'Landing', icon: 'pi pi-fw pi-user-plus', url: 'assets/pages/landing.html', target: '_blank' },
+            { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
+            { label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/invoice' },
+            { label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/help' },
+            { label: 'Wizard', icon: 'pi pi-fw pi-star-fill', to: '/wizard' },
+            { label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error' },
+            { label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound' },
+            { label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access' },
+            { label: 'Empty', icon: 'pi pi-fw pi-circle-off', to: '/empty' }
         ]
     },
     {
@@ -208,7 +210,7 @@ const menu = [
         label: 'Get Started', icon: 'pi pi-fw pi-download',
         items: [
             {
-                label: 'Documentation', icon: 'pi pi-fw pi-file',to: '/documentation'
+                label: 'Documentation', icon: 'pi pi-fw pi-file', to: '/documentation'
             },
             {
                 label: 'Buy Now', icon: 'pi pi-fw pi-money-bill', url: ['https://www.primefaces.org/store']
@@ -322,6 +324,19 @@ sass --watch public/assets:public/assets
 <div style={{ height: '400px', overflow: 'auto' }}>
 <AppCodeHighlight lang="scss">
 {`
+$colors: (
+    "blue": #2196F3,
+    "green": #4caf50,
+    "yellow": #FBC02D,
+    "cyan": #00BCD4,
+    "pink": #E91E63,
+    "indigo": #3F51B5,
+    "teal": #009688,
+    "orange": #F57C00,
+    "bluegray": #607D8B,
+    "purple": #9C27B0
+);
+
 //reused color variables
 $shade000:#ffffff !default;    //surface
 $shade100:#f8f9fa !default;    //header background
@@ -340,7 +355,7 @@ $fontSize:1rem !default;
 $fontWeight:normal !default;
 $textColor:$shade700 !default;
 $textSecondaryColor:$shade600 !default;
-$borderRadius:3px !default;
+$borderRadius:4px !default;
 $transitionDuration:.2s !default;
 $formElementTransition:background-color $transitionDuration, color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration !default;
 $actionIconTransition:background-color $transitionDuration, color $transitionDuration, box-shadow $transitionDuration !default;
@@ -377,6 +392,7 @@ $actionIconBorderRadius:50% !default;
 //input field (e.g. inputtext, spinner, inputmask)
 $inputPadding:.5rem .5rem !default;
 $inputTextFontSize:1rem !default;
+
 $inputBg:$shade000 !default;
 $inputTextColor:$shade700 !default;
 $inputIconColor:$shade600 !default;
@@ -387,7 +403,7 @@ $inputErrorBorderColor:$errorColor !default;
 $inputPlaceholderTextColor:$shade600 !default;
 $inputFilledBg:$shade100 !default;
 $inputFilledHoverBg:$inputFilledBg !default;
-$inputFilledFocusBg:$inputFilledBg !default;
+$inputFilledFocusBg:$shade000 !default;
 
 //input groups
 $inputGroupBg:$shade200 !default;
@@ -419,6 +435,12 @@ $inputOverlayBg:$inputListBg !default;
 $inputOverlayHeaderBg:$inputListHeaderBg !default;
 $inputOverlayBorder:0 none !default;
 $inputOverlayShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+
+//password
+$passwordMeterBg:rgba($primaryColor, .32);
+$passwordWeakBg:#FFCDD2;
+$passwordMediumBg:#FFECB3;
+$passwordStrongBg:#C8E6C9;
 
 //button
 $buttonPadding:.5rem 1rem !default;
@@ -542,7 +564,7 @@ $radiobuttonActiveHoverBorderColor:$primaryDarkerColor !default;
 $colorPickerPreviewWidth:2rem !default;
 $colorPickerPreviewHeight:2rem !default;
 $colorPickerBg:#323232 !default;
-$colorPickerBorderColor:#191919 !default;
+$colorPickerBorder:1px solid #191919 !default;
 $colorPickerHandleColor:$shade000 !default;
 
 //togglebutton
@@ -641,6 +663,7 @@ $inputSwitchSliderOnHoverBg:$primaryDarkColor !default;
 $inputSwitchHandleOnBg:$shade000 !default;
 
 //panel
+$panelHeaderBorderColor:$shade300 !default;
 $panelHeaderBorder:1px solid $shade300 !default;
 $panelHeaderBg:$shade100 !default;
 $panelHeaderTextColor:$shade700 !default;
@@ -652,6 +675,7 @@ $panelHeaderHoverBg:$shade200 !default;
 $panelHeaderHoverBorderColor:$shade300 !default;
 $panelHeaderTextHoverColor:$shade700 !default;
 
+$panelContentBorderColor: $shade300 !default;
 $panelContentBorder:1px solid $shade300 !default;
 $panelContentBg:$shade000 !default;
 $panelContentTextColor:$shade700 !default;
@@ -801,6 +825,7 @@ $tableFooterCellFontWeight:600 !default;
 $tableFooterCellBorder:1px solid $shade200 !default;
 $tableFooterCellBorderWidth:0 0 1px 0 !default;
 $tableResizerHelperBg:$primaryColor !default;
+$tableDragHelperBg: rgba($primaryColor, .16) !default;
 
 $tableFooterBorder:1px solid $shade200 !default;
 $tableFooterBorderWidth:0 0 1px 0 !default;
@@ -828,6 +853,7 @@ $pickListBreakpoint:769px !default;
 
 //schedule
 $fullCalendarEventBg:$primaryDarkColor !default;
+$fullCalendarEventBorderColor: $primaryDarkColor !default;
 $fullCalendarEventBorder:1px solid $primaryDarkColor !default;
 $fullCalendarEventTextColor:$primaryTextColor !default;
 
@@ -844,10 +870,10 @@ $timelineHorizontalEventContentPadding:1rem 0 !default;
 $timelineEventMarkerWidth:1rem !default;
 $timelineEventMarkerHeight:1rem !default;
 $timelineEventMarkerBorderRadius:50% !default;
-$timelineEventMarkerBorder:2px solid $primaryColor !default;
-$timelineEventMarkerBackground:$shade000 !default;
+$timelineEventMarkerBorder:0 none !default;
+$timelineEventMarkerBackground:#bdbdbd !default;
 $timelineEventConnectorSize:2px !default;
-$timelineEventColor:$shade300 !default;
+$timelineEventColor:#bdbdbd !default;
 
 //org chart
 $organizationChartConnectorColor:$shade300 !default;
@@ -908,9 +934,9 @@ $dialogHeaderTextColor:$shade700 !default;
 $dialogHeaderFontWeight:600 !default;
 $dialogHeaderFontSize:1.25rem !default;
 $dialogHeaderPadding:1.5rem !default;
-$dialogContentPadding:0 1.5rem !default;
+$dialogContentPadding:0 1.5rem 2rem 1.5rem !default;
 $dialogFooterBorder:0 none !default;
-$dialogFooterPadding:1.5rem !default;
+$dialogFooterPadding:0 1.5rem 1.5rem 1.5rem !default;
 
 //confirmpopup
 $confirmPopupContentPadding:$panelContentPadding;
@@ -1064,7 +1090,7 @@ $dividerColor:$shade300;
 
 //avatar
 $avatarBg:$shade300;
-$avatarColor:$textColor;
+$avatarTextColor:$textColor;
 
 //chip
 $chipBg:$shade300;
@@ -1088,18 +1114,87 @@ $skeletonAnimationBg:rgba(255,255,255,0.4);
 $splitterGutterBg:$shade100;
 $splitterGutterHandleBg:$shade300;
 
+//speeddial
+$speedDialButtonWidth: 4rem;
+$speedDialButtonHeight: 4rem;
+$speedDialButtonIconFontSize: 1.3rem;
+$speedDialActionWidth: 3rem;
+$speedDialActionHeight: 3rem;
+$speedDialActionBg: $shade700;
+$speedDialActionHoverBg: $shade800;
+$speedDialActionTextColor: #fff;
+$speedDialActionTextHoverColor: #fff;
+
+//dock
+$dockActionWidth: 4rem;
+$dockActionHeight: 4rem;
+$dockItemPadding: .5rem;
+$dockCurrentItemMargin: 1.5rem;
+$dockFirstItemsMargin: 1.3rem;
+$dockSecondItemsMargin: 0.9rem;
+$dockBg: rgba(255,255,255,.1);
+$dockBorder: 1px solid rgba(255,255,255,0.2);
+$dockPadding: .5rem .5rem;
+$dockBorderRadius: .5rem;
+
+//image
+$imageMaskBg:rgba(0,0,0,0.9) !default;
+$imagePreviewToolbarPadding:1rem !default;
+$imagePreviewIndicatorColor:#f8f9fa !default;
+$imagePreviewIndicatorBg:rgba(0,0,0,0.5) !default;
+$imagePreviewActionIconBg:transparent !default;
+$imagePreviewActionIconColor:#f8f9fa !default;
+$imagePreviewActionIconHoverBg:rgba(255,255,255,0.1) !default;
+$imagePreviewActionIconHoverColor:#f8f9fa !default;
+$imagePreviewActionIconWidth:3rem !default;
+$imagePreviewActionIconHeight:3rem !default;
+$imagePreviewActionIconFontSize:1.5rem !default;
+$imagePreviewActionIconBorderRadius:50% !default;
+
 :root {
-	--surface-a:#{$shade000};
-	--surface-b:#{$shade100};
-	--surface-c:#{$shade200};
-	--surface-d:#{$shade300};
-	--surface-e:#{$shade000};
-	--surface-f:#{$shade000};
-	--text-color:#{$shade700};
-	--text-color-secondary:#{$shade600};
-	--primary-color:#{$primaryColor};
-	--primary-color-text:#{$primaryTextColor};
-	--font-family:#{$fontFamily};
+    --surface-a:#{$shade000};
+    --surface-b:#{$shade100};
+    --surface-c:#{$shade200};
+    --surface-d:#{$shade300};
+    --surface-e:#{$shade000};
+    --surface-f:#{$shade000};
+    --text-color:#{$shade700};
+    --text-color-secondary:#{$shade600};
+    --primary-color:#{$primaryColor};
+    --primary-color-text:#{$primaryTextColor};
+    --font-family:#{$fontFamily};
+    --surface-0: #ffffff;
+    --surface-50: #FAFAFA;
+    --surface-100: #F5F5F5;
+    --surface-200: #EEEEEE;
+    --surface-300: #E0E0E0;
+    --surface-400: #BDBDBD;
+    --surface-500: #9E9E9E;
+    --surface-600: #757575;
+    --surface-700: #616161;
+    --surface-800: #424242;
+    --surface-900: #212121;
+    --gray-50: #FAFAFA;
+    --gray-100: #F5F5F5;
+    --gray-200: #EEEEEE;
+    --gray-300: #E0E0E0;
+    --gray-400: #BDBDBD;
+    --gray-500: #9E9E9E;
+    --gray-600: #757575;
+    --gray-700: #616161;
+    --gray-800: #424242;
+    --gray-900: #212121;
+    --content-padding:#{$panelContentPadding};
+    --inline-spacing:#{$inlineSpacing};
+    --border-radius:#{$borderRadius};
+    --surface-ground:#f8f9fa;
+    --surface-section:#ffffff;
+    --surface-card:#ffffff;
+    --surface-overlay:#ffffff;
+    --surface-border:#dee2e6;
+    --surface-hover: #e9ecef;
+    --focus-ring: #{$focusShadow};
+    --maskbg: #{$maskBg};
 }
 `}
 </AppCodeHighlight>
@@ -1164,3 +1259,9 @@ $splitterGutterHandleBg:$shade300;
         </div>
     )
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Documentation, comparisonFn);

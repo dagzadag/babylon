@@ -121,11 +121,11 @@ const radarData = {
     ]
 };
 
-export const ChartDemo = () => {
+const ChartDemo = () => {
 
     return (
-        <div className="p-grid p-fluid">
-            <div className="p-col-12 p-lg-6">
+        <div className="grid p-fluid">
+            <div className="col-12 lg:col-6">
                 <div className="card">
                     <h5 className="centerText">Linear Chart</h5>
                     <Chart type="line" data={lineData} />
@@ -133,19 +133,19 @@ export const ChartDemo = () => {
 
                 <div className="card">
                     <h5 className="centerText">Pie Chart</h5>
-                    <div className="p-d-flex p-jc-center">
+                    <div className="flex justify-content-center">
                         <Chart style={{ position: 'relative', width: '50%' }} type="pie" data={pieData} />
                     </div>
                 </div>
 
                 <div className="card">
                     <h5 className="centerText">Polar Area Chart</h5>
-                    <div className="p-d-flex p-jc-center">
+                    <div className="flex justify-content-center">
                         <Chart style={{ position: 'relative', width: '50%' }} type="polarArea" data={polarData} />
                     </div>
                 </div>
             </div>
-            <div className="p-col-12 p-lg-6">
+            <div className="col-12 lg:col-6">
                 <div className="card">
                     <h5 className="centerText">Bar Chart</h5>
                     <Chart type="bar" data={barData} />
@@ -153,14 +153,14 @@ export const ChartDemo = () => {
 
                 <div className="card">
                     <h5 className="centerText">Doughnut Chart</h5>
-                    <div className="p-d-flex p-jc-center">
+                    <div className="flex justify-content-center">
                         <Chart style={{ position: 'relative', width: '50%' }} type="doughnut" data={doughnutData} />
                     </div>
                 </div>
 
                 <div className="card">
                     <h5 className="centerText">Radar Chart</h5>
-                    <div className="p-d-flex p-jc-center">
+                    <div className="flex justify-content-center">
                         <Chart style={{ position: 'relative', width: '50%' }} type="radar" data={radarData} />
                     </div>
                 </div>
@@ -168,3 +168,9 @@ export const ChartDemo = () => {
         </div>
     )
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(ChartDemo, comparisonFn);

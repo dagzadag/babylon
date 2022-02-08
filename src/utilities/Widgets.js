@@ -19,13 +19,13 @@ export const Widgets = () => {
     };
 
     return (
-        <div className="p-grid">
+        <div className="grid">
             <h4>Reusable CSS widgets for your applications.</h4>
-            <div className="p-col-12">
+            <div className="col-12">
                 <div className="card">
                     <h4>Overview Boxes</h4>
-                    <div className="p-grid">
-                        <div className="p-col-12 p-lg-6 p-xl-3">
+                    <div className="grid">
+                        <div className="col-12 lg:col-6 xl:col-3">
                             <div className="widget-overview-box sales">
                                 <i className="overview-icon pi pi-dollar"></i>
                                 <span className="overview-title">Sales</span>
@@ -38,7 +38,7 @@ export const Widgets = () => {
 							</div>
                             </div>
                         </div>
-                        <div className="p-col-12 p-lg-6 p-xl-3">
+                        <div className="col-12 lg:col-6 xl:col-3">
                             <div className="widget-overview-box views">
                                 <i className="overview-icon pi pi-search"></i>
                                 <span className="overview-title">Views</span>
@@ -51,7 +51,7 @@ export const Widgets = () => {
 							</div>
                             </div>
                         </div>
-                        <div className="p-col-12 p-lg-6 p-xl-3">
+                        <div className="col-12 lg:col-6 xl:col-3">
                             <div className="widget-overview-box users">
                                 <i className="overview-icon pi pi-users"></i>
                                 <span className="overview-title">Users</span>
@@ -64,7 +64,7 @@ export const Widgets = () => {
 							</div>
                             </div>
                         </div>
-                        <div className="p-col-12 p-lg-6 p-xl-3">
+                        <div className="col-12 lg:col-6 xl:col-3">
                             <div className="widget-overview-box checkin">
                                 <i className="overview-icon pi pi-map-marker"></i>
                                 <span className="overview-title">Check-Ins</span>
@@ -81,9 +81,9 @@ export const Widgets = () => {
                 </div>
             </div>
 
-            <div className="p-col-12 p-xl-5">
-                <div className="p-grid">
-                    <div className="p-col-12">
+            <div className="col-12 xl:col-5">
+                <div className="grid">
+                    <div className="col-12">
                         <div className="card widget-timeline">
                             <h5>Timeline</h5>
                             <ul>
@@ -159,9 +159,9 @@ export const Widgets = () => {
                 </div>
             </div>
 
-            <div className="p-col-12 p-xl-7">
-                <div className="p-grid">
-                    <div className="p-col-12 p-xl-6">
+            <div className="col-12 xl:col-7">
+                <div className="grid">
+                    <div className="col-12 xl:col-6">
                         <div className="card widget-tasks">
                             <h5>Tasks</h5>
                             <ul>
@@ -193,7 +193,7 @@ export const Widgets = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="p-col-12 p-xl-6">
+                    <div className="col-12 xl:col-6">
                         <div className="card widget-team">
                             <h5>Team</h5>
                             <ul>
@@ -252,16 +252,16 @@ export const Widgets = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="p-col-12">
+                    <div className="col-12">
                         <div className="card widget-live-support">
                             <h5>Live Support</h5>
                             <ul>
                                 <li>
-                                    <div className="p-grid">
-                                        <div className="p-col-fixed">
+                                    <div className="grid">
+                                        <div className="col-fixed">
                                             <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
                                         </div>
-                                        <div className="p-col">
+                                        <div className="col">
                                             <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing
                                             elit.
                                             Nam ac euismod justo, eget blandit purus.
@@ -270,23 +270,23 @@ export const Widgets = () => {
                                     </div>
                                 </li>
                                 <li>
-                                    <div className="p-grid">
-                                        <div className="p-col">
+                                    <div className="grid">
+                                        <div className="col">
                                             <div className="chat-message">Mauris malesuada quis risus ut consequat.
                                             Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.
 										</div>
                                         </div>
-                                        <div className="p-col-fixed">
+                                        <div className="col-fixed">
                                             <img src="assets/layout/images/avatar-julia.png" alt="babylon-layout" />
                                         </div>
                                     </div>
                                 </li>
                                 <li>
-                                    <div className="p-grid">
-                                        <div className="p-col-fixed">
+                                    <div className="grid">
+                                        <div className="col-fixed">
                                             <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
                                         </div>
-                                        <div className="p-col">
+                                        <div className="col">
                                             <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing
                                             elit.
                                             Nam ac euismod justo, eget blandit purus.
@@ -297,7 +297,7 @@ export const Widgets = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="p-col-12">
+                    <div className="col-12">
                         <div className="card widget-user-card">
                             <div className="user-card-header">
                                 <img src="assets/layout/images/dashboard/bg-header.png" alt="babylon-layout" className="profile-image" />
@@ -368,7 +368,7 @@ export const Widgets = () => {
                 </div>
             </div>
 
-            <div className="p-col-12 p-lg-4">
+            <div className="col-12 lg:col-4">
                 <div className="card p-fluid widget-resolution-center">
                     <h5>Support Request</h5>
 
@@ -388,7 +388,7 @@ export const Widgets = () => {
                 </div>
             </div>
 
-            <div className="p-col-12 p-lg-4">
+            <div className="col-12 lg:col-4">
                 <div className="card">
                     <h4>Image List</h4>
 
@@ -429,7 +429,7 @@ export const Widgets = () => {
                 </div>
             </div>
 
-            <div className="p-col-12 p-lg-4">
+            <div className="col-12 lg:col-4">
                 <div className="widget-pricing-box">
                     <h3>Professional</h3>
                     <span className="pricing-intro">Starting From</span>

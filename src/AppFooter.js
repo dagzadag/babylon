@@ -4,13 +4,13 @@ const AppFooter = () => {
 
     return (
         <div className="layout-footer">
-            <div className="p-grid">
-                <div className="p-col-6">
+            <div className="grid">
+                <div className="col-6">
                     <button type="button" className="p-link logo-container">
                         <img src="assets/layout/images/logo-black.png" alt="babylon-layout" />
                     </button>
                 </div>
-                <div className="p-col-6 footer-icons">
+                <div className="col-6 footer-icons">
                     <button type="button" className="p-link">
                         <i className="pi pi-home"></i>
                     </button>

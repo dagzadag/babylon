@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
+import { classNames } from 'primereact/utils';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 import { Calendar } from 'primereact/calendar';
@@ -137,8 +137,8 @@ const Wizard = () => {
                                 <i className="pi pi-exclamation-circle"></i>
                                 <p>You must have an account to complete your order and manage your downloads.</p>
                             </div>
-                            <div className="wizard-forms-wrapper p-grid p-nogutter">
-                                <div className="p-col-12 p-md-6 wizard-forms">
+                            <div className="wizard-forms-wrapper grid grid-nogutter">
+                                <div className="col-12 md:col-6 wizard-forms">
                                     <label htmlFor="name" className="form-label">Enter Username</label>
                                     <InputText id="name" />
 
@@ -148,7 +148,7 @@ const Wizard = () => {
                                     <label htmlFor="password" className="form-label">Enter Password</label>
                                     <InputText id="password" type="password" />
                                 </div>
-                                <div className="p-col-12 p-md-6 wizard-forms">
+                                <div className="col-12 md:col-6 wizard-forms">
                                     <label htmlFor="timezone" className="form-label">Select Timezone</label>
                                     <Dropdown id="timezone" style={{ marginBottom: '10px' }}
                                         options={dropdownOptions} value={dropdownTime}
@@ -175,8 +175,8 @@ const Wizard = () => {
 
                         <div
                             className={classNames("wizard-card-content tier", { 'active-content': activeTab === 'tier' })}>
-                            <div className="wizard-tier-cards p-grid">
-                                <div className="p-col-12 p-md-4">
+                            <div className="wizard-tier-cards grid">
+                                <div className="col-12 md:col-4">
                                     <div
                                         className={classNames("wizard-tier-card beginner", { 'active-tier-card': activeCard === 'basic' })}
                                         onClick={() => setActiveCard('basic')}>
@@ -211,7 +211,7 @@ const Wizard = () => {
                                     </div>
                                 </div>
 
-                                <div className="p-col-12 p-md-4">
+                                <div className="col-12 md:col-4">
                                     <div
                                         className={classNames("wizard-tier-card professional", { 'active-tier-card': activeCard === 'professional' })}
                                         onClick={() => setActiveCard('professional')}>
@@ -246,7 +246,7 @@ const Wizard = () => {
                                     </div>
                                 </div>
 
-                                <div className="p-col-12 p-md-4">
+                                <div className="col-12 md:col-4">
                                     <div
                                         className={classNames("wizard-tier-card enterprise", { 'active-tier-card': activeCard === 'enterprise' })}
                                         onClick={() => setActiveCard('enterprise')}>
@@ -292,13 +292,13 @@ const Wizard = () => {
                             className={classNames("wizard-card-content payment", { 'active-content': activeTab === 'payment' })}>
                             <div className="wizard-forms-wrapper">
                                 <div className="wizard-forms ">
-                                    <div className="customPanel p-grid p-nogutter">
-                                        <div className="p-col-1 p-lg-1 p-md-1" style={{ lineHeight: '2em' }}>
+                                    <div className="customPanel grid grid-nogutter">
+                                        <div className="col-1 lg:col-1 md:col-1" style={{ lineHeight: '2em' }}>
                                             <RadioButton inputId="credit" name="group1" value="Credit"
                                                 onChange={(e) => setGroup1(e.value)}
                                                 checked={group1 === 'Credit'} />
                                         </div>
-                                        <div className="p-col-11 p-lg-5 p-md-5">
+                                        <div className="col-11 lg:col-5 md:col-5">
                                             <div className="credits">
                                                 <img src="assets/layout/images/extensions/asset-mastercard.png"
                                                     alt="babylon-layout" />
@@ -308,12 +308,12 @@ const Wizard = () => {
                                                     alt="babylon-layout" />
                                             </div>
                                         </div>
-                                        <div className="p-col-1 p-lg-1 p-md-1" style={{ lineHeight: '2em' }}>
+                                        <div className="col-1 lg:col-1 md:col-1" style={{ lineHeight: '2em' }}>
                                             <RadioButton inputId="paypal" name="group1" value="Paypal"
                                                 onChange={(e) => setGroup1(e.value)}
                                                 checked={group1 === 'Paypal'} />
                                         </div>
-                                        <div className="p-col-11 p-lg-5 p-md-5">
+                                        <div className="col-11 lg:col-5 md:col-5">
                                             <div className="paypal">
                                                 <img src="assets/layout/images/extensions/asset-paypal.png"
                                                     alt="babylon-layout" />
@@ -324,19 +324,19 @@ const Wizard = () => {
                                     <label htmlFor="holderName" className="form-label">Cardholder Name</label>
                                     <InputText id="holderName" type="text" />
 
-                                    <div className="numbers p-grid">
-                                        <div className="p-col-12 p-md-6">
+                                    <div className="numbers grid">
+                                        <div className="col-12 md:col-6">
                                             <label htmlFor="number" className="form-label">Cardholder Number</label>
                                             <InputMask id="number" mask="9999-9999-9999-9999"
                                                 value={val1}
                                                 onChange={(e) => setVal1(e.value)} />
                                         </div>
-                                        <div className="p-col-6 p-md-3">
+                                        <div className="col-6 md:col-3">
                                             <label htmlFor="date" className="form-label">Date</label>
                                             <InputMask id="date" mask="99/99" value={val2}
                                                 onChange={(e) => setVal2(e.value)} />
                                         </div>
-                                        <div className="p-col-6 p-md-3">
+                                        <div className="col-6 md:col-3">
                                             <label htmlFor="ccv" className="form-label">CCV</label>
                                             <InputMask id="ccv" mask="999" value={val3}
                                                 onChange={(e) => setVal3(e.value)} />
@@ -346,7 +346,7 @@ const Wizard = () => {
                                     <div style={{ marginTop: '24px' }}>
                                         <Checkbox inputId="cb1" checked={checked}
                                             onChange={e => setChecked(e.checked)} />
-                                        <label htmlFor="cb1" className="p-checkbox-label p-ml-2">Save credit card
+                                        <label htmlFor="cb1" className="p-checkbox-label ml-2">Save credit card
                                             information for future usage</label>
                                     </div>
                                 </div>
@@ -387,4 +387,8 @@ const Wizard = () => {
     )
 }
 
-export default Wizard;
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Wizard, comparisonFn);

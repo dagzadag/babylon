@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import { Route ,useHistory} from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { classNames } from 'primereact/utils';
+import { Route, useHistory, useLocation } from 'react-router-dom';
 
 import AppTopbar from './AppTopbar';
 import AppFooter from './AppFooter';
@@ -9,41 +9,38 @@ import AppMenu from './AppMenu';
 import AppBreadcrumb from './AppBreadcrumb';
 import AppInlineProfile from './AppInlineProfile';
 
-import { Dashboard } from './components/Dashboard';
-import { FormLayoutDemo } from './components/FormLayoutDemo';
-import { InputDemo } from './components/InputDemo';
-import { FloatLabelDemo } from './components/FloatLabelDemo';
-import { InvalidStateDemo } from './components/InvalidStateDemo';
-import { ButtonDemo } from './components/ButtonDemo';
-import { TableDemo } from './components/TableDemo';
-import { ListDemo } from './components/ListDemo';
-import { TreeDemo } from './components/TreeDemo';
-import { PanelDemo } from './components/PanelDemo';
-import { OverlayDemo } from './components/OverlayDemo';
-import { MediaDemo } from './components/MediaDemo';
-import { MenuDemo } from './components/MenuDemo';
-import { MessagesDemo } from './components/MessagesDemo';
-import { FileDemo } from './components/FileDemo';
-import { ChartDemo } from './components/ChartDemo';
-import { MiscDemo } from './components/MiscDemo';
-import { Documentation } from './components/Documentation';
-import { IconsDemo } from './utilities/IconsDemo';
-import { Widgets } from './utilities/Widgets';
-import { GridDemo } from './utilities/GridDemo';
-import { SpacingDemo } from './utilities/SpacingDemo';
-import { ElevationDemo } from './utilities/ElevationDemo';
-import { TextDemo } from './utilities/TextDemo';
-import { TypographyDemo } from './utilities/TypographyDemo';
-import { DisplayDemo } from './utilities/DisplayDemo';
-import { FlexBoxDemo } from './utilities/FlexBoxDemo';
-import { CrudDemo } from './pages/CrudDemo';
-import { CalendarDemo } from './pages/CalendarDemo';
-import { TimelineDemo } from './pages/TimelineDemo';
-import { Invoice } from './pages/Invoice';
-import { Help } from './pages/Help';
-import { EmptyPage } from './pages/EmptyPage';
+import Dashboard from './components/Dashboard';
+import FormLayoutDemo from './components/FormLayoutDemo';
+import InputDemo from './components/InputDemo';
+import FloatLabelDemo from './components/FloatLabelDemo';
+import InvalidStateDemo from './components/InvalidStateDemo';
+import ButtonDemo from './components/ButtonDemo';
+import TableDemo from './components/TableDemo';
+import ListDemo from './components/ListDemo';
+import TreeDemo from './components/TreeDemo';
+import PanelDemo from './components/PanelDemo';
+import OverlayDemo from './components/OverlayDemo';
+import MediaDemo from './components/MediaDemo';
+import MenuDemo from './components/MenuDemo';
+import MessagesDemo from './components/MessagesDemo';
+import FileDemo from './components/FileDemo';
+import ChartDemo from './components/ChartDemo';
+import MiscDemo from './components/MiscDemo';
+import Documentation from './components/Documentation';
+import IconsDemo from './utilities/IconsDemo';
+import BlocksDemo from './components/BlocksDemo';
+import CrudDemo from './pages/CrudDemo';
+import CalendarDemo from './pages/CalendarDemo';
+import TimelineDemo from './pages/TimelineDemo';
+import Invoice from './pages/Invoice';
+import Help from './pages/Help';
+import EmptyPage from './pages/EmptyPage';
+import SeatDemo from './components/menu/SeatDemo';
+import PaymentDemo from './components/menu/PaymentDemo';
+import ConfirmationDemo from './components/menu/ConfirmationDemo';
 
 import PrimeReact from 'primereact/api';
+import { Tooltip } from 'primereact/tooltip';
 
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -65,6 +62,8 @@ const App = () => {
     const [configActive, setConfigActive] = useState(false);
     const [inputStyle, setInputStyle] = useState('outlined');
     const [ripple, setRipple] = useState(false);
+    const copyTooltipRef = useRef();
+    const location = useLocation();
 
     const history = useHistory();
 
@@ -102,17 +101,17 @@ const App = () => {
             ]
         },
         {
-            label: "Utilities", icon: 'pi pi-fw pi-globe',
+            label: "PrimeBlocks", icon: "pi pi-prime",
             items: [
-                { label: 'Display', icon: 'pi pi-fw pi-desktop', to: '/display' },
-                { label: 'Elevation', icon: 'pi pi-fw pi-external-link', to: '/elevation' },
-                { label: 'Flexbox', icon: 'pi pi-fw pi-directions', to: '/flexbox' },
-                { label: 'Icons', icon: 'pi pi-fw pi-search', to: '/icons' },
-                { label: 'Widgets', icon: 'pi pi-fw pi-star-o', to: '/widgets' },
-                { label: 'Grid System', icon: 'pi pi-fw pi-th-large', to: '/grid' },
-                { label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', to: '/spacing' },
-                { label: 'Typography', icon: 'pi pi-fw pi-align-center', to: '/typography' },
-                { label: 'Text', icon: 'pi pi-fw pi-pencil', to: '/text' },
+                { label: "Free Blocks", icon: "pi pi-fw pi-eye", to: "/blocks", badge: "NEW", },
+                { label: "All Blocks", icon: "pi pi-fw pi-globe", url: "https://www.primefaces.org/primeblocks-react", target: "_blank" }
+            ]
+        },
+        {
+            label: 'Utilities', icon: 'pi pi-fw pi-compass',
+            items: [
+                { label: 'Icons', icon: 'pi pi-fw pi-prime', to: '/icons' },
+                { label: "PrimeFlex", icon: "pi pi-fw pi-desktop", url: "https://www.primefaces.org/primeflex", target: "_blank" }
             ]
         },
         {
@@ -125,7 +124,7 @@ const App = () => {
                 { label: 'Login', icon: 'pi pi-fw pi-sign-in', to: '/login' },
                 { label: 'Invoice', icon: 'pi pi-fw pi-dollar', to: '/invoice' },
                 { label: 'Help', icon: 'pi pi-fw pi-question-circle', to: '/help' },
-                { label: 'Wizard', icon: 'pi pi-fw pi-star', to: '/wizard' },
+                { label: 'Wizard', icon: 'pi pi-fw pi-star-fill', to: '/wizard' },
                 { label: 'Error', icon: 'pi pi-fw pi-times-circle', to: '/error' },
                 { label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', to: '/notfound' },
                 { label: 'Access Denied', icon: 'pi pi-fw pi-lock', to: '/access' },
@@ -204,19 +203,15 @@ const App = () => {
         { path: '/overlay', component: OverlayDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Overlay' }] } },
         { path: '/media', component: MediaDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Media' }] } },
         { path: '/menu', component: MenuDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Menu' }] } },
+        { path: '/menu/seat', component: SeatDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Menu' }] } },
+        { path: '/menu/payment', component: PaymentDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Menu' }] } },
+        { path: '/menu/confirmation', component: ConfirmationDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Menu' }] } },
         { path: '/messages', component: MessagesDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Messages' }] } },
         { path: '/file', component: FileDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'File' }] } },
         { path: '/chart', component: ChartDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Charts' }] } },
         { path: '/misc', component: MiscDemo, meta: { breadcrumb: [{ parent: 'UI Kit', label: 'Misc' }] } },
         { path: '/icons', component: IconsDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Icons' }] } },
-        { path: '/widgets', component: Widgets, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Widgets' }] } },
-        { path: '/grid', component: GridDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Grid System' }] } },
-        { path: '/spacing', component: SpacingDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Spacing' }] } },
-        { path: '/elevation', component: ElevationDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Elevation' }] } },
-        { path: '/typography', component: TypographyDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Typography' }] } },
-        { path: '/display', component: DisplayDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Display' }] } },
-        { path: '/flexbox', component: FlexBoxDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Flexbox' }] } },
-        { path: '/text', component: TextDemo, meta: { breadcrumb: [{ parent: 'Utilities', label: 'Text' }] } },
+        { path: '/blocks', component: BlocksDemo, meta: { breadcrumb: [{ parent: 'PrimeBlocks', label: 'Blocks' }] } },
         { path: '/crud', component: CrudDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Crud' }] } },
         { path: '/calendar', component: CalendarDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Calendar' }] } },
         { path: '/timeline', component: TimelineDemo, meta: { breadcrumb: [{ parent: 'Pages', label: 'Timeline' }] } },
@@ -225,6 +220,10 @@ const App = () => {
         { path: '/empty', component: EmptyPage, meta: { breadcrumb: [{ parent: 'Pages', label: 'Empty Page' }] } },
         { path: '/documentation', component: Documentation, meta: { breadcrumb: [{ parent: 'Pages', label: 'Documentation' }] } }
     ];
+
+    useEffect(() => {
+        copyTooltipRef && copyTooltipRef.current && copyTooltipRef.current.updateTargetEvents();
+    }, [location]);
 
     const onInputStyleChange = (inputStyle) => {
         setInputStyle(inputStyle);
@@ -424,6 +423,8 @@ const App = () => {
 
     return (
         <div className={containerClassName} onClick={onDocumentClick}>
+            <Tooltip ref={copyTooltipRef} target=".block-action-copy" position="bottom" content="Copied to clipboard" event="focus" />
+
             <AppTopbar topbarMenuActive={topbarMenuActive} activeTopbarItem={activeTopbarItem} onMenuButtonClick={onMenuButtonClick} onTopbarMenuButtonClick={onTopbarMenuButtonClick} onTopbarItemClick={onTopbarItemClick}
                 isHorizontal={isHorizontal()} profileMode={profileMode} isMobile={isMobile} />
 
@@ -442,7 +443,7 @@ const App = () => {
             </div>
 
             <div className="layout-main">
-                <AppBreadcrumb routers={routers}/>
+                <AppBreadcrumb routers={routers} />
 
                 <div className="layout-content">
                     {
@@ -464,7 +465,7 @@ const App = () => {
                 profileMode={profileMode} onProfileChange={onProfileChange} onConfigClick={onConfigClick} onConfigButtonClick={onConfigButtonClick}
                 rippleActive={ripple} onRippleChange={onRippleChange} inputStyle={inputStyle} onInputStyleChange={onInputStyleChange}></AppConfig>
 
-            { staticMenuMobileActive && <div className="layout-mask"></div>}
+            {staticMenuMobileActive && <div className="layout-mask"></div>}
         </div>
     );
 }

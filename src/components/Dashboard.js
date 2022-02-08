@@ -86,7 +86,7 @@ const chartOptions = {
     }
 };
 
-export const Dashboard = () => {
+const Dashboard = () => {
 
     const [products, setProducts] = useState([]);
     const [events, setEvents] = useState([]);
@@ -126,7 +126,7 @@ export const Dashboard = () => {
     const priceBodyTemplate = (data) => {
         return (
             <>
-                <span className="p-column-title">Price</span>
+                <span className="column-title">Price</span>
                 {formatCurrency(data.price)}
             </>
         );
@@ -135,7 +135,7 @@ export const Dashboard = () => {
     const bodyTemplate = (data, props) => {
         return (
             <>
-                <span className="p-column-title">{props.header}</span>
+                <span className="column-title">{props.header}</span>
                 {data[props.field]}
             </>
         );
@@ -144,7 +144,7 @@ export const Dashboard = () => {
     const statusBodyTemplate = (data) => {
         return (
             <>
-                <span className="p-column-title">Status</span>
+                <span className="column-title">Status</span>
                 <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>
             </>
         )
@@ -152,8 +152,8 @@ export const Dashboard = () => {
 
     return (
         <div className="layout-dashboard">
-            <div className="p-grid">
-                <div className="p-col-12 p-lg-6 p-xl-3">
+            <div className="grid">
+                <div className="col-12 lg:col-6 xl:col-3">
                     <div className="overview-box sales">
                         <i className="overview-icon pi pi-dollar"></i>
                         <span className="overview-title">Sales</span>
@@ -166,7 +166,7 @@ export const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="p-col-12 p-lg-6 p-xl-3">
+                <div className="col-12 lg:col-6 xl:col-3">
                     <div className="overview-box views">
                         <i className="overview-icon pi pi-search"></i>
                         <span className="overview-title">Views</span>
@@ -179,7 +179,7 @@ export const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="p-col-12 p-lg-6 p-xl-3">
+                <div className="col-12 lg:col-6 xl:col-3">
                     <div className="overview-box users">
                         <i className="overview-icon pi pi-users"></i>
                         <span className="overview-title">Users</span>
@@ -192,7 +192,7 @@ export const Dashboard = () => {
                         </div>
                     </div>
                 </div>
-                <div className="p-col-12 p-lg-6 p-xl-3">
+                <div className="col-12 lg:col-6 xl:col-3">
                     <div className="overview-box checkin">
                         <i className="overview-icon pi pi-map-marker"></i>
                         <span className="overview-title">Check-Ins</span>
@@ -206,14 +206,14 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-lg-8">
+                <div className="col-12 lg:col-8">
                     <div className="card card-w-title statistics">
                         <h5>Statistics</h5>
                         <Chart type="line" data={chartData} options={chartOptions} />
                     </div>
                 </div>
 
-                <div className="p-col-12 p-lg-4">
+                <div className="col-12 lg:col-4">
                     <div className="user-card card">
                         <div className="user-card-header">
                             <img src="assets/layout/images/dashboard/bg-header.png" alt="babylon-layout" className="profile-image" />
@@ -283,7 +283,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-md-12 p-lg-4">
+                <div className="col-12 md:col-12 lg:col-4">
                     <div className="card card-w-title tasks">
                         <h5>Tasks</h5>
                         <ul>
@@ -316,7 +316,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-md-12 p-lg-4">
+                <div className="col-12 md:col-12 lg:col-4">
                     <div className="card card-w-title resolution-center p-fluid">
                         <h5>Support Request</h5>
 
@@ -333,7 +333,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-md-12 p-lg-4">
+                <div className="col-12 md:col-12 lg:col-4">
                     <div className="card card-w-title team">
                         <h5>Team</h5>
                         <ul>
@@ -393,7 +393,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-xl-6">
+                <div className="col-12 xl:col-6">
                     <div className="card card-w-title timeline">
                         <h5>Timeline</h5>
                         <ul>
@@ -468,7 +468,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-xl-6">
+                <div className="col-12 xl:col-6">
                     <div className="card card-w-title global-sales p-fluid">
                         <h5>Global Sales</h5>
                         <DataTable value={products} paginator rows={5} className="p-datatable-products">
@@ -484,33 +484,33 @@ export const Dashboard = () => {
                         <h5>Live Support</h5>
                         <ul>
                             <li>
-                                <div className="p-grid">
-                                    <div className="p-col-fixed">
+                                <div className="grid">
+                                    <div className="col-fixed">
                                         <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
                                     </div>
-                                    <div className="p-col">
+                                    <div className="col">
                                         <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                             Nam ac euismod justo, eget blandit purus.</div>
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="p-grid">
-                                    <div className="p-col">
+                                <div className="grid">
+                                    <div className="col">
                                         <div className="chat-message">Mauris malesuada quis risus ut consequat.
                                             Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.</div>
                                     </div>
-                                    <div className="p-col-fixed">
+                                    <div className="col-fixed">
                                         <img src="assets/layout/images/avatar-julia.png" alt="babylon-layout" />
                                     </div>
                                 </div>
                             </li>
                             <li>
-                                <div className="p-grid">
-                                    <div className="p-col-fixed">
+                                <div className="grid">
+                                    <div className="col-fixed">
                                         <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
                                     </div>
-                                    <div className="p-col">
+                                    <div className="col">
                                         <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                             Nam ac euismod justo, eget blandit purus.</div>
                                     </div>
@@ -519,11 +519,11 @@ export const Dashboard = () => {
                         </ul>
 
                         <div className="new-message">
-                            <div className="p-grid p-nogutter">
-                                <div className="p-col">
+                            <div className="grid grid-nogutter">
+                                <div className="col">
                                     <input type="text" placeholder="Write a message.." />
                                 </div>
-                                <div className="p-col-fixed">
+                                <div className="col-fixed">
                                     <Button type="button" label="Send" />
                                 </div>
                             </div>
@@ -531,7 +531,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="p-col-12 p-md-12 p-lg-12">
+                <div className="col-12 md:col-12 lg:col-12">
                     <div className="card card-w-title">
                         <h5>Schedule</h5>
                         <FullCalendar events={events} plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} initialDate='2021-02-01'
@@ -542,3 +542,9 @@ export const Dashboard = () => {
         </div>
     );
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Dashboard, comparisonFn);

@@ -1,262 +1,149 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
-import { AutoComplete } from 'primereact/autocomplete';
+import React from 'react';
 import { Accordion, AccordionTab } from 'primereact/accordion';
 
-export const Help = () => {
-
-    const [text, setText] = useState(null);
-    const [filteredText, setFilteredText] = useState([]);
-    const [activeTabIndex, setActiveTabIndex] = useState(0);
-
-    const filterText = (event) => {
-        const query = event.query;
-        let filteredText = []
-
-        for (let i = 0; i < 10; i++) {
-            filteredText.push(query + i);
-        }
-
-        setFilteredText(filteredText);
-    };
-
-    const accordionHeader1 = (
-        <span>
-            <i className="pi pi-circle-on"></i>
-            <div className="accordion-title">
-                Which do I need to develop a SaaS application?
-                                    </div>
-        </span>
-    );
-    const accordionHeader2 = (
-        <span>
-            <i className="pi pi-circle-on"></i>
-            <div className="accordion-title">
-                I’m a freelancer/agency. Can I use the item for an end product I’m doing for a client?
-                                    </div>
-        </span>
-    );
-    const accordionHeader3 = (
-        <span>
-            <i className="pi pi-circle-on"></i>
-            <div className="accordion-title">
-                We’re a reseller, are we able to purchase a license on behalf of our client?
-                                    </div>
-        </span>
-    );
-    const accordionHeader4 = (
-        <span>
-            <i className="pi pi-circle-on"></i>
-            <div className="accordion-title">
-                Is there a recurring fee or is it perpetual?
-                                    </div>
-        </span>
-    );
-
-    let contentStyle = { transform: `translate3d(${-100 * activeTabIndex}%, 0, 0)` };
+const Help = () => {
 
     return (
-        <div className="help-wrapper">
-            <div className="help-header">
-                <div className="header-content">
-                    <h1>Babylon Help Center</h1>
-                    <div className="search-form">
-                        <AutoComplete id="acSimple" placeholder="Search from 29,994,421 help documents"
-                            suggestions={filteredText} value={text} completeMethod={filterText}
-                            onChange={event => {
-                                setText(event.value);
-                                setFilteredText(null);
-                            }} />
-                        <i className="pi pi-search" />
+        <div className="grid help-page">
+            <div className="col-12">
+                <div className="card help-search grid">
+                    <div className="help-search-content col-12 md:col-6">
+                        <h4>We are here to help</h4>
+                        <div className="search-container">
+                            <i className="pi pi-search"></i>
+                            <input type="text" className="p-inputtext" placeholder="Search" />
+                        </div>
                     </div>
+                    <div className="help-search-effect col-12 md:col-6"></div>
                 </div>
             </div>
 
-            <div className="help-container">
-                <div className="help-content-header">
-                    <div
-                        className={classNames("card help-content-header-tab tab-1", { 'selected-tab': activeTabIndex === 0 })}
-                        onClick={() => setActiveTabIndex(0)}>
-                        <div className="tab-icon">
-                            <i className="pi pi-compass"></i>
-                        </div>
-                        <div className="tab-content">
-                            <h3>The Basics</h3>
-                            <span>4 articles in this collection</span>
-                        </div>
+            <div className="col-12 lg:col-6">
+                    <h6>General</h6>
+                    <Accordion activeIndex={0}>
+                        <AccordionTab header="Header I">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </AccordionTab>
+                        <AccordionTab header="Header II">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                                voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                        </AccordionTab>
+                        <AccordionTab header="Header III">
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                                cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                        </AccordionTab>
+                    </Accordion>
+
+                    <h6>FAQ</h6>
+                    <Accordion activeIndex={0}>
+                        <AccordionTab header="FAQ I">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </AccordionTab>
+                        <AccordionTab header="FAQ II">
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
+                                voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
+                        </AccordionTab>
+                        <AccordionTab header="FAQ III">
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+                                cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                        </AccordionTab>
+                    </Accordion>
+            </div>
+
+
+            <div className="col-12 lg:col-6">
+                <div className="card status-card">
+                    <h6>System Status</h6>
+                    <p>All services are operational.</p>
+                    <div className="status-bars">
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar status-bar-failure"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
+                        <div className="status-bar"></div>
                     </div>
-                    <div
-                        className={classNames("card help-content-header-tab tab-2", { 'selected-tab': activeTabIndex === 1 })}
-                        onClick={() => setActiveTabIndex(1)}>
-                        <div className="tab-icon">
-                            <i className="pi pi-bookmark"></i>
-                        </div>
-                        <div className="tab-content">
-                            <h3>Questions About Licenses</h3>
-                            <span>3 articles in this collection</span>
-                        </div>
-                    </div>
-                    <div
-                        className={classNames("card help-content-header-tab tab-3", { 'selected-tab': activeTabIndex === 2 })}
-                        onClick={() => setActiveTabIndex(2)}>
-                        <div className="tab-icon">
-                            <i className="pi pi-folder"></i>
-                        </div>
-                        <div className="tab-content">
-                            <h3>Questions About Frameworks</h3>
-                            <span>72 articles in this collection</span>
-                        </div>
+                    <div className="status-bar-footer">
+                        <span>30 Days Ago</span>
+                        <span>Today</span>
                     </div>
                 </div>
 
-                <div className="help-contents-wrapper">
-                    <div className="help-contents-row" style={contentStyle}>
-                        <div className="card help-content">
-                            <div className="questions-header">
-                                <h1>The Basics</h1>
-                                <span>4 articles in this collection</span>
-                                <div className="profile-images">
-                                    <img src="assets/layout/images/extensions/avatar-1.png" alt="babylon-layout" />
-                                    <img src="assets/layout/images/extensions/avatar-2.png" alt="babylon-layout" />
-                                    <img src="assets/layout/images/extensions/avatar-3.png" alt="babylon-layout" />
-                                </div>
+                <div className="card articles-card">
+                    <h6>Articles</h6>
+                    <p>Recent articles from our team.</p>
+                    <div className="blog-posts">
+                        <div className="blog-post">
+                            <div className="blog-text">
+                                <h6>Building Revenue With Confidence</h6>
+                                <span>And avoiding failures</span>
                             </div>
-                            <div className="questions-content">
-                                <Accordion className="sub-accordion" activeIndex={0}>
-                                    <AccordionTab header={accordionHeader1}>
-                                        Nunc viverra nisl ac enim facilisis, sit amet elementum arcu sagittis.
-                                        Maecenas nec nisi arcu. Donec tempus scelerisque neque, eu commodo velit
-                                        auctor in. Cras in lorem porttitor ligula cursus gravida eu ut ex. Proin eu
-                                        posuere dolor. Mauris condimentum, elit et viverra egestas, metus purus
-                                        tempor lorem, eu ultricies tellus odio a nunc.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader2}>
-                                        Morbi commodo augue turpis, ut luctus justo elementum eget. In maximus enim
-                                        a dignissim porta. Sed eget erat turpis. Phasellus elementum ex non magna
-                                        convallis auctor. Interdum et malesuada fames ac ante ipsum primis in
-                                        faucibus. Pellentesque ullamcorper arcu nisi, ac consectetur dui consequat
-                                        ac.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader3}>
-                                        Donec aliquet, nulla vel dignissim sollicitudin, nibh magna dapibus mauris,
-                                        vel egestas nisi quam id turpis. Duis consequat elementum consequat.
-                                        Phasellus vulputate, elit sed commodo interdum, erat lorem molestie tortor,
-                                        a commodo est lacus ut sapien. Mauris tristique magna eu diam pellentesque
-                                        semper sed nec ante. Pellentesque id accumsan erat. Vivamus dictum tristique
-                                        ex, quis sodales felis convallis id. Donec hendrerit auctor neque, semper
-                                        posuere arcu.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader4}>
-                                        Nulla facilisi. Nam bibendum venenatis quam id fermentum. Sed quis libero id
-                                        lorem lacinia sollicitudin. Quisque commodo, urna ac facilisis maximus, mi
-                                        augue dictum lacus, non aliquam turpis libero eget mauris. Praesent
-                                        venenatis leo vitae sem vulputate, at elementum felis tempus.
-
-                                        Nulla lobortis condimentum nisi vitae ultrices. Aenean ac mi et lectus
-                                        varius efficitur.
-										</AccordionTab>
-                                </Accordion>
+                            <div className="blog-profile">
+                                <img src="assets/demo/images/avatar/miracle.png" alt="atlantis-layout" />
                             </div>
                         </div>
 
-                        <div className="card help-content">
-                            <div className="questions-header">
-                                <h1>Questions About Licenses</h1>
-                                <span>4 articles in this collection</span>
-                                <div className="profile-images">
-                                    <img src="assets/layout/images/extensions/avatar-1.png" alt="babylon-layout" />
-                                    <img src="assets/layout/images/extensions/avatar-2.png" alt="babylon-layout" />
-                                    <img src="assets/layout/images/extensions/avatar-3.png" alt="babylon-layout" />
-                                </div>
+                        <div className="blog-post">
+                            <div className="blog-text">
+                                <h6>Latest Marketing Trends</h6>
+                                <span>Don't miss out our tips</span>
                             </div>
-                            <div className="questions-content">
-                                <Accordion className="sub-accordion" activeIndex={0}>
-                                    <AccordionTab header={accordionHeader1}>
-                                        Nunc viverra nisl ac enim facilisis, sit amet elementum arcu sagittis.
-                                        Maecenas nec nisi arcu. Donec tempus scelerisque neque, eu commodo velit
-                                        auctor in. Cras in lorem porttitor ligula cursus gravida eu ut ex. Proin eu
-                                        posuere dolor. Mauris condimentum, elit et viverra egestas, metus purus
-                                        tempor lorem, eu ultricies tellus odio a nunc.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader2}>
-                                        Morbi commodo augue turpis, ut luctus justo elementum eget. In maximus enim
-                                        a dignissim porta. Sed eget erat turpis. Phasellus elementum ex non magna
-                                        convallis auctor. Interdum et malesuada fames ac ante ipsum primis in
-                                        faucibus. Pellentesque ullamcorper arcu nisi, ac consectetur dui consequat
-                                        ac.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader3}>
-                                        Donec aliquet, nulla vel dignissim sollicitudin, nibh magna dapibus mauris,
-                                        vel egestas nisi quam id turpis. Duis consequat elementum consequat.
-                                        Phasellus vulputate, elit sed commodo interdum, erat lorem molestie tortor,
-                                        a commodo est lacus ut sapien. Mauris tristique magna eu diam pellentesque
-                                        semper sed nec ante. Pellentesque id accumsan erat. Vivamus dictum tristique
-                                        ex, quis sodales felis convallis id. Donec hendrerit auctor neque, semper
-                                        posuere arcu.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader4}>
-                                        Nulla facilisi. Nam bibendum venenatis quam id fermentum. Sed quis libero id
-                                        lorem lacinia sollicitudin. Quisque commodo, urna ac facilisis maximus, mi
-                                        augue dictum lacus, non aliquam turpis libero eget mauris. Praesent
-                                        venenatis leo vitae sem vulputate, at elementum felis tempus.
-
-                                        Nulla lobortis condimentum nisi vitae ultrices. Aenean ac mi et lectus
-                                        varius efficitur.
-										</AccordionTab>
-                                </Accordion>
+                            <div className="blog-profile">
+                                <img src="assets/demo/images/avatar/kaylynn.png" alt="atlantis-layout" />
                             </div>
                         </div>
 
-                        <div className="card help-content">
-                            <div className="questions-header">
-                                <h1>Questions About Frameworks</h1>
-                                <span>4 articles in this collection</span>
-                                <div className="profile-images">
-                                    <img src="assets/layout/images/extensions/avatar-1.png" alt="babylon-layout" />
-                                    <img src="assets/layout/images/extensions/avatar-2.png" alt="babylon-layout" />
-                                    <img src="assets/layout/images/extensions/avatar-3.png" alt="babylon-layout" />
-                                </div>
+                        <div className="blog-post">
+                            <div className="blog-text">
+                                <h6>How To Reach Your Audience</h6>
+                                <span>10 ways to increase your efficiency</span>
                             </div>
-                            <div className="questions-content">
-                                <Accordion className="sub-accordion" activeIndex={0}>
-                                    <AccordionTab header={accordionHeader1}>
-                                        Nunc viverra nisl ac enim facilisis, sit amet elementum arcu sagittis.
-                                        Maecenas nec nisi arcu. Donec tempus scelerisque neque, eu commodo velit
-                                        auctor in. Cras in lorem porttitor ligula cursus gravida eu ut ex. Proin eu
-                                        posuere dolor. Mauris condimentum, elit et viverra egestas, metus purus
-                                        tempor lorem, eu ultricies tellus odio a nunc.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader2}>
-                                        Morbi commodo augue turpis, ut luctus justo elementum eget. In maximus enim
-                                        a dignissim porta. Sed eget erat turpis. Phasellus elementum ex non magna
-                                        convallis auctor. Interdum et malesuada fames ac ante ipsum primis in
-                                        faucibus. Pellentesque ullamcorper arcu nisi, ac consectetur dui consequat
-                                        ac.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader3}>
-                                        Donec aliquet, nulla vel dignissim sollicitudin, nibh magna dapibus mauris,
-                                        vel egestas nisi quam id turpis. Duis consequat elementum consequat.
-                                        Phasellus vulputate, elit sed commodo interdum, erat lorem molestie tortor,
-                                        a commodo est lacus ut sapien. Mauris tristique magna eu diam pellentesque
-                                        semper sed nec ante. Pellentesque id accumsan erat. Vivamus dictum tristique
-                                        ex, quis sodales felis convallis id. Donec hendrerit auctor neque, semper
-                                        posuere arcu.
-										</AccordionTab>
-                                    <AccordionTab header={accordionHeader4}>
-                                        Nulla facilisi. Nam bibendum venenatis quam id fermentum. Sed quis libero id
-                                        lorem lacinia sollicitudin. Quisque commodo, urna ac facilisis maximus, mi
-                                        augue dictum lacus, non aliquam turpis libero eget mauris. Praesent
-                                        venenatis leo vitae sem vulputate, at elementum felis tempus.
-
-                                        Nulla lobortis condimentum nisi vitae ultrices. Aenean ac mi et lectus
-                                        varius efficitur.
-										</AccordionTab>
-                                </Accordion>
+                            <div className="blog-profile">
+                                <img src="assets/demo/images/avatar/angel.png" alt="atlantis-layout" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     )
 }
+
+const comparisonFn = function (prevProps, nextProps) {
+    return prevProps.location.pathname === nextProps.location.pathname;
+};
+
+export default React.memo(Help, comparisonFn);

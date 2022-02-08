@@ -603,7 +603,7 @@
             li {
                 padding: 12px;
 
-                .p-col-fixed {
+                .col-fixed {
                     width: 48px;
                 }
 
@@ -705,7 +705,7 @@
                 font-family: $fontFamily;
             }
 
-            .p-col-fixed {
+            .col-fixed {
                 width: 100px;
 
                 .p-button {
@@ -719,7 +719,7 @@
     .p-datatable-products .p-datatable-tbody > tr > td .p-column-title {
         display: none;
     }
-    
+
     @media (max-width: 960px) {
         .p-datatable {
             &.p-datatable-products {
@@ -727,10 +727,10 @@
                 .p-datatable-tfoot > tr > td {
                     display: none !important;
                 }
-    
+
                 .p-datatable-tbody > tr {
                     border-bottom: 1px solid var(--surface-d);
-    
+
                     > td {
                         text-align: left;
                         display: flex;
@@ -738,7 +738,7 @@
                         width: 100% !important;
                         border: 0 none;
                         align-items: center;
-    
+
                         .p-column-title {
                             min-width: 30%;
                             display: block ;

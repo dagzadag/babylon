@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
-import classNames from 'classnames';
+import { classNames } from 'primereact/utils';
 import { Ripple } from 'primereact/ripple';
+import { Badge } from 'primereact/badge';
 
 const AppSubmenu = (props) => {
 
@@ -78,7 +79,7 @@ const AppSubmenu = (props) => {
                 <i className={menuitemIconClassName}></i>
                 <span className="layout-menuitem-text">{item.label}</span>
                 { item.items && <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>}
-                { item.badge && <span className="menuitem-badge">{item.badge}</span>}
+                { item.badge && <Badge value={item.badge} className="menuitem-badge"/>}
                 <Ripple />
             </>
         );

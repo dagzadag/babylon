@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
+import { classNames } from 'primereact/utils';
 import { RadioButton } from 'primereact/radiobutton';
 import { InputSwitch } from 'primereact/inputswitch';
 
@@ -100,39 +100,39 @@ const AppConfig = (props) => {
             </button>
             <div className={configClassName} onClick={props.onConfigClick}>
                 <h5>Menu Mode</h5>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="menuMode" value="static" checked={props.menuMode === 'static'} inputId="mode1" onChange={props.onMenuModeChange}></RadioButton>
                     <label htmlFor="mode1">Static</label>
                 </div>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="menuMode" value="overlay" checked={props.menuMode === 'overlay'} inputId="mode2" onChange={props.onMenuModeChange}></RadioButton>
                     <label htmlFor="mode2">Overlay</label>
                 </div>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="menuMode" value="horizontal" checked={props.menuMode === 'horizontal'} inputId="mode3" onChange={props.onMenuModeChange}></RadioButton>
                     <label htmlFor="mode4">Horizontal</label>
                 </div>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="menuMode" value="slim" checked={props.menuMode === 'slim'} inputId="mode4" onChange={props.onMenuModeChange}></RadioButton>
                     <label htmlFor="mode4">Slim</label>
                 </div>
 
                 <h5>Menu Color</h5>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="colorScheme" value={true} checked={props.isDarkMenu} inputId="menu_color1" onChange={props.onMenuColorChange}></RadioButton>
                     <label htmlFor="menu_color1">Dark</label>
                 </div>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="colorScheme" value={false} checked={!props.isDarkMenu} inputId="menu_color2" onChange={props.onMenuColorChange}></RadioButton>
                     <label htmlFor="menu_color2">Light</label>
                 </div>
 
                 <h5>Input Style</h5>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton inputId="input_outlined" name="inputstyle" value="outlined" checked={props.inputStyle === 'outlined'} onChange={(e) => props.onInputStyleChange(e.value)} />
                     <label htmlFor="input_outlined">Outlined</label>
                 </div>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton inputIid="input_filled" name="inputstyle" value="filled" checked={props.inputStyle === 'filled'} onChange={(e) => props.onInputStyleChange(e.value)} />
                     <label htmlFor="input_filled">Filled</label>
                 </div>
@@ -141,11 +141,11 @@ const AppConfig = (props) => {
                 <InputSwitch checked={props.rippleActive} onChange={props.onRippleChange} />
 
                 <h5>User Profile</h5>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="profileMode" value="inline" checked={props.profileMode === 'inline'} disabled={props.menuMode === 'horizontal'} inputId="profile_mode1" onChange={props.onProfileChange}></RadioButton>
                     <label htmlFor="profile_mode1">Inline</label>
                 </div>
-                <div className="p-field-radiobutton">
+                <div className="field-radiobutton">
                     <RadioButton name="profileMode" value="popup" checked={props.profileMode === 'popup'} disabled={props.menuMode === 'horizontal'} inputId="profile_mode2" onChange={props.onProfileChange}></RadioButton>
                     <label htmlFor="profile_mode2">Popup</label>
                 </div>
