@@ -534,7 +534,7 @@ const Dashboard = () => {
                 <div className="col-12 md:col-12 lg:col-12">
                     <div className="card card-w-title">
                         <h5>Schedule</h5>
-                        <FullCalendar events={events} plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} initialDate='2021-02-01'
+                        <FullCalendar events={events} plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} initialDate='2023-01-01'
                             header={{ left: 'prev,next,today', center: 'title', right: '' }} />
                     </div>
                 </div>
