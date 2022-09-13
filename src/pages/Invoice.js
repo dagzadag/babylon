@@ -1,11 +1,10 @@
-import React from 'react';
-import { Button } from 'primereact/button';
+import React from "react";
+import { Button } from "primereact/button";
 
 const Invoice = () => {
-
-    return(
+    return (
         <>
-            <Button label="Print" icon="pi pi-print" onClick={() => window.print()} style={{ display: 'block', marginBottom: '20px', marginLeft: '6px' }} />
+            <Button label="Print" icon="pi pi-print" onClick={() => window.print()} style={{ display: "block", marginBottom: "20px", marginLeft: "6px" }} />
 
             <div id="invoice-content">
                 <div className="invoice-wrapper">
@@ -35,8 +34,7 @@ const Invoice = () => {
                             <div className="invoice-table-content">
                                 <div className="invoice-table-row grid grid-nogutter">
                                     <div className="col-6">
-                                        <span>TOYOKSU SYSCOM CORPORATION 11-27, MEIEKI 4-CHROME
-                                        NAKAMURA-KU, NAGOYA 450-0002 JAPAN </span>
+                                        <span>TOYOKSU SYSCOM CORPORATION 11-27, MEIEKI 4-CHROME NAKAMURA-KU, NAGOYA 450-0002 JAPAN </span>
                                     </div>
                                     <div className="col-3">
                                         <span>30/08/19</span>
@@ -123,7 +121,7 @@ const Invoice = () => {
                                             <span>BestBank</span>
                                             <span>Edward Williams</span>
                                             <span>PJNWBXND</span>
-                                            <input value="GB04420235692263866724650931" readonly="true" />
+                                            <input value="GB04420235692263866724650931" readOnly="true" />
                                         </div>
                                     </div>
                                 </div>
@@ -153,11 +151,7 @@ const Invoice = () => {
                 </div>
             </div>
         </>
-    )
-}
-
-const comparisonFn = function (prevProps, nextProps) {
-    return prevProps.location.pathname === nextProps.location.pathname;
+    );
 };
 
-export default React.memo(Invoice, comparisonFn);
+export default Invoice;

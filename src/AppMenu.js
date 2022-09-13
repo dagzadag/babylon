@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
-import { classNames } from 'primereact/utils';
-import { Ripple } from 'primereact/ripple';
-import { Badge } from 'primereact/badge';
+import React, { useCallback, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
+import { classNames } from "primereact/utils";
+import { Ripple } from "primereact/ripple";
+import { Badge } from "primereact/badge";
 
 const AppSubmenu = (props) => {
-
     const [activeIndex, setActiveIndex] = useState(null);
 
     const onMenuItemClick = (event, item, index) => {
@@ -25,20 +24,20 @@ const AppSubmenu = (props) => {
         }
         if (props.root) {
             props.onRootMenuitemClick({
-                originalEvent: event
+                originalEvent: event,
             });
         }
 
-        if (props.menuMode !== 'static') {
+        if (props.menuMode !== "static") {
             const ink = getInk(event.currentTarget);
             if (ink) {
-                removeClass(ink, 'p-ink-active');
+                removeClass(ink, "p-ink-active");
             }
         }
 
         props.onMenuitemClick({
             originalEvent: event,
-            item: item
+            item: item,
         });
     };
 
@@ -50,19 +49,17 @@ const AppSubmenu = (props) => {
 
     const getInk = (el) => {
         for (let i = 0; i < el.children.length; i++) {
-            if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
+            if (typeof el.children[i].className === "string" && el.children[i].className.indexOf("p-ink") !== -1) {
                 return el.children[i];
             }
         }
         return null;
-    }
+    };
 
     const removeClass = (element, className) => {
-        if (element.classList)
-            element.classList.remove(className);
-        else
-            element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-    }
+        if (element.classList) element.classList.remove(className);
+        else element.className = element.className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+    };
 
     const visible = (item) => {
         return typeof item.visible === "function" ? item.visible() : item.visible !== false;
@@ -73,44 +70,55 @@ const AppSubmenu = (props) => {
     }, []);
 
     const getLink = (item, index) => {
-        const menuitemIconClassName = classNames('layout-menuitem-icon', item.icon);
+        const menuitemIconClassName = classNames("layout-menuitem-icon", item.icon);
         const content = (
             <>
                 <i className={menuitemIconClassName}></i>
                 <span className="layout-menuitem-text">{item.label}</span>
-                { item.items && <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>}
-                { item.badge && <Badge value={item.badge} className="menuitem-badge"/>}
+                {item.items && <i className="pi pi-fw pi-angle-down layout-submenu-toggler"></i>}
+                {item.badge && <Badge value={item.badge} className="menuitem-badge" />}
                 <Ripple />
             </>
         );
         const commonLinkProps = {
-            'style': item.style,
-            'className': classNames(item.class, 'p-ripple', { 'p-disabled': item.disabled, 'p-link': !item.to }),
-            'target': item.target,
-            'onClick': (e) => onMenuItemClick(e, item, index),
-            'onMouseEnter': () => onMenuItemMouseEnter(index)
-        }
+            style: item.style,
+            className: classNames(item.class, "p-ripple", { "p-disabled": item.disabled, "p-link": !item.to }),
+            target: item.target,
+            onClick: (e) => onMenuItemClick(e, item, index),
+            onMouseEnter: () => onMenuItemMouseEnter(index),
+        };
 
         if (item.url) {
-            return <a href={item.url} rel="noopener noreferrer" {...commonLinkProps}>{content}</a>
-        }
-        else if (!item.to) {
-            return <button type="button" {...commonLinkProps}>{content}</button>
+            return (
+                <a href={item.url} rel="noopener noreferrer" {...commonLinkProps}>
+                    {content}
+                </a>
+            );
+        } else if (!item.to) {
+            return (
+                <button type="button" {...commonLinkProps}>
+                    {content}
+                </button>
+            );
         }
 
-        return <NavLink to={item.to} exact activeClassName="active-route" {...commonLinkProps}>{content}</NavLink>;
+        return (
+            <NavLink to={item.to} exact="true" className={({ isActive }) => (isActive ? "active-route" : "none")} {...commonLinkProps}>
+                {content}
+            </NavLink>
+        );
     };
 
     const isMenuActive = (index) => {
         return props.root ? true : activeIndex === index;
-    }
+    };
 
     const getItems = () => {
         const transitionTimeout = props.root ? 0 : { enter: 1000, exit: 450 };
         return props.items.map((item, i) => {
             if (visible(item)) {
                 const active = isMenuActive(i);
-                const menuitemClassName = classNames({ 'layout-root-menuitem': props.root, 'active-menuitem': activeIndex === i && !item.disabled });
+                const menuitemClassName = classNames({ "layout-root-menuitem": props.root, "active-menuitem": activeIndex === i && !item.disabled });
                 const link = getLink(item, i);
                 const rootMenuItem = props.root && (
                     <div>
@@ -133,11 +141,11 @@ const AppSubmenu = (props) => {
                             <AppSubmenu items={visible(item) && item.items} menuActive={props.menuActive} menuMode={props.menuMode} onMenuitemClick={props.onMenuitemClick}></AppSubmenu>
                         </CSSTransition>
                     </li>
-                )
+                );
             }
 
             return null;
-        })
+        });
     };
 
     useEffect(() => {
@@ -152,16 +160,11 @@ const AppSubmenu = (props) => {
 
     const items = getItems();
 
-    return (
-        <ul className={props.className}>
-            { items}
-        </ul>
-    );
-}
+    return <ul className={props.className}>{items}</ul>;
+};
 
 const AppMenu = (props) => {
-
-    return <AppSubmenu className="layout-menu" items={props.model} menuMode={props.menuMode} menuActive={props.active} root onMenuitemClick={props.onMenuitemClick} onRootMenuitemClick={props.onRootMenuitemClick} />
-}
+    return <AppSubmenu className="layout-menu" items={props.model} menuMode={props.menuMode} menuActive={props.active} root onMenuitemClick={props.onMenuitemClick} onRootMenuitemClick={props.onRootMenuitemClick} />;
+};
 
 export default AppMenu;

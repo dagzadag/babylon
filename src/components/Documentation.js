@@ -1,8 +1,7 @@
-import React from 'react';
-import AppCodeHighlight from '../AppCodeHighlight';
+import React from "react";
+import AppCodeHighlight from "../AppCodeHighlight";
 
 const Documentation = () => {
-
     return (
         <div className="grid">
             <div className="col-12">
@@ -11,52 +10,59 @@ const Documentation = () => {
                     <p>React 17.x and PrimeReact 7.x</p>
 
                     <h4>Getting Started</h4>
-                    <p>Babylon is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows
-                            creating React apps with no configuration. To get started extract the contents of the zip bundle and install the dependencies
-                            with npm or yarn.</p>
-<AppCodeHighlight>
-{`
+                    <p>
+                        Babylon is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows creating React apps with no configuration. To get started extract the contents of the zip bundle and install the
+                        dependencies with npm or yarn.
+                    </p>
+                    <AppCodeHighlight>
+                        {`
 "npm install" or "yarn"
 `}
-</AppCodeHighlight>
-<p>The following command needs to be run to create the css files in the sample project.
-                        Note: Users can automatically run scss files without using this command by moving the theme file they want to use in their own projects under the src folder.
-                    <a href="https://create-react-app.dev/docs/adding-a-sass-stylesheet/"> Details</a></p>
-<AppCodeHighlight>
-{`
+                    </AppCodeHighlight>
+                    <p>
+                        The following command needs to be run to create the css files in the sample project. Note: Users can automatically run scss files without using this command by moving the theme file they want to use in their own projects under the src folder.
+                        <a href="https://create-react-app.dev/docs/adding-a-sass-stylesheet/"> Details</a>
+                    </p>
+                    <AppCodeHighlight>
+                        {`
 sass public/assets:public/assets --no-source-map
 `}
-</AppCodeHighlight>
-                    <p>Next step is running the application using the start script and navigate to <b>http://localhost:3000/</b> to view the application.</p>
+                    </AppCodeHighlight>
+                    <p>
+                        Next step is running the application using the start script and navigate to <b>http://localhost:3000/</b> to view the application.
+                    </p>
 
-<AppCodeHighlight>
-{`
+                    <AppCodeHighlight>
+                        {`
 "npm start" or "yarn start"
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
                     <p>That is it, you may now start with the development of your application using the Babylon template.</p>
 
                     <h4>React Scripts</h4>
                     <p>Following commands are derived from create-app-app.</p>
-<AppCodeHighlight>
-{`
+                    <AppCodeHighlight>
+                        {`
 "npm start" or "yarn start": Starts the development server
 "npm test" or "yarn test": Runs the tests.
 "npm run build" or "yarn run build": Creates a production build.
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
-                <h4>Structure</h4>
-                <p>Babylon consists of 3 main parts; the application layout, layout resources and theme resources for PrimeReact components. <i>App.js</i> inside app folder is the html
-					template for the base layout, required resources for the layout are placed inside the <i>public/assets/layout</i> folder and similarly theme resources are inside <i>public/assets/theme</i> folder.</p>
+                    <h4>Structure</h4>
+                    <p>
+                        Babylon consists of 3 main parts; the application layout, layout resources and theme resources for PrimeReact components. <i>App.js</i> inside app folder is the html template for the base layout, required resources for the layout are placed inside the{" "}
+                        <i>public/assets/layout</i> folder and similarly theme resources are inside <i>public/assets/theme</i> folder.
+                    </p>
 
-                <h4>Template</h4>
-                <p>Main layout is the template of the <i>App.js</i>, it is divided into a couple of child components such as topbar, content, menu and footer. Here is template of the
-                    <i>App.js</i> component that implements the logic such as menu state, layout modes and other configurable options.
-                </p>
+                    <h4>Template</h4>
+                    <p>
+                        Main layout is the template of the <i>App.js</i>, it is divided into a couple of child components such as topbar, content, menu and footer. Here is template of the
+                        <i>App.js</i> component that implements the logic such as menu state, layout modes and other configurable options.
+                    </p>
 
-<AppCodeHighlight>
-{`
+                    <AppCodeHighlight>
+                        {`
 <div className={containerClassName} onClick={onDocumentClick}>
     <AppTopbar topbarMenuActive={topbarMenuActive} activeTopbarItem={activeTopbarItem} onMenuButtonClick={onMenuButtonClick} onTopbarMenuButtonClick={onTopbarMenuButtonClick} onTopbarItemClick={onTopbarItemClick}
         isHorizontal={isHorizontal()} profileMode={profileMode} isMobile={isMobile} />
@@ -93,15 +99,16 @@ sass public/assets:public/assets --no-source-map
     { staticMenuMobileActive && <div className="layout-mask"></div> }
 </div>
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
-                <h4>Menu</h4>
-                <p>Menu is a separate component defined in <i>AppMenu.js</i> file based on PrimeReact MenuModel API. In order to define the menuitems,
-                    navigate to data section of <i>App.js</i> file and define your own model as a nested structure using the menu property.
-                    Here is the menu component from the demo application. Notice that menu object is bound to the model property of AppMenu component as shown above.</p>
+                    <h4>Menu</h4>
+                    <p>
+                        Menu is a separate component defined in <i>AppMenu.js</i> file based on PrimeReact MenuModel API. In order to define the menuitems, navigate to data section of <i>App.js</i> file and define your own model as a nested structure using the menu property. Here is the menu
+                        component from the demo application. Notice that menu object is bound to the model property of AppMenu component as shown above.
+                    </p>
 
-<AppCodeHighlight lang="js">
-{`
+                    <AppCodeHighlight lang="js">
+                        {`
 const menu = [
     {
         label: 'Home Page', icon: 'pi pi-fw pi-home',
@@ -219,22 +226,20 @@ const menu = [
     }
 ];
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
-                    <p>Dependencies of Layout are listed below and needs to be added to package.json. Only required
-                            dependency is PrimeReact where optional dependencies exist to enable certain components in PrimeReact.</p>
+                    <p>Dependencies of Layout are listed below and needs to be added to package.json. Only required dependency is PrimeReact where optional dependencies exist to enable certain components in PrimeReact.</p>
 
-<AppCodeHighlight lang="js">
-{`
+                    <AppCodeHighlight lang="js">
+                        {`
 "primereact": "...",                //required: PrimeReact components
 "primeicons": "...",                //required: Icons
 "primeflex": "..."                  //required: Grid system
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
                     <h4>Theme</h4>
-				    <p>Babylon provides 30 PrimeReact themes out of the box. Setup of a theme is simple by including the css of theme to your
-					    bundle that are located inside assets/theme folder such as assets/theme/theme-amber-teal.css.</p>
+                    <p>Babylon provides 30 PrimeReact themes out of the box. Setup of a theme is simple by including the css of theme to your bundle that are located inside assets/theme folder such as assets/theme/theme-amber-teal.css.</p>
 
                     <ul>
                         <li>amber</li>
@@ -259,17 +264,23 @@ const menu = [
                     <p>A custom theme can be developed by the following steps.</p>
                     <ul>
                         <li>Choose a custom theme name such as "mytheme".</li>
-                        <li>Create a folder named "mytheme" under <i>assets/theme</i> folder.</li>
-                        <li>Create a file such as theme.scss under <i>assets/theme/mytheme</i> folder.</li>
-                        <li>Define the variables listed below in your file and import the <i>../../sass/theme/_theme.scss</i> file.</li>
+                        <li>
+                            Create a folder named "mytheme" under <i>assets/theme</i> folder.
+                        </li>
+                        <li>
+                            Create a file such as theme.scss under <i>assets/theme/mytheme</i> folder.
+                        </li>
+                        <li>
+                            Define the variables listed below in your file and import the <i>../../sass/theme/_theme.scss</i> file.
+                        </li>
                         <li>Build the scss to generate css</li>
                         <li>Include the generated theme.css to your page.</li>
                     </ul>
 
                     <p>Here are the variables required to create a sample theme.</p>
 
-<AppCodeHighlight lang="scss">
-{`
+                    <AppCodeHighlight lang="scss">
+                        {`
 $primaryColor: #2196F3 !default;
 $primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
 $primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
@@ -281,49 +292,52 @@ $highlightTextColor: $primaryTextColor;
 
 @import '../sass/theme/_theme';
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
                     <p>An example sass command to compile the css would be;</p>
 
-<AppCodeHighlight>
-{`
+                    <AppCodeHighlight>
+                        {`
 sass public/assets/theme/mytheme/theme.scss:public/assets/theme/mytheme/theme.css
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
-                    <p>Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command
-                        so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made to any scss file.</p>
-<AppCodeHighlight>
-{`
+                    <p>Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made to any scss file.</p>
+                    <AppCodeHighlight>
+                        {`
 sass --watch public/assets:public/assets
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
                     <p>Same can also be applied to layout itself;</p>
                     <ul>
                         <li>Choose a layout name such as layout-myown.</li>
-                        <li>Create an empty file named layout-myown.scss inside <i>assets/layout/css</i> folder.</li>
-                        <li>Define the variables listed below and import the <i>/sass/layout/_layout.scss</i> file.</li>
+                        <li>
+                            Create an empty file named layout-myown.scss inside <i>assets/layout/css</i> folder.
+                        </li>
+                        <li>
+                            Define the variables listed below and import the <i>/sass/layout/_layout.scss</i> file.
+                        </li>
                         <li>Build the scss to generate css</li>
                         <li>Serve the css by importing it using a link tag or a bundler.</li>
                     </ul>
 
                     <p>Here are the variables required to create a layout.</p>
 
-<AppCodeHighlight>
-{`
+                    <AppCodeHighlight>
+                        {`
 @import '../../sass/layout/_layout';
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
                     <h4>SASS Variables</h4>
                     <p>Both the theme and layout provides various variables to customize the design.</p>
 
                     <h5>sass/layout/_variables.scss</h5>
 
-<div style={{ height: '400px', overflow: 'auto' }}>
-<AppCodeHighlight lang="scss">
-{`
+                    <div style={{ height: "400px", overflow: "auto" }}>
+                        <AppCodeHighlight lang="scss">
+                            {`
 $colors: (
     "blue": #2196F3,
     "green": #4caf50,
@@ -628,6 +642,7 @@ $calendarHeaderBorder:1px solid $shade300 !default;
 $calendarHeaderTextColor:$shade700 !default;
 $calendarHeaderFontWeight:600 !default;
 $calendarHeaderCellPadding:.5rem !default;
+$calendarMonthYearHeaderHoverTextColor: $primaryColor !default;
 
 $calendarCellDatePadding:.5rem !default;
 $calendarCellDateWidth:2.5rem !default;
@@ -678,6 +693,7 @@ $panelHeaderTextHoverColor:$shade700 !default;
 $panelContentBorderColor: $shade300 !default;
 $panelContentBorder:1px solid $shade300 !default;
 $panelContentBg:$shade000 !default;
+$panelContentEvenRowBg: $shade200 !default;
 $panelContentTextColor:$shade700 !default;
 $panelContentPadding:1rem !default;
 
@@ -963,6 +979,7 @@ $progressBarHeight:1.5rem !default;
 $progressBarBorder:0 none !default;
 $progressBarBg:$shade300 !default;
 $progressBarValueBg:$primaryColor !default;
+$progressBarValueTextColor:$primaryTextColor !default;
 
 //menu (e.g. menu, menubar, tieredmenu)
 $menuWidth:12.5rem !default;
@@ -1197,47 +1214,49 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --maskbg: #{$maskBg};
 }
 `}
-</AppCodeHighlight>
-</div>
+                        </AppCodeHighlight>
+                    </div>
 
                     <h4>Menu Modes</h4>
-                    <p>Menu has 4 modes, static, overlay, slim and horizontal. Layout container element in App.js is used to
-                        define which mode to use by adding specific classes. List
-                        below indicates the style classes for each mode.</p>
+                    <p>Menu has 4 modes, static, overlay, slim and horizontal. Layout container element in App.js is used to define which mode to use by adding specific classes. List below indicates the style classes for each mode.</p>
 
                     <ul>
-                        <li>Static: <b>layout-wrapper layout-static</b></li>
-                        <li>Overlay: <b>layout-wrapper layout-overlay</b></li>
-                        <li>Popup: <b>layout-wrapper layout-popup</b></li>
-                        <li>Horizontal: <b>layout-wrapper layout-horizontal</b></li>
+                        <li>
+                            Static: <b>layout-wrapper layout-static</b>
+                        </li>
+                        <li>
+                            Overlay: <b>layout-wrapper layout-overlay</b>
+                        </li>
+                        <li>
+                            Popup: <b>layout-wrapper layout-popup</b>
+                        </li>
+                        <li>
+                            Horizontal: <b>layout-wrapper layout-horizontal</b>
+                        </li>
                     </ul>
 
                     <p>For example to create a horizontal menu, the div element should be in following form;</p>
-<AppCodeHighlight>
-{`
+                    <AppCodeHighlight>
+                        {`
 <div className="layout-wrapper layout-horizontal">
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
-            <p>It is also possible to leave the choice to the user by keeping the preference at a component and using an
-                            expression to bind it so that user can switch between modes. Sample
-                            application has an example implementation of such use case. Refer to App.js for an example.</p>
+                    <p>It is also possible to leave the choice to the user by keeping the preference at a component and using an expression to bind it so that user can switch between modes. Sample application has an example implementation of such use case. Refer to App.js for an example.</p>
 
-            <h4>Dark Menu</h4>
-            <p>Default color scheme of menu is light and alternative dark mode can be activated by adding
-                layout-menu-dark style class to the main container.</p>
-<AppCodeHighlight>
-{`
+                    <h4>Dark Menu</h4>
+                    <p>Default color scheme of menu is light and alternative dark mode can be activated by adding layout-menu-dark style class to the main container.</p>
+                    <AppCodeHighlight>
+                        {`
 <div className="layout-wrapper layout-menu-dark">
 `}
-</AppCodeHighlight>
+                    </AppCodeHighlight>
 
-			<h4>Profile Modes</h4>
-			<p>There are two possible locations for the user profile menu, first version is inline located inside the
-				main menu and second option is the topbar menu. For inline mode,
-				profile content should be placed above the menu and for inline mode content goes in topbar-items list.
-				The sample demo application provides examples for
-				both cases.</p>
+                    <h4>Profile Modes</h4>
+                    <p>
+                        There are two possible locations for the user profile menu, first version is inline located inside the main menu and second option is the topbar menu. For inline mode, profile content should be placed above the menu and for inline mode content goes in topbar-items list. The
+                        sample demo application provides examples for both cases.
+                    </p>
 
                     <h4>Grid CSS</h4>
                     <p>Babylon uses PrimeReact Flex Grid CSS throughout the demos such as Dashboard, however any Grid library can be used with it since Babylon Layout itself does not depend on PrimeFlex CSS.</p>
@@ -1246,22 +1265,28 @@ $imagePreviewActionIconBorderRadius:50% !default;
                     <p>It is suggested to add your customizations in the following sass files under the "sass/overrides" folder instead of adding them to the scss files under sass folder to avoid maintenance issues after an update.</p>
 
                     <ul>
-                        <li><b>_layout_variables</b>: Variables of the layout.</li>
-                        <li><b>_layout_styles</b>: Styles for the layout.</li>
-                        <li><b>_theme_variables</b>: Variables of the theme.</li>
-                        <li><b>_theme_styles</b>: Styles for the theme.</li>
+                        <li>
+                            <b>_layout_variables</b>: Variables of the layout.
+                        </li>
+                        <li>
+                            <b>_layout_styles</b>: Styles for the layout.
+                        </li>
+                        <li>
+                            <b>_theme_variables</b>: Variables of the theme.
+                        </li>
+                        <li>
+                            <b>_theme_styles</b>: Styles for the theme.
+                        </li>
                     </ul>
 
                     <h4>Migration Guide</h4>
-                    <p>Every change is included in <b>CHANGELOG.md</b> file at the root folder of the distribution along with the instructions to update.</p>
+                    <p>
+                        Every change is included in <b>CHANGELOG.md</b> file at the root folder of the distribution along with the instructions to update.
+                    </p>
                 </div>
             </div>
         </div>
-    )
-}
-
-const comparisonFn = function (prevProps, nextProps) {
-    return prevProps.location.pathname === nextProps.location.pathname;
+    );
 };
 
-export default React.memo(Documentation, comparisonFn);
+export default Documentation;
