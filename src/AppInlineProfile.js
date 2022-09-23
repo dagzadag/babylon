@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { classNames } from 'primereact/utils';
 import { CSSTransition } from 'react-transition-group';
 
 const AppInlineProfile = (props) => {
-
+    const menuRef = useRef(null);
     const profileClassName = classNames('layout-profile', { 'layout-profile-active': props.inlineMenuActive });
     const menuitemLinkTabindex = !props.inlineMenuActive ? '-1' : null;
 
@@ -17,8 +17,8 @@ const AppInlineProfile = (props) => {
                 </div>
                 <i className="layout-profile-icon pi pi-angle-down"></i>
             </button>
-            <CSSTransition classNames="layout-profile-menu" in={props.inlineMenuActive} timeout={{ enter: 1000, exit: 400 }} unmountOnExit>
-                <ul className="layout-profile-menu">
+            <CSSTransition nodeRef={menuRef} classNames="layout-profile-menu" in={props.inlineMenuActive} timeout={{ enter: 1000, exit: 400 }} unmountOnExit>
+                <ul ref={menuRef} className="layout-profile-menu">
                     <li role="menuitem">
                         <button type="button" className="p-link" tabIndex={menuitemLinkTabindex}>
                             <i className="pi pi-user"></i>
