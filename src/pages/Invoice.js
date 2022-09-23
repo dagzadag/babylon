@@ -1,10 +1,10 @@
-import React from "react";
-import { Button } from "primereact/button";
+import React from 'react';
+import { Button } from 'primereact/button';
 
 const Invoice = () => {
     return (
         <>
-            <Button label="Print" icon="pi pi-print" onClick={() => window.print()} style={{ display: "block", marginBottom: "20px", marginLeft: "6px" }} />
+            <Button label="Print" icon="pi pi-print" onClick={() => window.print()} style={{ display: 'block', marginBottom: '20px', marginLeft: '6px' }} />
 
             <div id="invoice-content">
                 <div className="invoice-wrapper">

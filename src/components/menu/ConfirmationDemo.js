@@ -6,7 +6,7 @@ const ConfirmationDemo = () => {
             <i className="pi pi-fw pi-check mr-2 text-2xl" />
             <p className="m-0 text-lg">Confirmation Component Content via Child Route</p>
         </div>
-    )
-}
+    );
+};
 
 export default ConfirmationDemo;

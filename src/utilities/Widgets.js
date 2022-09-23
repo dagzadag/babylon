@@ -5,15 +5,12 @@ import { InputTextarea } from 'primereact/inputtextarea';
 import { Checkbox } from 'primereact/checkbox';
 
 export const Widgets = () => {
-
     const [tasksCheckbox, setTasksCheckbox] = useState([]);
 
     const onCheckboxChange = (e) => {
         let selectedValue = [...tasksCheckbox];
-        if (e.checked)
-            selectedValue.push(e.value);
-        else
-            selectedValue.splice(selectedValue.indexOf(e.value), 1);
+        if (e.checked) selectedValue.push(e.value);
+        else selectedValue.splice(selectedValue.indexOf(e.value), 1);
 
         setTasksCheckbox(selectedValue);
     };
@@ -30,12 +27,8 @@ export const Widgets = () => {
                                 <i className="overview-icon pi pi-dollar"></i>
                                 <span className="overview-title">Sales</span>
                                 <i className="overview-arrow pi pi-chevron-circle-up"></i>
-                                <div className="overview-numbers">
-                                    $ 92,440
-							</div>
-                                <div className="overview-subinfo">
-                                    21% more than yesterday
-							</div>
+                                <div className="overview-numbers">$ 92,440</div>
+                                <div className="overview-subinfo">21% more than yesterday</div>
                             </div>
                         </div>
                         <div className="col-12 lg:col-6 xl:col-3">
@@ -43,12 +36,8 @@ export const Widgets = () => {
                                 <i className="overview-icon pi pi-search"></i>
                                 <span className="overview-title">Views</span>
                                 <i className="overview-arrow pi pi-chevron-circle-up"></i>
-                                <div className="overview-numbers">
-                                    7029
-							</div>
-                                <div className="overview-subinfo">
-                                    2% more than yesterday
-							</div>
+                                <div className="overview-numbers">7029</div>
+                                <div className="overview-subinfo">2% more than yesterday</div>
                             </div>
                         </div>
                         <div className="col-12 lg:col-6 xl:col-3">
@@ -56,12 +45,8 @@ export const Widgets = () => {
                                 <i className="overview-icon pi pi-users"></i>
                                 <span className="overview-title">Users</span>
                                 <i className="overview-arrow pi pi-chevron-circle-up"></i>
-                                <div className="overview-numbers">
-                                    9522
-							</div>
-                                <div className="overview-subinfo">
-                                    7% more than yesterday
-							</div>
+                                <div className="overview-numbers">9522</div>
+                                <div className="overview-subinfo">7% more than yesterday</div>
                             </div>
                         </div>
                         <div className="col-12 lg:col-6 xl:col-3">
@@ -69,12 +54,8 @@ export const Widgets = () => {
                                 <i className="overview-icon pi pi-map-marker"></i>
                                 <span className="overview-title">Check-Ins</span>
                                 <i className="overview-arrow pi pi-chevron-circle-up"></i>
-                                <div className="overview-numbers">
-                                    4211
-							</div>
-                                <div className="overview-subinfo">
-                                    18% more than yesterday
-							</div>
+                                <div className="overview-numbers">4211</div>
+                                <div className="overview-subinfo">18% more than yesterday</div>
                             </div>
                         </div>
                     </div>
@@ -108,8 +89,10 @@ export const Widgets = () => {
                                     </div>
                                     <div className="timeline-content">
                                         <h3>Reminder Scheduled</h3>
-                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-										totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                        <p>
+                                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                            explicabo.
+                                        </p>
                                         <div className="timeline-footer">
                                             <i className="pi pi-clock"></i>
                                             <span>4 Sep 2018 at 11:30</span>
@@ -262,19 +245,14 @@ export const Widgets = () => {
                                             <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
                                         </div>
                                         <div className="col">
-                                            <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit.
-                                            Nam ac euismod justo, eget blandit purus.
-										</div>
+                                            <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac euismod justo, eget blandit purus.</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="grid">
                                         <div className="col">
-                                            <div className="chat-message">Mauris malesuada quis risus ut consequat.
-                                            Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.
-										</div>
+                                            <div className="chat-message">Mauris malesuada quis risus ut consequat. Maecenas ornare nunc risus, pulvinar euismod mi pellentesque eget.</div>
                                         </div>
                                         <div className="col-fixed">
                                             <img src="assets/layout/images/avatar-julia.png" alt="babylon-layout" />
@@ -287,10 +265,7 @@ export const Widgets = () => {
                                             <img src="assets/layout/images/avatar-john.png" alt="babylon-layout" />
                                         </div>
                                         <div className="col">
-                                            <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit.
-                                            Nam ac euismod justo, eget blandit purus.
-										</div>
+                                            <div className="chat-message">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac euismod justo, eget blandit purus.</div>
                                         </div>
                                     </div>
                                 </li>
@@ -446,4 +421,4 @@ export const Widgets = () => {
             </div>
         </div>
     );
-}
+};

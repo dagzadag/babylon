@@ -1,7 +1,7 @@
-import React from "react";
-import { InputText } from "primereact/inputtext";
-import { Button } from "primereact/button";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ export const Login = () => {
                 <Button
                     label="Sign In"
                     onClick={() => {
-                        navigate("/");
+                        navigate('/');
                     }}
                 />
             </div>

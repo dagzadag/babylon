@@ -1,82 +1,82 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Button } from "primereact/button";
-import { InputText } from "primereact/inputtext";
-import { InputTextarea } from "primereact/inputtextarea";
-import { Chart } from "primereact/chart";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
-import { Menu } from "primereact/menu";
-import { Checkbox } from "primereact/checkbox";
-import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
-import interactionPlugin from "@fullcalendar/interaction";
-import ProductService from "../service/ProductService";
-import EventService from "../service/EventService";
+import React, { useState, useEffect, useRef } from 'react';
+import { Button } from 'primereact/button';
+import { InputText } from 'primereact/inputtext';
+import { InputTextarea } from 'primereact/inputtextarea';
+import { Chart } from 'primereact/chart';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { Menu } from 'primereact/menu';
+import { Checkbox } from 'primereact/checkbox';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import ProductService from '../service/ProductService';
+import EventService from '../service/EventService';
 
 const chartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
         {
-            label: "Sales",
+            label: 'Sales',
             data: [12, 19, 3, 5, 2, 3, 9],
-            borderColor: ["#7E57C2"],
+            borderColor: ['#7E57C2'],
             borderWidth: 3,
             borderDash: [5, 5],
             fill: false,
             pointRadius: 3,
-            tension: 0.4,
+            tension: 0.4
         },
         {
-            label: "Income",
+            label: 'Income',
             data: [1, 2, 5, 3, 12, 7, 15],
-            backgroundColor: ["rgba(187,222,251,0.2)"],
-            borderColor: ["#42A5F5"],
+            backgroundColor: ['rgba(187,222,251,0.2)'],
+            borderColor: ['#42A5F5'],
             borderWidth: 3,
             fill: true,
-            tension: 0.4,
+            tension: 0.4
         },
         {
-            label: "Expenses",
+            label: 'Expenses',
             data: [7, 12, 15, 5, 3, 13, 21],
-            borderColor: ["#FFB300"],
+            borderColor: ['#FFB300'],
             borderWidth: 3,
             fill: false,
             pointRadius: [4, 6, 4, 12, 8, 0, 4],
-            tension: 0.4,
+            tension: 0.4
         },
         {
-            label: "New Users",
+            label: 'New Users',
             data: [3, 7, 2, 17, 15, 13, 19],
-            borderColor: ["#66BB6A"],
+            borderColor: ['#66BB6A'],
             borderWidth: 3,
             fill: false,
-            tension: 0.4,
-        },
-    ],
+            tension: 0.4
+        }
+    ]
 };
 
 const chartOptions = {
     responsive: true,
     hover: {
-        mode: "index",
+        mode: 'index'
     },
     scales: {
         x: {
             display: true,
             title: {
                 display: true,
-                text: "Month",
-            },
+                text: 'Month'
+            }
         },
         y: {
             display: true,
             title: {
                 display: true,
-                text: "Value",
-            },
-        },
-    },
+                text: 'Value'
+            }
+        }
+    }
 };
 
 const Dashboard = () => {
@@ -89,9 +89,9 @@ const Dashboard = () => {
     const [checked5, setChecked5] = useState(false);
 
     const items = [
-        { label: "Save", icon: "pi pi-fw pi-check" },
-        { label: "Update", icon: "pi pi-fw pi-refresh" },
-        { label: "Delete", icon: "pi pi-fw pi-trash" },
+        { label: 'Save', icon: 'pi pi-fw pi-check' },
+        { label: 'Update', icon: 'pi pi-fw pi-refresh' },
+        { label: 'Delete', icon: 'pi pi-fw pi-trash' }
     ];
 
     const menuRef = useRef(null);
@@ -109,37 +109,22 @@ const Dashboard = () => {
     };
 
     const formatCurrency = (value) => {
-        return value.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD",
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD'
         });
     };
 
     const priceBodyTemplate = (data) => {
-        return (
-            <>
-                <span className="column-title">Price</span>
-                {formatCurrency(data.price)}
-            </>
-        );
+        return formatCurrency(data.price);
     };
 
     const bodyTemplate = (data, props) => {
-        return (
-            <>
-                <span className="column-title">{props.header}</span>
-                {data[props.field]}
-            </>
-        );
+        return data[props.field];
     };
 
     const statusBodyTemplate = (data) => {
-        return (
-            <>
-                <span className="column-title">Status</span>
-                <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>
-            </>
-        );
+        return <span className={`product-badge status-${data.inventoryStatus.toLowerCase()}`}>{data.inventoryStatus}</span>;
     };
 
     return (
@@ -210,7 +195,7 @@ const Dashboard = () => {
                                         <span className="project-title">Tasks</span>
                                         <span className="project-detail">3 open</span>
                                         <div className="project-progressbar">
-                                            <div className="project-progressbar-value" style={{ width: "50%" }}></div>
+                                            <div className="project-progressbar-value" style={{ width: '50%' }}></div>
                                         </div>
                                     </li>
                                     <li className="clearfix">
@@ -218,7 +203,7 @@ const Dashboard = () => {
                                         <span className="project-title">Revenue</span>
                                         <span className="project-detail">+20%</span>
                                         <div className="project-progressbar">
-                                            <div className="project-progressbar-value" style={{ width: "20%" }}></div>
+                                            <div className="project-progressbar-value" style={{ width: '20%' }}></div>
                                         </div>
                                     </li>
                                     <li className="clearfix">
@@ -226,7 +211,7 @@ const Dashboard = () => {
                                         <span className="project-title">Payments</span>
                                         <span className="project-detail">24 new</span>
                                         <div className="project-progressbar">
-                                            <div className="project-progressbar-value" style={{ width: "65%" }}></div>
+                                            <div className="project-progressbar-value" style={{ width: '65%' }}></div>
                                         </div>
                                     </li>
                                     <li className="clearfix">
@@ -234,7 +219,7 @@ const Dashboard = () => {
                                         <span className="project-title">Clients</span>
                                         <span className="project-detail">+80%</span>
                                         <div className="project-progressbar">
-                                            <div className="project-progressbar-value" style={{ width: "80%" }}></div>
+                                            <div className="project-progressbar-value" style={{ width: '80%' }}></div>
                                         </div>
                                     </li>
                                     <li className="clearfix">
@@ -242,7 +227,7 @@ const Dashboard = () => {
                                         <span className="project-title">Sales</span>
                                         <span className="project-detail">+45</span>
                                         <div className="project-progressbar">
-                                            <div className="project-progressbar-value" style={{ width: "45%" }}></div>
+                                            <div className="project-progressbar-value" style={{ width: '45%' }}></div>
                                         </div>
                                     </li>
                                     <li className="clearfix">
@@ -250,7 +235,7 @@ const Dashboard = () => {
                                         <span className="project-title">Performance</span>
                                         <span className="project-detail">+75</span>
                                         <div className="project-progressbar">
-                                            <div className="project-progressbar-value" style={{ width: "75%" }}></div>
+                                            <div className="project-progressbar-value" style={{ width: '75%' }}></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -394,7 +379,10 @@ const Dashboard = () => {
                                 </div>
                                 <div className="timeline-content">
                                     <h3>Reminder Scheduled</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                                    <p>
+                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                                        explicabo.
+                                    </p>
                                     <div className="timeline-footer">
                                         <i className="pi pi-clock"></i>
                                         <span>4 Sep 2018 at 11:30</span>
@@ -430,7 +418,7 @@ const Dashboard = () => {
                                 <div className="timeline-content">
                                     <div className="child">
                                         <h3>Location Update</h3>
-                                        <img src="assets/layout/images/dashboard/antalya.png" alt="babylon-layout" style={{ width: "100%" }} />
+                                        <img src="assets/layout/images/dashboard/antalya.png" alt="babylon-layout" style={{ width: '100%' }} />
                                         <div className="timeline-footer">
                                             <i className="pi pi-clock"></i>
                                             <span>16 Sep 2018 at 20:02</span>
@@ -443,14 +431,14 @@ const Dashboard = () => {
                 </div>
 
                 <div className="col-12 xl:col-6">
-                    <div className="card card-w-title global-sales p-fluid">
+                    <div className="card card-w-title global-sales">
                         <h5>Global Sales</h5>
                         <DataTable value={products} paginator rows={5} className="p-datatable-products">
                             <Column field="id" header="ID" sortable body={bodyTemplate}></Column>
                             <Column field="category" header="Category" sortable body={bodyTemplate}></Column>
                             <Column field="price" header="Price" sortable body={priceBodyTemplate}></Column>
                             <Column field="inventoryStatus" header="Status" sortable body={statusBodyTemplate}></Column>
-                            <Column bodyStyle={{ textAlign: "center" }} body={() => <Button type="button" icon="pi pi-search"></Button>}></Column>
+                            <Column bodyStyle={{ textAlign: 'center' }} body={() => <Button type="button" icon="pi pi-search"></Button>}></Column>
                         </DataTable>
                     </div>
 
@@ -505,7 +493,7 @@ const Dashboard = () => {
                 <div className="col-12 md:col-12 lg:col-12">
                     <div className="card card-w-title">
                         <h5>Schedule</h5>
-                        <FullCalendar events={events} plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} initialDate="2023-01-01" header={{ left: "prev,next,today", center: "title", right: "" }} />
+                        <FullCalendar events={events} plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]} initialDate="2023-01-01" headerToolbar={{ left: 'prev,next', center: 'title', right: '' }} editable />
                     </div>
                 </div>
             </div>

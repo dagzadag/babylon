@@ -1,5 +1,5 @@
-import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const AppBreadcrumb = (props) => {
     const location = useLocation();
@@ -12,12 +12,12 @@ const AppBreadcrumb = (props) => {
             <div className="route-bar-breadcrumb">
                 <ul>
                     <li>
-                        <button type="button" className="p-link" onClick={() => navigate("/")}>
+                        <button type="button" className="p-link" onClick={() => navigate('/')}>
                             <i className="pi pi-home" />
                         </button>
                     </li>
                     <li>/</li>
-                    {location.pathname === "/" ? (
+                    {location.pathname === '/' ? (
                         <li>Dashboard</li>
                     ) : (
                         <li>

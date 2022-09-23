@@ -6,7 +6,7 @@ const PersonalDemo = () => {
             <i className="pi pi-fw pi-user mr-2 text-2xl" />
             <p className="m-0 text-lg">Personal Component Content via Child Route</p>
         </div>
-    )
-}
+    );
+};
 
 export default PersonalDemo;

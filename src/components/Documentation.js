@@ -1,5 +1,5 @@
-import React from "react";
-import AppCodeHighlight from "../AppCodeHighlight";
+import React from 'react';
+import AppCodeHighlight from '../AppCodeHighlight';
 
 const Documentation = () => {
     return (
@@ -11,8 +11,8 @@ const Documentation = () => {
 
                     <h4>Getting Started</h4>
                     <p>
-                        Babylon is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows creating React apps with no configuration. To get started extract the contents of the zip bundle and install the
-                        dependencies with npm or yarn.
+                        Babylon is an application template for React, based on the popular <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> that allows creating React apps with no configuration. To get started
+                        extract the contents of the zip bundle and install the dependencies with npm or yarn.
                     </p>
                     <AppCodeHighlight>
                         {`
@@ -20,7 +20,8 @@ const Documentation = () => {
 `}
                     </AppCodeHighlight>
                     <p>
-                        The following command needs to be run to create the css files in the sample project. Note: Users can automatically run scss files without using this command by moving the theme file they want to use in their own projects under the src folder.
+                        The following command needs to be run to create the css files in the sample project. Note: Users can automatically run scss files without using this command by moving the theme file they want to use in their own projects under
+                        the src folder.
                         <a href="https://create-react-app.dev/docs/adding-a-sass-stylesheet/"> Details</a>
                     </p>
                     <AppCodeHighlight>
@@ -51,8 +52,8 @@ sass public/assets:public/assets --no-source-map
 
                     <h4>Structure</h4>
                     <p>
-                        Babylon consists of 3 main parts; the application layout, layout resources and theme resources for PrimeReact components. <i>App.js</i> inside app folder is the html template for the base layout, required resources for the layout are placed inside the{" "}
-                        <i>public/assets/layout</i> folder and similarly theme resources are inside <i>public/assets/theme</i> folder.
+                        Babylon consists of 3 main parts; the application layout, layout resources and theme resources for PrimeReact components. <i>App.js</i> inside app folder is the html template for the base layout, required resources for the
+                        layout are placed inside the <i>public/assets/layout</i> folder and similarly theme resources are inside <i>public/assets/theme</i> folder.
                     </p>
 
                     <h4>Template</h4>
@@ -103,8 +104,8 @@ sass public/assets:public/assets --no-source-map
 
                     <h4>Menu</h4>
                     <p>
-                        Menu is a separate component defined in <i>AppMenu.js</i> file based on PrimeReact MenuModel API. In order to define the menuitems, navigate to data section of <i>App.js</i> file and define your own model as a nested structure using the menu property. Here is the menu
-                        component from the demo application. Notice that menu object is bound to the model property of AppMenu component as shown above.
+                        Menu is a separate component defined in <i>AppMenu.js</i> file based on PrimeReact MenuModel API. In order to define the menuitems, navigate to data section of <i>App.js</i> file and define your own model as a nested structure
+                        using the menu property. Here is the menu component from the demo application. Notice that menu object is bound to the model property of AppMenu component as shown above.
                     </p>
 
                     <AppCodeHighlight lang="js">
@@ -302,7 +303,10 @@ sass public/assets/theme/mytheme/theme.scss:public/assets/theme/mytheme/theme.cs
 `}
                     </AppCodeHighlight>
 
-                    <p>Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made to any scss file.</p>
+                    <p>
+                        Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made
+                        to any scss file.
+                    </p>
                     <AppCodeHighlight>
                         {`
 sass --watch public/assets:public/assets
@@ -335,7 +339,7 @@ sass --watch public/assets:public/assets
 
                     <h5>sass/layout/_variables.scss</h5>
 
-                    <div style={{ height: "400px", overflow: "auto" }}>
+                    <div style={{ height: '400px', overflow: 'auto' }}>
                         <AppCodeHighlight lang="scss">
                             {`
 $colors: (
@@ -1242,7 +1246,10 @@ $imagePreviewActionIconBorderRadius:50% !default;
 `}
                     </AppCodeHighlight>
 
-                    <p>It is also possible to leave the choice to the user by keeping the preference at a component and using an expression to bind it so that user can switch between modes. Sample application has an example implementation of such use case. Refer to App.js for an example.</p>
+                    <p>
+                        It is also possible to leave the choice to the user by keeping the preference at a component and using an expression to bind it so that user can switch between modes. Sample application has an example implementation of such
+                        use case. Refer to App.js for an example.
+                    </p>
 
                     <h4>Dark Menu</h4>
                     <p>Default color scheme of menu is light and alternative dark mode can be activated by adding layout-menu-dark style class to the main container.</p>
@@ -1254,8 +1261,8 @@ $imagePreviewActionIconBorderRadius:50% !default;
 
                     <h4>Profile Modes</h4>
                     <p>
-                        There are two possible locations for the user profile menu, first version is inline located inside the main menu and second option is the topbar menu. For inline mode, profile content should be placed above the menu and for inline mode content goes in topbar-items list. The
-                        sample demo application provides examples for both cases.
+                        There are two possible locations for the user profile menu, first version is inline located inside the main menu and second option is the topbar menu. For inline mode, profile content should be placed above the menu and for
+                        inline mode content goes in topbar-items list. The sample demo application provides examples for both cases.
                     </p>
 
                     <h4>Grid CSS</h4>

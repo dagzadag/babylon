@@ -47,6 +47,6 @@ const AppInlineProfile = (props) => {
             </CSSTransition>
         </div>
     );
-}
+};
 
 export default AppInlineProfile;

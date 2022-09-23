@@ -1,9 +1,9 @@
-import React, { forwardRef, useCallback, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { CSSTransition } from "react-transition-group";
-import { classNames } from "primereact/utils";
-import { Ripple } from "primereact/ripple";
-import { Badge } from "primereact/badge";
+import React, { createRef, forwardRef, useCallback, useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
+import { classNames } from 'primereact/utils';
+import { Ripple } from 'primereact/ripple';
+import { Badge } from 'primereact/badge';
 
 const AppSubmenu = forwardRef((props, ref) => {
     const [activeIndex, setActiveIndex] = useState(null);
@@ -24,32 +24,32 @@ const AppSubmenu = forwardRef((props, ref) => {
         }
         if (props.root) {
             props.onRootMenuitemClick({
-                originalEvent: event,
+                originalEvent: event
             });
         }
 
-        if (props.menuMode !== "static") {
+        if (props.menuMode !== 'static') {
             const ink = getInk(event.currentTarget);
             if (ink) {
-                removeClass(ink, "p-ink-active");
+                removeClass(ink, 'p-ink-active');
             }
         }
 
         props.onMenuitemClick({
             originalEvent: event,
-            item: item,
+            item: item
         });
     };
 
     const onMenuItemMouseEnter = (index) => {
-        if (props.root && props.menuActive && (props.menuMode === "horizontal" || props.menuMode === "slim") && !isMobile()) {
+        if (props.root && props.menuActive && (props.menuMode === 'horizontal' || props.menuMode === 'slim') && !isMobile()) {
             setActiveIndex(index);
         }
     };
 
     const getInk = (el) => {
         for (let i = 0; i < el.children.length; i++) {
-            if (typeof el.children[i].className === "string" && el.children[i].className.indexOf("p-ink") !== -1) {
+            if (typeof el.children[i].className === 'string' && el.children[i].className.indexOf('p-ink') !== -1) {
                 return el.children[i];
             }
         }
@@ -58,11 +58,11 @@ const AppSubmenu = forwardRef((props, ref) => {
 
     const removeClass = (element, className) => {
         if (element.classList) element.classList.remove(className);
-        else element.className = element.className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), " ");
+        else element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     };
 
     const visible = (item) => {
-        return typeof item.visible === "function" ? item.visible() : item.visible !== false;
+        return typeof item.visible === 'function' ? item.visible() : item.visible !== false;
     };
 
     const isMobile = useCallback(() => {
@@ -70,7 +70,7 @@ const AppSubmenu = forwardRef((props, ref) => {
     }, []);
 
     const getLink = (item, index) => {
-        const menuitemIconClassName = classNames("layout-menuitem-icon", item.icon);
+        const menuitemIconClassName = classNames('layout-menuitem-icon', item.icon);
         const content = (
             <>
                 <i className={menuitemIconClassName}></i>
@@ -82,10 +82,10 @@ const AppSubmenu = forwardRef((props, ref) => {
         );
         const commonLinkProps = {
             style: item.style,
-            className: classNames(item.class, "p-ripple", { "p-disabled": item.disabled, "p-link": !item.to }),
+            className: classNames(item.class, 'p-ripple', { 'p-disabled': item.disabled, 'p-link': !item.to }),
             target: item.target,
             onClick: (e) => onMenuItemClick(e, item, index),
-            onMouseEnter: () => onMenuItemMouseEnter(index),
+            onMouseEnter: () => onMenuItemMouseEnter(index)
         };
 
         if (item.url) {
@@ -103,7 +103,7 @@ const AppSubmenu = forwardRef((props, ref) => {
         }
 
         return (
-            <NavLink to={item.to} {...commonLinkProps} className={({ isActive }) => classNames(commonLinkProps.className, isActive ? "active-route" : undefined)}>
+            <NavLink to={item.to} {...commonLinkProps} className={({ isActive }) => classNames(commonLinkProps.className, isActive ? 'active-route' : undefined)}>
                 {content}
             </NavLink>
         );
@@ -117,8 +117,9 @@ const AppSubmenu = forwardRef((props, ref) => {
         const transitionTimeout = props.root ? 0 : { enter: 1000, exit: 450 };
         return props.items.map((item, i) => {
             if (visible(item)) {
+                const submenuRef = createRef();
                 const active = isMenuActive(i);
-                const menuitemClassName = classNames({ "layout-root-menuitem": props.root, "active-menuitem": activeIndex === i && !item.disabled });
+                const menuitemClassName = classNames({ 'layout-root-menuitem': props.root, 'active-menuitem': activeIndex === i && !item.disabled });
                 const link = getLink(item, i);
                 const rootMenuItem = props.root && (
                     <div>
@@ -149,7 +150,7 @@ const AppSubmenu = forwardRef((props, ref) => {
     };
 
     useEffect(() => {
-        if (!props.menuActive && (props.menuMode === "horizontal" || props.menuMode === "slim") && !isMobile()) {
+        if (!props.menuActive && (props.menuMode === 'horizontal' || props.menuMode === 'slim') && !isMobile()) {
             setActiveIndex(null);
         }
     }, [props, isMobile]);
@@ -160,7 +161,11 @@ const AppSubmenu = forwardRef((props, ref) => {
 
     const items = getItems();
 
-    return <ul ref={ref} className={props.className}>{items}</ul>;
+    return (
+        <ul ref={ref} className={props.className}>
+            {items}
+        </ul>
+    );
 });
 
 const AppMenu = (props) => {

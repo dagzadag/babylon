@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import App from "./App";
-import { Access } from "./pages/Access";
-import { Error } from "./pages/Error";
-import { Login } from "./pages/Login";
-import { NotFound } from "./pages/NotFound";
-import { Wizard } from "./pages/Wizard";
+import React, { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import App from './App';
+import { Access } from './pages/Access';
+import { Error } from './pages/Error';
+import { Login } from './pages/Login';
+import { NotFound } from './pages/NotFound';
+import { Wizard } from './pages/Wizard';
 
 const AppWrapper = () => {
     let location = useLocation();
