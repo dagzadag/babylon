@@ -121,7 +121,7 @@ const Invoice = () => {
                                             <span>BestBank</span>
                                             <span>Edward Williams</span>
                                             <span>PJNWBXND</span>
-                                            <input value="GB04420235692263866724650931" readOnly="true" />
+                                            <input value="GB04420235692263866724650931" readOnly={true} />
                                         </div>
                                     </div>
                                 </div>

@@ -1,262 +1,140 @@
+.help-page {
+	p {
+		margin: 0;
+	}
 
-.help-wrapper{
-    .help-header{
-        background:  url("../../layout/images/extensions/rectangle.jpg") bottom;
-        background-repeat: no-repeat;
-        padding: 84px 0px 130px 0;
-        display: flex;
-        justify-content: center;
+	.help-search {
+		background: url("../../layout/images/pages/bg-help.png") repeat;
+		padding: 0;
+		text-align: center;
 
-        .header-content {
-            width: 50%;
-            text-align: center;
+		.help-search-content {
+			padding: 5rem 12rem;
+		}
 
-            > h1 {
-                color: #3e4243;
-                font-size: 21px;
-                font-weight: 600;
-                margin: 0;
-                margin-bottom: 25px;
-            }
+		.search-container {
+			font-size: 1.5rem;
+			padding: 1rem;
+			position: relative;
 
-            .search-form {
-                position: relative;
+			input {
+				appearance: none;
+				font-size: 1.5rem;
+				text-indent: 2.5rem;
+				padding: .5rem;
+				width: 100%;
+			}
 
-                 span {
-                    width: 100%;
+			i {
+                color: var(--text-color);
+				position: absolute;
+				margin-left: 1rem;
+				top: 50%;
+				margin-top: -.5rem;
+			}
+		}
+	}
 
-                     .p-autocomplete-input {
-                        width: 100%;
-                        padding: 10px;
-                        padding-left: 30px;
+	.status-bars {
+		margin-top: 1rem;
+		display: flex;
 
-                        &::placeholder {
-                            color: #8b8b90;
-                        }
-                    }
-                }
+		.status-bar {
+			flex: 1 1 0;
+			background: #8BC34A;
+			height: 50px;
+			margin-right: .25rem;
+			transition: transform $transitionDuration;
 
-                > i {
-                    position: absolute;
-                    left: 10px;
-                    top: 11px;
-                    color: #8b8b90;
-                    font-size: 16px;
-                }
-            }
+			&:last-child {
+				margin-right: 0;
+			}
 
-        }
-    }
+			&.status-bar-failure {
+				background: #EC407A;
+			}
 
-    .help-container{
-        padding: 25px;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
+	}
 
-        .help-content-header {
-            display: flex;
-            justify-content: space-between;
+	.status-bar-footer {
+		padding: 1rem 0 0 0;
+		display: flex;
+		justify-content: space-between;
+	}
 
-            .help-content-header-tab {
-                width: 100%;
-                margin-right: 25px;
-                margin-bottom: 25px;
-                height: 100%;
-                border-radius: 3px;
-                border: solid 1px #ebebef;
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                padding: 25px 15px;
-                height: 100%;
-                cursor: pointer;
+	.blog-post {
+		height: 150px;
+		border-radius: 4px;
+		margin: 3rem 2rem;
+		position: relative;
+		box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
 
-                &:last-child{
-                    margin-right: 0;
-                }
+		&:last-child {
+			margin-bottom: 1rem;
+		}
 
-                .tab-icon {
-                    min-width: 50px;
-                    font-size: 36px;
-                    color: #ffffff;
-                    width: 50px;
-                    height: 50px;
-                    background-color: $topbarBgColor;
-                    @include border-radius(50%);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin-right: 12px;
-                }
+		img {
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
 
-                .tab-content {
-                    > h3 {
-                        font-size: 16px;
-                        font-weight: 600;
-                        color: #3e4243;
-                        margin: 0;
-                        margin-bottom: 6px;
-                    }
+		.blog-text {
+			position: absolute;
+			left: 20px;
+			top: 30px;
 
-                    > span {
-                        font-size: 13px;
-                        color: #8b8b90;
-                    }
-                }
+			h1 {
+				font-size: 1.25rem;
+				color: #ffffff;
+				margin-bottom: 1rem;
+				font-weight: 700;
+			}
 
-                &.selected-tab {
-                    border: solid 1px $topbarBgColor;
-                    background-color: lighten($color: $topbarBgColor, $amount: 45);
-                    @include transition(background-color .3s);
+			span {
+				color: #ffffff;
+				font-weight: 600;
+			}
+		}
 
-                    .tab-icon {
-                        color: $topbarBgColor;
-                        background-color: #ffffff;
-                    }
-                }
+		.blog-profile {
+			position: absolute;
+			top: -25px;
+			left: -25px;
 
-                &:hover {
-                    background-color: lighten($color: $topbarBgColor, $amount: 45);
-                    @include transition(background-color .3s);
-                }
+			img {
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
 
-            }
-        }
+			}
+		}
 
-        .help-contents-wrapper {
-            overflow: hidden;
+		&:nth-child(1) {
+			background-image: url("../../layout/images/pages/help/blog1.jpg");
+		}
 
-            .help-contents-row {
-                display: flex;
-                flex-direction: row;
-                transition: transform 500ms ease 0s;
+		&:nth-child(2) {
+			background-image: url("../../layout/images/pages/help/blog2.jpg");
+		}
 
-                .help-content {
-                    flex: 1 0 100%;
-                    border-radius: 3px;
-                    border: solid 1px #ebebef;
-                    @include transition(transform 500ms ease 0s);
-
-                    .questions-header {
-                        display: flex;
-                        justify-content: center;
-                        flex-direction: column;
-                        align-items: center;
-                        margin-bottom: 40px;
-
-                        h1 {
-                            font-size: 21px;
-                            font-weight: 600;
-                            color: #3e4243;
-                            margin: 0;
-                            margin-bottom: 8px;
-                        }
-
-                        span {
-                            font-size: 16px;
-                            color: #8b8b90;
-                        }
-
-                        .profile-images {
-                            margin-top: 8px;
-                            padding: 0 40px 17px 40px;
-
-                            border-bottom: 1px solid rgba(41, 43, 44, 0.1);
-
-                            img {
-                                width: 40px;
-                                margin-right: 4px;
-
-                                &:last-child {
-                                    margin-right: 0;
-                                }
-                            }
-                        }
-                    }
-
-                    .questions-content {
-                        .p-accordion {
-                            .p-accordion-header a {
-                                background-color: transparent;
-                                padding: 24px 0px;
-                                margin: 0 40px;
-                                border: none;
-                                color: #292b2c;
-                                font-size: 14px;
-                                font-weight: 600;
-                                border-bottom: 1px solid rgba(41, 43, 44, 0.1);
-                                position: relative;
-                                display: flex;
-                                align-items: center;
-
-                                .accordion-title {
-                                    display: inline-block;
-                                    margin-left: 10px;
-                                    padding: 0 15px ;
-                                }
-
-                                .p-accordion-toggle-icon {
-                                    position: absolute;
-                                    right: 0;
-                                    left: auto;
-                                    color: #292b2c;
-                                    font-weight: 600;
-                                }
-
-                                &.p-state-active {
-                                    background-color: transparent;
-                                }
-                            }
-
-                            .p-accordion-content {
-                                border: none;
-                                padding: 22px 28px;
-                                margin: 0 40px;
-                                line-height: 1.5;
-                            }
-
-
-                        }
-                    }
-                }
-            }
-        }
-
-    }
+		&:nth-child(3) {
+			background-image: url("../../layout/images/pages/help/blog3.jpg");
+		}
+	}
 }
 
-@media (max-width: 992px) {
-    .help-wrapper {
-        .help-header {
-            .header-content {
-                width: 90%;
-            }
-        }
-
-        .help-container {
-            padding: 25px 0;
-
-            .help-content-header {
-                flex-direction: column;
-            }
-
-            .help-contents-wrapper {
-                .help-contents-row {
-                    .help-content {
-                        .questions-content {
-                            .p-accordion {
-                                .p-accordion-header {
-                                    padding: 24px 0px;
-                                    margin: 0 10px;
-                                }
-
-                                .p-accordion-content {
-                                    padding: 22px 28px;
-                                    margin: 0 10px;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+@media screen and (max-width: 991px) {
+	.help-page {
+		.help-search {
+			.help-search-content {
+				padding: 6rem 2rem;
+			}
+		}
+	}
 }
